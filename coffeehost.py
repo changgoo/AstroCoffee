@@ -159,6 +159,48 @@ class Hosts(object):
                 h.from_dict(h_json)
                 self.hosts[h.last.lower()] = h
 
+    def get_email_list(self):
+        for n, v in self.hosts.items():
+            print(f"{v.name}<{v.email}>")
+
+    def get_weekly_list(self, today=date.today(), reminder=True):
+        thismonth = today.month
+        thisyear = today.year
+        mcal = calendar.monthcalendar(thisyear, thismonth)
+        for iweek, w in enumerate(mcal):
+            for d in w:
+                if d == 0:
+                    continue
+                if today == date(thisyear, thismonth, d):
+                    nweek = mcal[iweek + 1]
+
+        i = 1
+        hlist = dict()
+        for d in nweek[:5]:
+            if d == 0:
+                day = date(thisyear, thismonth + 1, d + i)
+                i = i + 1
+            else:
+                day = date(thisyear, thismonth, d)
+            h = self.find_host(day)
+            if h:
+                hlist[day] = h
+                print(day.isoformat(), f"{h.name}<{h.email}>")
+
+        if reminder:
+            with open("reminder.txt", "r") as fp:
+                remindertxt = fp.read()
+            for day, h in hlist.items():
+                with open(f"reminder_{h.last.lower()}.txt", "w") as fp:
+                    reminder = remindertxt.format(
+                        name=h.first,
+                        day=calendar.day_name[day.weekday()],
+                        date=day.isoformat(),
+                    )
+                    fp.write(day.isoformat() + "\n")
+                    fp.write(f"{h.name}<{h.email}>\n\n")
+                    fp.write(reminder)
+
     def output_calendar(self, year, month):
         c = calendar.Calendar(calendar.SUNDAY)
         mycal = c.monthdayscalendar(year, month)
