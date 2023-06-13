@@ -1,3 +1,4 @@
 holidays
 pandas
 numpy
+black
