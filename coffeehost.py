@@ -208,7 +208,7 @@ class Hosts(object):
                 with open(f"emails/assignment_{h.last.lower()}.txt", "w") as fp:
                     reminder = remindertxt.format(
                         name=h.first,
-                        dates='\n'.join([d.isoformat() for d in h.hostdate]),
+                        dates="\n".join([d.isoformat() for d in h.hostdate]),
                     )
                     fp.write(f"{h.name}<{h.email}>\n\n")
                     fp.write(reminder)
