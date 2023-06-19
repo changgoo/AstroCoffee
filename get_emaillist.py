@@ -11,4 +11,4 @@ newhosts.get_email_list()
 
 # print reminder
 print("next week reminder")
-newhosts.get_weekly_list(today=date(2023, 7, 20), reminder=True)
+newhosts.get_weekly_list(reminder=True)

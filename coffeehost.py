@@ -33,7 +33,7 @@ class Host(object):
         self.hostdate = []
 
     def __repr__(self):
-        out = f"{self.last}:"
+        out = f"{self.last} [{len(self.hostdate)}]:"
         for mydate in sorted(self.hostdate):
             out += f" {mydate}"
         return out
@@ -126,7 +126,7 @@ class Hosts(object):
                 while not assigned:
                     h = self.hosts[next(hiter)]
                     assigned = h.add_date(wd)
-                    if verbose:
+                    if verbose and assigned:
                         print(f"{wd} is assigned to {h.name}")
 
     def show(self):
@@ -188,10 +188,10 @@ class Hosts(object):
                 print(day.isoformat(), f"{h.name}<{h.email}>")
 
         if reminder:
-            with open("reminder.txt", "r") as fp:
+            with open("templates/reminder.txt", "r") as fp:
                 remindertxt = fp.read()
             for day, h in hlist.items():
-                with open(f"reminder_{h.last.lower()}.txt", "w") as fp:
+                with open(f"weekly_reminder/reminder_{h.last.lower()}.txt", "w") as fp:
                     reminder = remindertxt.format(
                         name=h.first,
                         day=calendar.day_name[day.weekday()],
@@ -205,7 +205,8 @@ class Hosts(object):
         c = calendar.Calendar(calendar.SUNDAY)
         mycal = c.monthdayscalendar(year, month)
 
-        fp = open("calendar_{}.md".format(month), "w")
+        fp = open("docs/calendar/calendar_{:02d}.md".format(month), "w")
+        fp.write(f"# {year}-{month}\n\n")
         wstr = "|"
         for i in range(7):
             day = calendar.day_abbr[(i + calendar.SUNDAY) % 7]
@@ -237,6 +238,7 @@ class Hosts(object):
                         if len(self.holidays.get(wd)) < 12:
                             wstr += "<br/><br/>"
                     else:
+                        wstr += color_text(f"<p align='left'>{d}</p>", "gray")
                         wstr += "<br/><br/>"
                     wstr += "|"
 

@@ -3,6 +3,7 @@ import pandas as pd
 
 # read host file from the responses
 hostfile = "./Princeton Astro Coffee Host_ Fall 2023 (Responses) - Form Responses 1.csv"
+hostfile = "./Princeton Astro Coffee Host- Fall 2023.csv"
 hostlist = pd.read_csv(hostfile)
 
 # initialize host list
@@ -24,6 +25,8 @@ hosts["goodman"].add_restriction(date(2023, 10, 10), date(2023, 10, 20))
 hosts["greene"].add_restriction(date(2023, 7, 1), date(2023, 9, 1))
 hosts["ward"].add_restriction(date(2023, 10, 1), date(2023, 10, 7))
 hosts["ward"].add_restriction(date(2023, 11, 27), date(2023, 12, 15))
+hosts["sur"].add_restriction(date(2023, 7, 1), date(2023, 9, 15))
+hosts["albrecht"].add_restriction(date(2023, 7, 12), date(2023, 12, 31))
 
 # add dates to assign
 hosts.add_dates(get_weekdays(2023, 7))
@@ -32,6 +35,9 @@ hosts.add_dates(get_weekdays(2023, 9, exclude=["Tuesday"]))
 
 # assign dates
 hosts.assign_dates()
+
+# show the results by hosts
+hosts.show()
 
 # store it to json file
 hosts.to_json("hosts_2023_789.json")
