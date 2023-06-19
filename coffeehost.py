@@ -202,10 +202,13 @@ class Hosts(object):
                     fp.write(reminder)
 
     def assignment_email(self):
+        if not os.path.isdir("emails"):
+            os.mkdir("emails")
         with open("templates/assignment.txt", "r") as fp:
             remindertxt = fp.read()
             for day, h in self.hosts.items():
-                with open(f"emails/assignment_{h.last.lower()}.txt", "w") as fp:
+                outfname = f"emails/assignment_{h.last.lower()}.txt"
+                with open(outfname, "w") as fp:
                     reminder = remindertxt.format(
                         fullname=h.name,
                         email=h.email,
@@ -213,6 +216,7 @@ class Hosts(object):
                         dates="\n".join([d.isoformat() for d in sorted(h.hostdate)]),
                     )
                     fp.write(reminder)
+                print(f"cat {outfname} | sendmail {h.email}")
 
     def output_calendar(self, year, month):
         c = calendar.Calendar(calendar.SUNDAY)
