@@ -31,7 +31,7 @@ jobs:
     # Build the book
     - name: Build the book
       run: |
-        python create_calenders.py
+        python ./create_calendars.py
         PYTHONPATH=./ jupyter-book build docs/
 
     # Push the book's HTML to github-pages
