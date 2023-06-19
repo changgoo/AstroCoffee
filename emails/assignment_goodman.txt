@@ -1,5 +1,6 @@
-Jeremy Goodman<jeremy@astro.princeton.edu>
-
+To : Jeremy Goodman<jeremy@astro.princeton.edu>
+From : Chang-Goo Kim<changgoo@princeton.edu>
+Subject: AstroCoffee Assignment
 Dear Jeremy,
 
 Thanks for agreeing to host astrocoffee this semester. I've assigned tentative host dates from July to September (the calendar can be found at https://changgoo.github.io/AstroCoffee/intro.html). These are the dates you are scheduled to host astrocoffee:

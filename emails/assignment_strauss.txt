@@ -1,5 +1,6 @@
-Michael Strauss<strauss@astro.princeton.edu>
-
+To : Michael Strauss<strauss@astro.princeton.edu>
+From : Chang-Goo Kim<changgoo@princeton.edu>
+Subject: AstroCoffee Assignment
 Dear Michael,
 
 Thanks for agreeing to host astrocoffee this semester. I've assigned tentative host dates from July to September (the calendar can be found at https://changgoo.github.io/AstroCoffee/intro.html). These are the dates you are scheduled to host astrocoffee:
