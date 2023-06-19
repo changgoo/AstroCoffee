@@ -1,0 +1,9 @@
+# 2023-9
+
+|<div style='width:100px'>Sun</div>|<div style='width:100px'>Mon</div>|<div style='width:100px'>Tue</div>|<div style='width:100px'>Wed</div>|<div style='width:100px'>Thu</div>|<div style='width:100px'>Fri</div>|<div style='width:100px'>Sat</div>|
+|:-:|:-:|:-:|:-:|:-:|:-:|:-:|
+|<br/><br/> |<br/><br/> |<br/><br/> |<br/><br/> |<br/><br/> |<p align='left'>1</p>Jeremy<br/> Goodman|<span style='color:gray'><p align='left'>2</p></span><br/><br/>|
+|<span style='color:gray'><p align='left'>3</p></span><br/><br/>|<span style='color:red'><p align='left'>4</p></span><span style='color:red'>Labor Day</span><br/><br/>|<span style='color:gray'><p align='left'>5</p></span><br/><br/>|<p align='left'>6</p>Shaunak<br/> Modak|<p align='left'>7</p>Jenny<br/> Greene|<p align='left'>8</p>Michael<br/> Strauss|<span style='color:gray'><p align='left'>9</p></span><br/><br/>|
+|<span style='color:gray'><p align='left'>10</p></span><br/><br/>|<p align='left'>11</p>Rajsekhar<br/> Mohapatra|<span style='color:gray'><p align='left'>12</p></span><br/><br/>|<p align='left'>13</p>Minghao Guo<br/><br/>|<p align='left'>14</p>Sanghyuk<br/> Moon|<p align='left'>15</p>Ivanna<br/> Escala|<span style='color:gray'><p align='left'>16</p></span><br/><br/>|
+|<span style='color:gray'><p align='left'>17</p></span><br/><br/>|<p align='left'>18</p>Charlotte<br/> Ward|<span style='color:gray'><p align='left'>19</p></span><br/><br/>|<p align='left'>20</p>Jeremy<br/> Goodman|<p align='left'>21</p>Jenny<br/> Greene|<p align='left'>22</p>Michael<br/> Strauss|<span style='color:gray'><p align='left'>23</p></span><br/><br/>|
+|<span style='color:gray'><p align='left'>24</p></span><br/><br/>|<p align='left'>25</p>Shaunak<br/> Modak|<span style='color:gray'><p align='left'>26</p></span><br/><br/>|<p align='left'>27</p>Yubo Su<br/><br/>|<p align='left'>28</p>Philipp<br/> Kempski|<p align='left'>29</p>Ankan Sur<br/><br/>|<span style='color:gray'><p align='left'>30</p></span><br/><br/>|
