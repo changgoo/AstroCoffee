@@ -201,6 +201,18 @@ class Hosts(object):
                     fp.write(f"{h.name}<{h.email}>\n\n")
                     fp.write(reminder)
 
+    def assignment_email(self):
+        with open("templates/assignment.txt", "r") as fp:
+            remindertxt = fp.read()
+            for day, h in self.hosts.items():
+                with open(f"emails/assignment_{h.last.lower()}.txt", "w") as fp:
+                    reminder = remindertxt.format(
+                        name=h.first,
+                        dates='\n'.join([d.isoformat() for d in h.hostdate]),
+                    )
+                    fp.write(f"{h.name}<{h.email}>\n\n")
+                    fp.write(reminder)
+
     def output_calendar(self, year, month):
         c = calendar.Calendar(calendar.SUNDAY)
         mycal = c.monthdayscalendar(year, month)

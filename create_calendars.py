@@ -8,6 +8,9 @@ newhosts.from_json("hosts_2023_789.json")
 # print assignments
 newhosts.show()
 
+# create assignment emails
+newhosts.assignment_email()
+
 # create calenders
 for month in range(7, 13):
     newhosts.output_calendar(2023, month)
