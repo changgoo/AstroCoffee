@@ -216,7 +216,7 @@ class Hosts(object):
                         dates="\n".join([d.isoformat() for d in sorted(h.hostdate)]),
                     )
                     fp.write(reminder)
-                print(f"cat {outfname} | sendmail {h.email}")
+                print(f"cat {outfname} | sendmail -t {h.email}")
 
     def output_calendar(self, year, month):
         c = calendar.Calendar(calendar.SUNDAY)
