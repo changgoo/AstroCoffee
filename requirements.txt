@@ -2,3 +2,4 @@ holidays
 pandas
 numpy
 black
+jupyter-book
