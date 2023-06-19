@@ -2,13 +2,13 @@ Sanghyuk Moon<sanghyuk.moon@princeton.edu>
 
 Dear Sanghyuk,
 
-Thanks for agreeing to host astrocoffee this semester. I've assigned tentative host dates from July to September (calendar is at https://changgoo.github.io/AstroCoffee/intro.html). These are the dates you are scheduled to host astrocoffee:
+Thanks for agreeing to host astrocoffee this semester. I've assigned tentative host dates from July to September (the calendar can be found at https://changgoo.github.io/AstroCoffee/intro.html). These are the dates you are scheduled to host astrocoffee:
 
-2023-09-14
-2023-08-30
-2023-08-15
-2023-07-28
 2023-07-12
+2023-07-28
+2023-08-15
+2023-08-30
+2023-09-14
 
 I've tried my best to take into account your restrictions, but please let me know if the assigned date didn't work for you.
 
