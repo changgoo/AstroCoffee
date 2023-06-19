@@ -193,12 +193,12 @@ class Hosts(object):
             for day, h in hlist.items():
                 with open(f"weekly_reminder/reminder_{h.last.lower()}.txt", "w") as fp:
                     reminder = remindertxt.format(
+                        fullname=h.name,
+                        email=h.email,
                         name=h.first,
                         day=calendar.day_name[day.weekday()],
                         date=day.isoformat(),
                     )
-                    fp.write(day.isoformat() + "\n")
-                    fp.write(f"{h.name}<{h.email}>\n\n")
                     fp.write(reminder)
 
     def assignment_email(self):

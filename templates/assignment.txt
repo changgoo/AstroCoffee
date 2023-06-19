@@ -1,5 +1,6 @@
-To : {fullname}<{email}>
-From : Chang-Goo Kim<changgoo@princeton.edu>
+To: {fullname}<{email}>
+From: Chang-Goo Kim<changgoo@princeton.edu>
+CC: Chang-Goo Kim<changgookim@gmail.com>
 Subject: AstroCoffee Assignment
 Dear {name},
 

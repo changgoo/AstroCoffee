@@ -1,3 +1,7 @@
+To: {fullname}<{email}>
+From: Chang-Goo Kim<changgoo@princeton.edu>
+CC: Chang-Goo Kim<changgookim@gmail.com>
+Subject: AstroCoffee Reminder
 Dear {name},
 
 The usual gentle reminder (unnecessary, but ritual) that
