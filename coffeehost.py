@@ -217,6 +217,8 @@ class Hosts(object):
         c = calendar.Calendar(calendar.SUNDAY)
         mycal = c.monthdayscalendar(year, month)
 
+        if not os.path.isdir("docs/calendar"):
+            os.mkdir("docs/calendar")
         fp = open("docs/calendar/calendar_{:02d}.md".format(month), "w")
         fp.write(f"# {year}-{month}\n\n")
         wstr = "|"
