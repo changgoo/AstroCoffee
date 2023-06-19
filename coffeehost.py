@@ -207,8 +207,8 @@ class Hosts(object):
             for day, h in self.hosts.items():
                 with open(f"emails/assignment_{h.last.lower()}.txt", "w") as fp:
                     reminder = remindertxt.format(
-                        fullname = h.name,
-                        email = h.email,
+                        fullname=h.name,
+                        email=h.email,
                         name=h.first,
                         dates="\n".join([d.isoformat() for d in sorted(h.hostdate)]),
                     )
