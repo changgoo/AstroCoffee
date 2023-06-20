@@ -1,6 +1,6 @@
 # 2023-7
 
-|<div style='max-width:100px'><p>Sun</p></div>|<div style='max-width:100px'><p>Mon</p></div>|<div style='max-width:100px'><p>Tue</p></div>|<div style='max-width:100px'><p>Wed</p></div>|<div style='max-width:100px'><p>Thu</p></div>|<div style='max-width:100px'><p>Fri</p></div>|<div style='max-width:100px'><p>Sat</p></div>|
+|<div style='max-width:100px;width:100px'><p>Sun</p></div>|<div style='max-width:100px;width:100px'><p>Mon</p></div>|<div style='max-width:100px;width:100px'><p>Tue</p></div>|<div style='max-width:100px;width:100px'><p>Wed</p></div>|<div style='max-width:100px;width:100px'><p>Thu</p></div>|<div style='max-width:100px;width:100px'><p>Fri</p></div>|<div style='max-width:100px;width:100px'><p>Sat</p></div>|
 |:-:|:-:|:-:|:-:|:-:|:-:|:-:|
 |<p><br/><br/></p> |<p><br/><br/></p> |<p><br/><br/></p> |<p><br/><br/></p> |<p><br/><br/></p> |<p><br/><br/></p> |<p align='left'>1</p><p><br/><br/></p>|
 |<p align='left'>2</p><p><br/><br/></p>|<p align='left'>3</p><p>Simon Albrecht<br/><br/></p>|<p align='left'>4</p><p>Independence Day</p><br/>|<p align='left'>5</p><p>Yubo Su<br/><br/></p>|<p align='left'>6</p><p>Philipp Kempski<br/><br/></p>|<p align='left'>7</p><p>Rajsekhar<br/> Mohapatra</p>|<p align='left'>8</p><p><br/><br/></p>|
