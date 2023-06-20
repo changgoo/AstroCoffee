@@ -276,6 +276,8 @@ class Hosts(object):
                         ]:
                             unassigned.append(wd.isoformat())
                             wstr += color_text("Unassigned", "red") + "<br/><br/>"
+                        else:
+                            wstr += "<p><br/><br/></p>"
                     wstr += "|"
 
             # wstr += "\n"
