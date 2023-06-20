@@ -243,6 +243,7 @@ class Hosts(object):
             wstr += f":-:|"
         fp.write(wstr + "\n")
 
+        unassigned = []
         for w in mycal:
             wstr = "|"
             for d in w:
@@ -253,23 +254,34 @@ class Hosts(object):
                     h = self.find_host(wd)
                     if h:
                         wstr += f"<p align='left'>{d}</p>"
-                        if len(h.name) > 11:
+                        if len(h.first) > 7:
                             wstr += f"{h.first}<br/> {h.last}"
                         else:
                             wstr += f"{h.name}<br/><br/>"
                     elif wd in self.holidays:
-                        wstr += color_text(f"<p align='left'>{d}</p>", "red")
-                        wstr += color_text(self.holidays.get(wd), "red")
+                        # wstr += color_text(f"<p align='left'>{d}</p>", "red")
+                        # wstr += color_text(self.holidays.get(wd), "red")
+                        wstr += f"<p align='left'>{d}</p>"
+                        wstr += self.holidays.get(wd)
                         if len(self.holidays.get(wd)) < 12:
                             wstr += "<br/><br/>"
+                        else:
+                            wstr += "<br/>"
                     else:
-                        wstr += color_text(f"<p align='left'>{d}</p>", "gray")
-                        wstr += "<br/><br/>"
+                        wstr += f"<p align='left'>{d}</p>"
+
+                        if not calendar.day_name[wd.weekday()] in [
+                            "Saturday",
+                            "Sunday",
+                        ]:
+                            unassigned.append(wd.isoformat())
+                            wstr += color_text("Unassigned", "red") + "<br/><br/>"
                     wstr += "|"
 
             # wstr += "\n"
             fp.write(wstr + "\n")
         fp.close()
+        print(f"Unassgined dates in {month}:", ",".join(unassigned))
 
 
 def color_text(text, color):
