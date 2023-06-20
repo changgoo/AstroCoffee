@@ -2,8 +2,7 @@ from coffeehost import *
 import pandas as pd
 
 # read host file from the responses
-hostfile = "./Princeton Astro Coffee Host_ Fall 2023 (Responses) - Form Responses 1.csv"
-hostfile = "./Princeton Astro Coffee Host- Fall 2023.csv"
+hostfile = "./data/Princeton Astro Coffee Host- Fall 2023.csv"
 hostlist = pd.read_csv(hostfile)
 
 # initialize host list
@@ -40,4 +39,4 @@ hosts.assign_dates()
 hosts.show()
 
 # store it to json file
-hosts.to_json("hosts_2023_789.json")
+hosts.to_json("data/hosts_2023_789.json")

@@ -4,6 +4,8 @@ import json
 import os
 import holidays
 
+dirpath = os.path.dirname(__file__)
+
 
 def get_weekdays(year, month, exclude=[]):
     weekdays = []
@@ -163,7 +165,11 @@ class Hosts(object):
         for n, v in self.hosts.items():
             print(f"{v.name}<{v.email}>")
 
-    def get_weekly_list(self, today=date.today(), reminder=True):
+    def get_weekly_list(
+        self, today=date.today(), reminder=True, basedir=os.path.join(dirpath, "../")
+    ):
+        if not os.path.isdir(os.path.join(basedir, "emails")):
+            os.mkdir(os.path.join(basedir, "emails"))
         thismonth = today.month
         thisyear = today.year
         mcal = calendar.monthcalendar(thisyear, thismonth)
@@ -188,10 +194,10 @@ class Hosts(object):
                 print(day.isoformat(), f"{h.name}<{h.email}>")
 
         if reminder:
-            with open("templates/reminder.txt", "r") as fp:
+            with open(f"{basedir}/templates/reminder.txt", "r") as fp:
                 remindertxt = fp.read()
             for day, h in hlist.items():
-                with open(f"weekly_reminder/reminder_{h.last.lower()}.txt", "w") as fp:
+                with open(f"{basedir}/emails/reminder_{h.last.lower()}.txt", "w") as fp:
                     reminder = remindertxt.format(
                         fullname=h.name,
                         email=h.email,
@@ -201,13 +207,13 @@ class Hosts(object):
                     )
                     fp.write(reminder)
 
-    def assignment_email(self):
-        if not os.path.isdir("emails"):
-            os.mkdir("emails")
-        with open("templates/assignment.txt", "r") as fp:
+    def assignment_email(self, basedir=os.path.join(dirpath, "../")):
+        if not os.path.isdir(os.path.join(basedir, "emails")):
+            os.mkdir(os.path.join(basedir, "emails"))
+        with open(f"{basedir}/templates/assignment.txt", "r") as fp:
             remindertxt = fp.read()
             for day, h in self.hosts.items():
-                outfname = f"emails/assignment_{h.last.lower()}.txt"
+                outfname = f"{basedir}/emails/assignment_{h.last.lower()}.txt"
                 with open(outfname, "w") as fp:
                     reminder = remindertxt.format(
                         fullname=h.name,
@@ -218,13 +224,13 @@ class Hosts(object):
                     fp.write(reminder)
                 print(f"cat {outfname} | sendmail -t {h.email}")
 
-    def output_calendar(self, year, month):
+    def output_calendar(self, year, month, basedir=os.path.join(dirpath, "../")):
+        if not os.path.isdir(os.path.join(basedir, "docs/calendar")):
+            os.mkdir(os.path.join(basedir, "docs/calendar"))
         c = calendar.Calendar(calendar.SUNDAY)
         mycal = c.monthdayscalendar(year, month)
 
-        if not os.path.isdir("docs/calendar"):
-            os.mkdir("docs/calendar")
-        fp = open("docs/calendar/calendar_{:02d}.md".format(month), "w")
+        fp = open(f"{basedir}/docs/calendar/calendar_{month:02d}.md", "w")
         fp.write(f"# {year}-{month}\n\n")
         wstr = "|"
         for i in range(7):
