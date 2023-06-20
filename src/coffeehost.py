@@ -255,7 +255,7 @@ class Hosts(object):
                     if h:
                         wstr += f"<p align='left'>{d}</p>"
                         if len(h.first) > 7:
-                            wstr += f"{h.first}<br/> {h.last}"
+                            wstr += f"<p>{h.first}<br/> {h.last}</p>"
                         else:
                             wstr += f"{h.name}<br/><br/>"
                     elif wd in self.holidays:
