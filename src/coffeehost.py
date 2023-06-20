@@ -235,7 +235,7 @@ class Hosts(object):
         wstr = "|"
         for i in range(7):
             day = calendar.day_abbr[(i + calendar.SUNDAY) % 7]
-            wstr += f"<p>{day}</p>|"
+            wstr += f"<div style='width:100px'><p>{day}</p></div>|"
         fp.write(wstr + "\n")
 
         wstr = "|"
