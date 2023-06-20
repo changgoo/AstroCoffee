@@ -3,6 +3,7 @@
 
 title: AstroCoffee
 author: Chang-Goo Kim
+copyright: "2023"
 
 # Force re-execution of notebooks on each build.
 # See https://jupyterbook.org/content/execute.html
