@@ -259,10 +259,9 @@ class Hosts(object):
                         else:
                             wstr += f"<p>{h.name}<br/><br/></p>"
                     elif wd in self.holidays:
-                        # wstr += color_text(f"<p align='left'>{d}</p>", "red")
-                        # wstr += color_text(self.holidays.get(wd), "red")
                         wstr += f"<p align='left'>{d}</p>"
-                        wstr += self.holidays.get(wd)
+                        # wstr += color_text(self.holidays.get(wd), "")
+                        wstr += f"<p>{self.holidays.get(wd)}</p>"
                         if len(self.holidays.get(wd)) < 12:
                             wstr += "<br/><br/>"
                         else:

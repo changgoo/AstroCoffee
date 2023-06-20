@@ -236,6 +236,23 @@
         "2023-07-10"
     ]
 },{
+    "name": "Anatoly Spitkovsky",
+    "first": "Anatoly",
+    "last": "Spitkovsky",
+    "email": "anatoly@astro.princeton.edu",
+    "restriction": [
+        [
+            "2023-10-15",
+            "2023-11-15"
+        ]
+    ],
+    "hostdate": [
+        "2023-09-15",
+        "2023-08-18",
+        "2023-08-01",
+        "2023-07-14"
+    ]
+},{
     "name": "Colloquium",
     "first": "",
     "last": "Colloquium",
