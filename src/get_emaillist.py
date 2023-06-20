@@ -1,9 +1,12 @@
 from coffeehost import *
 import sys
+import os
+
+dirname = os.path.dirname(__file__)
 
 # initialize host list with assigned dates from json file
 newhosts = Hosts()
-newhosts.from_json("hosts_2023_789.json")
+newhosts.from_json(f"{dirname}/../data/hosts_2023_789.json")
 
 # print email list
 print("host email list")
