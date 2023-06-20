@@ -279,4 +279,27 @@
         "2023-10-19",
         "2023-10-20"
     ]
+},{
+    "name": "Thanksgiving Recess",
+    "first": "Thansgiving",
+    "last": "Recess",
+    "email": "",
+    "restriction": [],
+    "hostdate": [
+        "2023-11-21",
+        "2023-11-22",
+        "2023-11-24"
+    ]
+},{
+    "name": "End-of-Year Recess",
+    "first": "End-of-Year",
+    "last": "Recess",
+    "email": "",
+    "restriction": [],
+    "hostdate": [
+        "2023-12-26",
+        "2023-12-27",
+        "2023-12-28",
+        "2023-12-29"
+    ]
 }]
