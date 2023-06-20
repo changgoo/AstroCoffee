@@ -235,7 +235,7 @@ class Hosts(object):
         wstr = "|"
         for i in range(7):
             day = calendar.day_abbr[(i + calendar.SUNDAY) % 7]
-            wstr += f"<div style='width:100px'><p>{day}</p></div>|"
+            wstr += f"<div style='max-width:100px'><p>{day}</p></div>|"
         fp.write(wstr + "\n")
 
         wstr = "|"
@@ -282,7 +282,10 @@ class Hosts(object):
             # wstr += "\n"
             fp.write(wstr + "\n")
         fp.close()
-        print(f"Unassgined dates in {month}:", ",".join(unassigned))
+        print(
+            f"{len(unassigned)} nassgined dates in {calendar.month_name[month]} :",
+            ",".join(unassigned),
+        )
 
 
 def color_text(text, color):

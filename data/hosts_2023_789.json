@@ -272,8 +272,8 @@
     ]
 },{
     "name": "Fall Recess",
-    "first": "Fall",
-    "last": "Recess",
+    "first": "",
+    "last": "Fall Recess",
     "email": "",
     "restriction": [],
     "hostdate": [
@@ -285,8 +285,8 @@
     ]
 },{
     "name": "Thanksgiving Recess",
-    "first": "Thansgiving",
-    "last": "Recess",
+    "first": "",
+    "last": "Thansgiving Recess",
     "email": "",
     "restriction": [],
     "hostdate": [
@@ -296,8 +296,8 @@
     ]
 },{
     "name": "End-of-Year Recess",
-    "first": "End-of-Year",
-    "last": "Recess",
+    "first": "",
+    "last": "End-of-Year",
     "email": "",
     "restriction": [],
     "hostdate": [
