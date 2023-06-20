@@ -1,6 +1,6 @@
 # 2023-7
 
-|<p>Sun</p>|<p>Mon</p>|<p>Tue</p>|<p>Wed</p>|<p>Thu</p>|<p>Fri</p>|<p>Sat</p>|
+|<div style='width:100px'><p>Sun</p></div>|<div style='width:100px'><p>Mon</p></div>|<div style='width:100px'><p>Tue</p></div>|<div style='width:100px'><p>Wed</p></div>|<div style='width:100px'><p>Thu</p></div>|<div style='width:100px'><p>Fri</p></div>|<div style='width:100px'><p>Sat</p></div>|
 |:-:|:-:|:-:|:-:|:-:|:-:|:-:|
 |<p><br/><br/></p> |<p><br/><br/></p> |<p><br/><br/></p> |<p><br/><br/></p> |<p><br/><br/></p> |<p><br/><br/></p> |<p align='left'>1</p><p><br/><br/></p>|
 |<p align='left'>2</p><p><br/><br/></p>|<p align='left'>3</p><p>Simon Albrecht<br/><br/></p>|<p align='left'>4</p>Independence Day<br/>|<p align='left'>5</p><p>Yubo Su<br/><br/></p>|<p align='left'>6</p><p>Philipp Kempski<br/><br/></p>|<p align='left'>7</p><p>Rajsekhar<br/> Mohapatra</p>|<p align='left'>8</p><p><br/><br/></p>|

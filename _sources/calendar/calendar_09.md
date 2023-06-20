@@ -1,6 +1,6 @@
 # 2023-9
 
-|<p>Sun</p>|<p>Mon</p>|<p>Tue</p>|<p>Wed</p>|<p>Thu</p>|<p>Fri</p>|<p>Sat</p>|
+|<div style='width:100px'><p>Sun</p></div>|<div style='width:100px'><p>Mon</p></div>|<div style='width:100px'><p>Tue</p></div>|<div style='width:100px'><p>Wed</p></div>|<div style='width:100px'><p>Thu</p></div>|<div style='width:100px'><p>Fri</p></div>|<div style='width:100px'><p>Sat</p></div>|
 |:-:|:-:|:-:|:-:|:-:|:-:|:-:|
 |<p><br/><br/></p> |<p><br/><br/></p> |<p><br/><br/></p> |<p><br/><br/></p> |<p><br/><br/></p> |<p align='left'>1</p><p>Jeremy Goodman<br/><br/></p>|<p align='left'>2</p><p><br/><br/></p>|
 |<p align='left'>3</p><p><br/><br/></p>|<p align='left'>4</p>Labor Day<br/><br/>|<p align='left'>5</p><p>Colloquium<br/><br/></p>|<p align='left'>6</p><p>Shaunak Modak<br/><br/></p>|<p align='left'>7</p><p>Jenny Greene<br/><br/></p>|<p align='left'>8</p><p>Michael Strauss<br/><br/></p>|<p align='left'>9</p><p><br/><br/></p>|
