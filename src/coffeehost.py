@@ -235,7 +235,7 @@ class Hosts(object):
         wstr = "|"
         for i in range(7):
             day = calendar.day_abbr[(i + calendar.SUNDAY) % 7]
-            wstr += f"<div style='width:100px'>{day}</div>|"
+            wstr += f"<p>{day}</p>|"
         fp.write(wstr + "\n")
 
         wstr = "|"
@@ -248,7 +248,7 @@ class Hosts(object):
             wstr = "|"
             for d in w:
                 if d == 0:
-                    wstr += "<br/><br/> |"
+                    wstr += "<p><br/><br/></p> |"
                 else:
                     wd = date(year, month, d)
                     h = self.find_host(wd)
@@ -257,7 +257,7 @@ class Hosts(object):
                         if len(h.first) > 7:
                             wstr += f"<p>{h.first}<br/> {h.last}</p>"
                         else:
-                            wstr += f"{h.name}<br/><br/>"
+                            wstr += f"<p>{h.name}<br/><br/></p>"
                     elif wd in self.holidays:
                         # wstr += color_text(f"<p align='left'>{d}</p>", "red")
                         # wstr += color_text(self.holidays.get(wd), "red")

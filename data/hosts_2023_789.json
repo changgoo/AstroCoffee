@@ -47,9 +47,7 @@
     "email": "pkempski@princeton.edu",
     "restriction": [],
     "hostdate": [
-        "2023-09-28",
         "2023-08-25",
-        "2023-08-09",
         "2023-07-24",
         "2023-07-06"
     ]
@@ -232,10 +230,21 @@
     "email": "mhguo@princeton.edu",
     "restriction": [],
     "hostdate": [
-        "2023-09-13",
         "2023-08-29",
         "2023-08-14",
         "2023-07-27",
         "2023-07-10"
+    ]
+},{
+    "name": "Colloquium",
+    "first": "",
+    "last": "Colloquium",
+    "email": "",
+    "restriction": [],
+    "hostdate": [
+        "2023-09-5",
+        "2023-09-12",
+        "2023-09-19",
+        "2023-09-26"
     ]
 }]

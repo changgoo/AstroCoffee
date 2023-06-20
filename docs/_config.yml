@@ -31,6 +31,6 @@ repository:
 #   use_issues_button: true
 #   use_repository_button: true
 
-sphinx:
-  html_context:
-    default_mode: light
+# sphinx:
+#   html_context:
+#     default_mode: light
