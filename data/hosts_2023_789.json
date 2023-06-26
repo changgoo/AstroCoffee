@@ -293,7 +293,6 @@
     "name": "Fall Recess",
     "first": "",
     "last": "Fall Recess",
-    "email": "",
     "restriction": [],
     "hostdate": [
         "2023-10-16",
@@ -306,7 +305,6 @@
     "name": "Thanksgiving Recess",
     "first": "",
     "last": "Thansgiving Recess",
-    "email": "",
     "restriction": [],
     "hostdate": [
         "2023-11-22",
@@ -316,7 +314,6 @@
     "name": "End-of-Year Recess",
     "first": "",
     "last": "End-of-Year",
-    "email": "",
     "restriction": [],
     "hostdate": [
         "2023-12-26",

@@ -257,6 +257,8 @@ class Hosts(object):
         with open(f"{basedir}/templates/assignment.txt", "r") as fp:
             remindertxt = fp.read()
             for day, h in self.hosts.items():
+                if not hasattr(h, "email"):
+                    continue
                 outfname = f"{basedir}/emails/assignment_{h.last.lower()}.txt"
                 with open(outfname, "w") as fp:
                     reminder = remindertxt.format(
@@ -266,7 +268,7 @@ class Hosts(object):
                         dates="\n".join([d.isoformat() for d in sorted(h.hostdate)]),
                     )
                     fp.write(reminder)
-                print(f"cat {outfname} | sendmail -t {h.email}")
+                # print(f"cat {outfname} | sendmail -t {h.email}")
 
     def output_calendar(self, year, month, basedir=os.path.join(dirpath, "../")):
         if not os.path.isdir(os.path.join(basedir, "docs/calendar")):
@@ -327,7 +329,7 @@ class Hosts(object):
             fp.write(wstr + "\n")
         fp.close()
         print(
-            f"{len(unassigned)} nassgined dates in {calendar.month_name[month]} :",
+            f"{len(unassigned)} unassgined dates in {calendar.month_name[month]} :",
             ",".join(unassigned),
         )
 
