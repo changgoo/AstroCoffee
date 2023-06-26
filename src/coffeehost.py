@@ -1,8 +1,9 @@
-from datetime import date
+from datetime import date, timedelta
 import calendar
 import json
 import os
 import holidays
+import subprocess
 
 dirpath = os.path.dirname(__file__)
 
@@ -165,47 +166,90 @@ class Hosts(object):
         for n, v in self.hosts.items():
             print(f"{v.name}<{v.email}>")
 
-    def get_weekly_list(
-        self, today=date.today(), reminder=True, basedir=os.path.join(dirpath, "../")
+    def generate_reminder(
+        self,
+        today=date.today(),
+        reminder=True,
+        send=False,
+        basedir=os.path.join(dirpath, "../"),
     ):
         if not os.path.isdir(os.path.join(basedir, "emails")):
             os.mkdir(os.path.join(basedir, "emails"))
-        thismonth = today.month
-        thisyear = today.year
-        mcal = calendar.monthcalendar(thisyear, thismonth)
-        for iweek, w in enumerate(mcal):
-            for d in w:
-                if d == 0:
-                    continue
-                if today == date(thisyear, thismonth, d):
-                    nweek = mcal[iweek + 1]
 
-        i = 1
-        hlist = dict()
-        for d in nweek[:5]:
-            if d == 0:
-                day = date(thisyear, thismonth + 1, d + i)
-                i = i + 1
+        tomorrow = today + timedelta(days=1)
+
+        # find tomorrow host
+        h = self.find_host(tomorrow)
+        if h and reminder and hasattr(h, "email"):
+            self.write_daily_reminder(h, tomorrow, send=send)
+
+        # find all for next week
+        # today = today - timedelta(days=1)
+        if calendar.day_name[today.weekday()] == "Sunday":
+            dlist = [today + timedelta(days=i) for i in range(1, 6)]
+            hlist = [self.find_host(d) for d in dlist]
+            if reminder:
+                self.write_weekly_reminder(dlist, hlist, send=send)
+
+    def write_daily_reminder(
+        self, h, day, send=False, basedir=os.path.join(dirpath, "../")
+    ):
+        with open(f"{basedir}/templates/daily_reminder.txt", "r") as fp:
+            remindertxt = fp.read()
+        outfname = f"{basedir}/emails/reminder_{h.last.lower()}_{day.isoformat()}.txt"
+        with open(outfname, "w") as fp:
+            reminder = remindertxt.format(
+                fullname=h.name,
+                email=h.email,
+                name=h.first,
+                day=calendar.day_name[day.weekday()],
+                date=day.isoformat(),
+            )
+            fp.write(reminder)
+            if send:
+                print(f"daily reminder is sent to {h.email}")
+                p = subprocess.Popen(["sendmail", "-t", "-oi"], stdin=subprocess.PIPE)
+                p.communicate(reminder.encode("utf-8"))
+
+    def write_weekly_reminder(
+        self, dlist, hlist, send=False, basedir=os.path.join(dirpath, "../")
+    ):
+        with open(f"{basedir}/templates/weekly_reminder.txt", "r") as fp:
+            remindertxt = fp.read()
+        outfname = f"{basedir}/emails/reminder_{dlist[0].isoformat()}.txt"
+
+        emails = []
+        names = []
+        days = dict()
+        hosts = dict()
+        for i, (d, h) in enumerate(zip(dlist, hlist)):
+            days[f"day{i+1}"] = d.isoformat()
+            if h and hasattr(h, "email"):
+                emails.append(f"{h.name}<{h.email}>")
+                names.append(f"{h.first}")
+                hosts[f"host{i+1}"] = h.first
             else:
-                day = date(thisyear, thismonth, d)
-            h = self.find_host(day)
-            if h:
-                hlist[day] = h
-                print(day.isoformat(), f"{h.name}<{h.email}>")
+                try:
+                    hosts[f"host{i+1}"] = f"no astrocoffee ({h.name})"
+                except AttributeError:
+                    hosts[f"host{i+1}"] = f"no astrocoffee ({self.holidays.get(d)})"
 
-        if reminder:
-            with open(f"{basedir}/templates/reminder.txt", "r") as fp:
-                remindertxt = fp.read()
-            for day, h in hlist.items():
-                with open(f"{basedir}/emails/reminder_{h.last.lower()}.txt", "w") as fp:
-                    reminder = remindertxt.format(
-                        fullname=h.name,
-                        email=h.email,
-                        name=h.first,
-                        day=calendar.day_name[day.weekday()],
-                        date=day.isoformat(),
+        emails = set(emails)
+        names = set(names)
+
+        kwargs = dict(emails=",".join(emails), names=", ".join(names))
+        kwargs.update(days)
+        kwargs.update(hosts)
+        with open(outfname, "w") as fp:
+            reminder = remindertxt.format(**kwargs)
+            fp.write(reminder)
+            if send:
+                for email in emails:
+                    print(f"weekly reminder is sent to {email}")
+                    p = subprocess.Popen(
+                        ["sendmail", "-t", "-oi"], stdin=subprocess.PIPE
                     )
-                    fp.write(reminder)
+                    p.communicate(reminder.encode("utf-8"))
 
     def assignment_email(self, basedir=os.path.join(dirpath, "../")):
         if not os.path.isdir(os.path.join(basedir, "emails")):

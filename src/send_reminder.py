@@ -1,3 +1,4 @@
+#! /usr/bin/env python
 from coffeehost import *
 import sys
 import os
@@ -8,10 +9,5 @@ dirname = os.path.dirname(__file__)
 newhosts = Hosts()
 newhosts.from_json(f"{dirname}/../data/hosts_2023_789.json")
 
-# print email list
-print("host email list")
-newhosts.get_email_list()
-
-# print reminder
-print("next week reminder")
-newhosts.get_weekly_list(reminder=True)
+# send daily and weekly reminders
+newhosts.generate_reminder(reminder=True, send=True)

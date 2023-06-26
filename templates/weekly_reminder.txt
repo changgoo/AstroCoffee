@@ -1,0 +1,21 @@
+To: {emails}
+From: Chang-Goo Kim<changgoo@princeton.edu>
+CC: Chang-Goo Kim<changgookim@gmail.com>
+Subject: AstroCoffee Next Week
+
+Dear {names},
+
+The astrocoffee schedule for the coming week:
+
+Mon {day1}: {host1}
+Tue {day2}: {host2}
+Wed {day3}: {host3}
+Thu {day4}: {host4}
+Fri {day5}: {host5}
+
+As usual, I will send an email reminder the evening before with hostkey
+info, etc.
+
+Thanks for hosting astrocoffee!
+
+Chang-Goo

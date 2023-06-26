@@ -4,9 +4,7 @@ CC: Chang-Goo Kim<changgookim@gmail.com>
 Subject: AstroCoffee Reminder
 Dear {name},
 
-The usual gentle reminder (unnecessary, but ritual) that
-you are scheduled to host astrocoffee 10:30 {day} {date}.
-Coffee should be available in Grand Central.
+The usual gentle reminder (unnecessary, but ritual) that you are scheduled to host astrocoffee 10:30 {day} {date}. Coffee should be available in Grand Central.
 
 As usual, the astrocoffee program is at
 
@@ -16,16 +14,21 @@ The zoom url for astrocoffee is
 
 https://princeton.zoom.us/j/6927104575
 
+Reminder to coffee hosts:
+
+Please try to prioritize presentation by students and postdocs in our department! If there are "local" papers with students or postdocs, please try to give the local authors an opportunity to present, as time permits.
+
+
+Thanks for hosting astrocoffee!
+
+Chang-Goo Kim
+
 ===========================================================
             The Usual Information
 
 If you are hosting "in person", please try to use the owl.
 The "owl" is in Mami Akiyama's office (Peyton 114).
-New "beta" set-up instructions for the owl are attached.
-If you have suggestions for corrections/clarifications/additions
-to these instructions, please let me know.
-We need improved instructions;
-anything you can suggest to improve them would be helpful.
+If you trouble to set up the owl, please let me know.
 
 After you connect:
 
@@ -36,15 +39,3 @@ enter the HOST KEY = 652625
 2. After you become host, you will see a "security" icon,
 which you can click on to get a menu,
 and then click on "allow screen sharing".
-
-Reminder to coffee hosts:
-
-Please try to prioritize presentation by students and
-postdocs in our department!
-If there are "local" papers with students or postdocs,
-please try to give the local authors an opportunity to present,
-as time permits.
-
-Thanks for hosting astrocoffee!
-
-Chang-Goo Kim
