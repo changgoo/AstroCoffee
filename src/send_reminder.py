@@ -1,4 +1,3 @@
-#! /usr/bin/env python
 from coffeehost import *
 import sys
 import os
