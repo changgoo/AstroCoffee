@@ -1,9 +1,10 @@
 # Book settings
 # Learn more at https://jupyterbook.org/customize/config.html
 
-title: AstroCoffee
+title: Astro Coffee Calendar
 author: Chang-Goo Kim
 copyright: "2023"
+only_build_toc_files: true
 
 # Force re-execution of notebooks on each build.
 # See https://jupyterbook.org/content/execute.html
@@ -27,9 +28,11 @@ repository:
 
 # Add GitHub buttons to your book
 # See https://jupyterbook.org/customize/config.html#add-a-link-to-your-repository
-# html:
-#   use_issues_button: true
-#   use_repository_button: true
+html:
+  favicon: "pu-favicon.png"
+  use_issues_button: true
+  use_repository_button: true
+  extra_footer: "<a href='https://coffee.astro.princeton.edu/astroph-coffee/'>Princeton Astro Coffee Listing</a>"
 
 # sphinx:
 #   html_context:
