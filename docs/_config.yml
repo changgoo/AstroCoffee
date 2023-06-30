@@ -3,7 +3,6 @@
 
 title: Astro Coffee Calendar
 author: Chang-Goo Kim
-copyright: "2023"
 only_build_toc_files: true
 
 # Force re-execution of notebooks on each build.
