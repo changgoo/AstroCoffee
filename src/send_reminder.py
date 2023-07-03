@@ -9,4 +9,8 @@ newhosts = Hosts()
 newhosts.from_json(f"{dirname}/../data/hosts_2023_789.json")
 
 # send daily and weekly reminders
-newhosts.generate_reminder(reminder=True, send=True)
+newhosts.generate_reminder(
+    #    today=date.today() - timedelta(days=1),
+    reminder=True,
+    send=True,
+)

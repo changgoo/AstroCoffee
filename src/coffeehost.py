@@ -208,7 +208,10 @@ class Hosts(object):
             fp.write(reminder)
             if send:
                 print(f"daily reminder is sent to {h.email}")
-                p = subprocess.Popen(["sendmail", "-t", "-oi"], stdin=subprocess.PIPE)
+                p = subprocess.Popen(
+                    ["sendmail", "-t", "changgo@princeton.edu", "-oi"],
+                    stdin=subprocess.PIPE,
+                )
                 p.communicate(reminder.encode("utf-8"))
 
     def write_weekly_reminder(
@@ -247,7 +250,8 @@ class Hosts(object):
                 for email in emails:
                     print(f"weekly reminder is sent to {email}")
                     p = subprocess.Popen(
-                        ["sendmail", "-t", "-oi"], stdin=subprocess.PIPE
+                        ["sendmail", "-t", "changgoo@princeton.edu", "-oi"],
+                        stdin=subprocess.PIPE,
                     )
                     p.communicate(reminder.encode("utf-8"))
 
