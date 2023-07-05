@@ -1,6 +1,6 @@
 To: {emails}
 From: Chang-Goo Kim<changgoo@princeton.edu>
-CC: Chang-Goo Kim<changgookim@gmail.com>
+Cc: Chang-Goo Kim<changgookim@gmail.com>
 Subject: AstroCoffee Next Week
 
 Dear {names},

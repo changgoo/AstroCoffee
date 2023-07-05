@@ -206,13 +206,10 @@ class Hosts(object):
                 date=day.isoformat(),
             )
             fp.write(reminder)
-            if send:
+        if send:
+            with open(outfname, "r") as fp:
                 print(f"daily reminder is sent to {h.email}")
-                p = subprocess.Popen(
-                    ["sendmail", "-t", "changgo@princeton.edu", "-oi"],
-                    stdin=subprocess.PIPE,
-                )
-                p.communicate(reminder.encode("utf-8"))
+                p = subprocess.run(["sendmail", "-t", "-oi"], stdin=fp)
 
     def write_weekly_reminder(
         self, dlist, hlist, send=False, basedir=os.path.join(dirpath, "../")
@@ -246,14 +243,11 @@ class Hosts(object):
         with open(outfname, "w") as fp:
             reminder = remindertxt.format(**kwargs)
             fp.write(reminder)
-            if send:
-                for email in emails:
-                    print(f"weekly reminder is sent to {email}")
-                    p = subprocess.Popen(
-                        ["sendmail", "-t", "changgoo@princeton.edu", "-oi"],
-                        stdin=subprocess.PIPE,
-                    )
-                    p.communicate(reminder.encode("utf-8"))
+        if send:
+            print(f"weekly reminder is sent to {email}")
+            with open(outfname, "r") as fp:
+                print(f"daily reminder is sent to {h.email}")
+                p = subprocess.run(["sendmail", "-t", "-oi"], stdin=fp)
 
     def assignment_email(self, basedir=os.path.join(dirpath, "../")):
         if not os.path.isdir(os.path.join(basedir, "emails")):
