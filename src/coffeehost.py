@@ -244,9 +244,9 @@ class Hosts(object):
             reminder = remindertxt.format(**kwargs)
             fp.write(reminder)
         if send:
-            print(f"weekly reminder is sent to {email}")
+            for email in emails:
+                print(f"weekly reminder is sent to {email}")
             with open(outfname, "r") as fp:
-                print(f"daily reminder is sent to {h.email}")
                 p = subprocess.run(["sendmail", "-t", "-oi"], stdin=fp)
 
     def assignment_email(self, basedir=os.path.join(dirpath, "../")):
