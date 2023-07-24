@@ -167,7 +167,10 @@ class Hosts(object):
             print(f"{v.name}<{v.email}>")
 
     def generate_reminder(
-        self, today=date.today(), send=False, basedir=os.path.join(dirpath, "../"),
+        self,
+        today=date.today(),
+        send=False,
+        basedir=os.path.join(dirpath, "../"),
     ):
         if not os.path.isdir(os.path.join(basedir, "emails")):
             os.mkdir(os.path.join(basedir, "emails"))
