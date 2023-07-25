@@ -302,6 +302,33 @@
     "hostdate": [
     ]
 },{
+    "name": "Christopher Bambic",
+    "first": "Christopher",
+    "last": "Bambic",
+    "email": "cbambic@princeton.edu",
+    "restriction": [
+        [
+            "2023-09-01",
+            "2030-12-31"
+        ]
+    ],
+    "hostdate": [
+        "2023-08-09"
+    ]
+},{
+    "name": "Rodrigo Córdova",
+    "first": "Rodrigo",
+    "last": "Córdova",
+    "email": "rodrigoc@princeton.edu",
+    "restriction": [
+        [
+            "2023-09-01",
+            "2030-12-31"
+        ]
+    ],
+    "hostdate": [
+    ]
+},{
     "name": "Colloquium",
     "first": "",
     "last": "Colloquium",
