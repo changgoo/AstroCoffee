@@ -240,17 +240,19 @@ class Hosts(object):
         kwargs = dict(names=", ".join(names))
         kwargs.update(days)
         kwargs.update(hosts)
-        for email in emails:
-            kwargs.update(emails=", ".join(emails), email=email)
-            with open(outfname, "w") as fp:
-                reminder = remindertxt.format(**kwargs)
-                fp.write(reminder)
-            with open(outfname, "r") as fp:
-                if send:
-                    print(f"weekly reminder is sent to {email}")
-                    p = subprocess.run(["sendmail", "-t", "-oi"], stdin=fp)
-                else:
-                    print(reminder)
+
+        email = "Chang-Goo Kim<changgoo@princeton.edu>"
+        # for email in emails:
+        kwargs.update(emails=", ".join(emails), email=email)
+        with open(outfname, "w") as fp:
+            reminder = remindertxt.format(**kwargs)
+            fp.write(reminder)
+        with open(outfname, "r") as fp:
+            if send:
+                print(f"weekly reminder is sent to {emails}")
+                p = subprocess.run(["sendmail", "-t", "-oi"], stdin=fp)
+            else:
+                print(reminder)
 
     def assignment_email(self, basedir=os.path.join(dirpath, "../")):
         if not os.path.isdir(os.path.join(basedir, "emails")):

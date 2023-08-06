@@ -19,5 +19,3 @@ As usual, I will send an email reminder the evening before with hostkey info, et
 Thanks for hosting astrocoffee!
 
 Chang-Goo
-
-PS: I'm still testing auto-generated reminder script. If you get this email, please reply and confirm your reception.
