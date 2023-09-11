@@ -140,7 +140,6 @@ class Hosts(object):
         for n, h in self.hosts.items():
             print(h.name)
 
-
     def find_host(self, date):
         for n, h in self.hosts.items():
             if date in h.hostdate:
