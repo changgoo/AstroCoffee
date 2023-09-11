@@ -1,0 +1,233 @@
+[{
+    "name": "Chang-Goo Kim",
+    "first": "Chang-Goo",
+    "last": "Kim",
+    "email": "changgoo@princeton.edu",
+    "restriction": [
+        [
+            "2023-07-30",
+            "2023-08-05"
+        ],
+        [
+            "2023-08-14",
+            "2023-09-30"
+        ],
+        [
+            "2023-11-05",
+            "2023-11-10"
+        ],
+        [
+            "2023-12-05",
+            "2023-12-20"
+        ]
+    ],
+    "hostdate": [
+        "2023-12-29",
+        "2023-12-04",
+        "2023-11-03",
+        "2023-10-12"
+    ]
+},{
+    "name": "Rajsekhar Mohapatra",
+    "first": "Rajsekhar",
+    "last": "Mohapatra",
+    "email": "rmohapatra@princeton.edu",
+    "restriction": [
+        [
+            "2023-10-05",
+            "2023-11-06"
+        ],
+        [
+            "2023-12-15",
+            "2023-12-31"
+        ]
+    ],
+    "hostdate": [
+        "2023-12-01"
+    ]
+},{
+    "name": "Philipp Kempski",
+    "first": "Philipp",
+    "last": "Kempski",
+    "email": "pkempski@princeton.edu",
+    "restriction": [],
+    "hostdate": [
+        "2023-12-28",
+        "2023-11-30",
+        "2023-11-02",
+        "2023-10-11"
+    ]
+},{
+    "name": "Yubo Su",
+    "first": "Yubo",
+    "last": "Su",
+    "email": "ys5846@princeton.edu",
+    "restriction": [],
+    "hostdate": [
+        "2023-12-27",
+        "2023-11-29",
+        "2023-11-01",
+        "2023-10-06"
+    ]
+},{
+    "name": "Shaunak Modak",
+    "first": "Shaunak",
+    "last": "Modak",
+    "email": "shaunakmodak@princeton.edu",
+    "restriction": [],
+    "hostdate": [
+        "2023-12-22",
+        "2023-11-27",
+        "2023-10-30",
+        "2023-10-05"
+    ]
+},{
+    "name": "Michael Strauss",
+    "first": "Michael",
+    "last": "Strauss",
+    "email": "strauss@astro.princeton.edu",
+    "restriction": [
+        [
+            "2023-08-07",
+            "2023-08-11"
+        ],
+        [
+            "2023-08-28",
+            "2023-09-01"
+        ]
+    ],
+    "hostdate": [
+        "2023-12-21",
+        "2023-11-24",
+        "2023-10-27",
+        "2023-10-04"
+    ]
+},{
+    "name": "Ivanna Escala",
+    "first": "Ivanna",
+    "last": "Escala",
+    "email": "iescala@princeton.edu",
+    "restriction": [
+        [
+            "2023-08-28",
+            "2023-09-01"
+        ]
+    ],
+    "hostdate": [
+        "2023-12-20",
+        "2023-11-22",
+        "2023-10-26",
+        "2023-10-02"
+    ]
+},{
+    "name": "Jeremy Goodman",
+    "first": "Jeremy",
+    "last": "Goodman",
+    "email": "jeremy@astro.princeton.edu",
+    "restriction": [
+        [
+            "2023-10-10",
+            "2023-10-20"
+        ]
+    ],
+    "hostdate": [
+        "2023-12-18",
+        "2023-11-20",
+        "2023-10-25"
+    ]
+},{
+    "name": "Charlotte Ward",
+    "first": "Charlotte",
+    "last": "Ward",
+    "email": "charlotte.ward@princeton.edu",
+    "restriction": [
+        [
+            "2023-10-01",
+            "2023-11-06"
+        ],
+        [
+            "2023-11-29",
+            "2023-12-08"
+        ]
+    ],
+    "hostdate": [
+        "2023-12-15",
+        "2023-11-17"
+    ]
+},{
+    "name": "Jenny Greene",
+    "first": "Jenny",
+    "last": "Greene",
+    "email": "jgreene@astro.princeton.edu",
+    "restriction": [
+        [
+            "2023-07-01",
+            "2023-09-01"
+        ]
+    ],
+    "hostdate": [
+        "2023-12-14",
+        "2023-11-16",
+        "2023-10-23"
+    ]
+},{
+    "name": "Ankan Sur",
+    "first": "Ankan",
+    "last": "Sur",
+    "email": "ankan.sur@princeton.edu",
+    "restriction": [
+        [
+            "2023-07-01",
+            "2023-09-15"
+        ]
+    ],
+    "hostdate": [
+        "2023-12-13",
+        "2023-11-15",
+        "2023-10-20"
+    ]
+},{
+    "name": "Sanghyuk Moon",
+    "first": "Sanghyuk",
+    "last": "Moon",
+    "email": "sanghyuk.moon@princeton.edu",
+    "restriction": [],
+    "hostdate": [
+        "2023-12-11",
+        "2023-11-13",
+        "2023-10-19"
+    ]
+},{
+    "name": "Minghao Guo",
+    "first": "Minghao",
+    "last": "Guo",
+    "email": "mhguo@princeton.edu",
+    "restriction": [],
+    "hostdate": [
+        "2023-12-08",
+        "2023-11-09",
+        "2023-10-18"
+    ]
+},{
+    "name": "Anatoly Spitkovsky",
+    "first": "Anatoly",
+    "last": "Spitkovsky",
+    "email": "anatoly@astro.Princeton.edu",
+    "restriction": [],
+    "hostdate": [
+        "2023-12-07",
+        "2023-11-08",
+        "2023-10-16"
+    ]
+},{
+    "name": "David Setton",
+    "first": "David",
+    "last": "Setton",
+    "email": "davidsetton@princeton.edu",
+    "restriction": [],
+    "hostdate": [
+        "2023-12-06",
+        "2023-11-06",
+        "2023-10-13"
+    ]
+}]
