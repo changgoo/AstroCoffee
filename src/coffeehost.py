@@ -36,7 +36,7 @@ class Host(object):
         self.hostdate = []
 
     def __repr__(self):
-        out = f"{self.last} [{len(self.hostdate)}]:"
+        out = f"{self.first} {self.last} [{len(self.hostdate)}]:"
         for mydate in sorted(self.hostdate):
             out += f" {mydate}"
         return out
@@ -135,6 +135,11 @@ class Hosts(object):
     def show(self):
         for n, h in self.hosts.items():
             print(h)
+
+    def showlist(self):
+        for n, h in self.hosts.items():
+            print(h.name)
+
 
     def find_host(self, date):
         for n, h in self.hosts.items():
