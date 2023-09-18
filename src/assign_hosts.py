@@ -27,6 +27,9 @@ hosts["greene"].add_restriction(date(2023, 7, 1), date(2023, 9, 1))
 hosts["ward"].add_restriction(date(2023, 10, 1), date(2023, 11, 6))
 hosts["ward"].add_restriction(date(2023, 11, 29), date(2023, 12, 8))
 hosts["sur"].add_restriction(date(2023, 7, 1), date(2023, 9, 15))
+hosts["kempski"].add_restriction(date(2023, 10, 5), date(2023, 10, 16))
+hosts["kempski"].add_restriction(date(2023, 10, 30), date(2023, 11, 3))
+hosts["su"].add_restriction(date(2023, 11, 20), date(2023, 12, 31))
 
 # add dates to assign
 hosts.add_dates(get_weekdays(2023, 10, exclude=["Tuesday"]))
