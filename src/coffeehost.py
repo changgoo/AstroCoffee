@@ -340,7 +340,11 @@ class Hosts(object):
                                 else:
                                     wstr += f"<p>{h.name}<br/><br/></p>"
                             else:
-                                wstr += "<p>" + color_text(h.name, "blue") + "<br/><br/></p>"
+                                wstr += (
+                                    "<p>"
+                                    + color_text(h.name, "blue")
+                                    + "<br/><br/></p>"
+                                )
                         elif wd in self.holidays:
                             wstr += f"<p align='left'>{d}</p>"
                             # wstr += color_text(self.holidays.get(wd), "")
@@ -351,7 +355,11 @@ class Hosts(object):
                                 wstr += "<br/>"
                         else:
                             unassigned.append(wd.isoformat())
-                            wstr += "<p>" + color_text("Unassigned", "red") + "<br/><br/></p>"
+                            wstr += (
+                                "<p>"
+                                + color_text("Unassigned", "red")
+                                + "<br/><br/></p>"
+                            )
                     else:
                         wstr += "<p><br/><br/></p>"
                     wstr += "|"
