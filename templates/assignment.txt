@@ -4,7 +4,7 @@ CC: Chang-Goo Kim<changgookim@gmail.com>
 Subject: AstroCoffee Assignment
 Dear {name},
 
-Thanks for agreeing to host astrocoffee this semester. I've assigned tentative host dates from July to September (the calendar can be found at https://changgoo.github.io/AstroCoffee/intro.html). These are the dates you are scheduled to host astrocoffee:
+Thanks for agreeing to host astrocoffee this semester. I've assigned tentative host dates from October to December (the calendar can be found at https://changgoo.github.io/AstroCoffee/intro.html). These are the dates you are scheduled to host astrocoffee:
 
 {dates}
 

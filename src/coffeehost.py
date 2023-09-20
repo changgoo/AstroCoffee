@@ -298,7 +298,7 @@ class Hosts(object):
                         dates="\n".join([d.isoformat() for d in sorted(h.hostdate)]),
                     )
                     fp.write(reminder)
-                # print(f"cat {outfname} | sendmail -t {h.email}")
+                print(f"cat {outfname} | sendmail -t -oi")
 
     def output_calendar(self, year, month, num=0, basedir=os.path.join(dirpath, "../")):
         if not os.path.isdir(os.path.join(basedir, "docs/calendar")):
@@ -329,31 +329,31 @@ class Hosts(object):
                     wd = date(year, month, d)
                     h = self.find_host(wd)
                     wstr += f"<p align='left'>{d}</p>"
-                    if calendar.day_name[wd.weekday()] in [
+                    if not calendar.day_name[wd.weekday()] in [
                         "Saturday",
                         "Sunday",
                     ]:
-                        wstr += "<p><br/><br/></p>"
-                        continue
-                    if h:
-                        if hasattr(h, "email"):
-                            if len(h.first) > 7:
-                                wstr += f"<p>{h.first}<br/> {h.last}</p>"
+                        if h:
+                            if hasattr(h, "email"):
+                                if len(h.first) > 7:
+                                    wstr += f"<p>{h.first}<br/> {h.last}</p>"
+                                else:
+                                    wstr += f"<p>{h.name}<br/><br/></p>"
                             else:
-                                wstr += f"<p>{h.name}<br/><br/></p>"
+                                wstr += color_text(h.name, "blue") + "<br/><br/>"
+                        elif wd in self.holidays:
+                            wstr += f"<p align='left'>{d}</p>"
+                            # wstr += color_text(self.holidays.get(wd), "")
+                            wstr += f"<p>{self.holidays.get(wd)}</p>"
+                            if len(self.holidays.get(wd)) < 12:
+                                wstr += "<br/><br/>"
+                            else:
+                                wstr += "<br/>"
                         else:
-                            wstr += color_text(h.name, "blue") + "<br/><br/>"
-                    elif wd in self.holidays:
-                        wstr += f"<p align='left'>{d}</p>"
-                        # wstr += color_text(self.holidays.get(wd), "")
-                        wstr += f"<p>{self.holidays.get(wd)}</p>"
-                        if len(self.holidays.get(wd)) < 12:
-                            wstr += "<br/><br/>"
-                        else:
-                            wstr += "<br/>"
+                            unassigned.append(wd.isoformat())
+                            wstr += color_text("Unassigned", "red") + "<br/><br/>"
                     else:
-                        unassigned.append(wd.isoformat())
-                        wstr += color_text("Unassigned", "red") + "<br/><br/>"
+                        wstr += "<p><br/><br/></p>"
                     wstr += "|"
 
             # wstr += "\n"
