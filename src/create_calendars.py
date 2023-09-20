@@ -15,7 +15,7 @@ for period in periods:
 tmphosts.assignment_email(period=period)
 
 # print assignments
-newhosts.show()
+tmphosts.show()
 
 # create calenders
 for i, month in enumerate(range(7, 13)):
