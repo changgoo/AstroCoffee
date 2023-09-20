@@ -328,8 +328,14 @@ class Hosts(object):
                 else:
                     wd = date(year, month, d)
                     h = self.find_host(wd)
+                    wstr += f"<p align='left'>{d}</p>"
+                    if calendar.day_name[wd.weekday()] in [
+                        "Saturday",
+                        "Sunday",
+                    ]:
+                        wstr += "<p><br/><br/></p>"
+                        continue
                     if h:
-                        wstr += f"<p align='left'>{d}</p>"
                         if hasattr(h, "email"):
                             if len(h.first) > 7:
                                 wstr += f"<p>{h.first}<br/> {h.last}</p>"
@@ -346,16 +352,8 @@ class Hosts(object):
                         else:
                             wstr += "<br/>"
                     else:
-                        wstr += f"<p align='left'>{d}</p>"
-
-                        if not calendar.day_name[wd.weekday()] in [
-                            "Saturday",
-                            "Sunday",
-                        ]:
-                            unassigned.append(wd.isoformat())
-                            wstr += color_text("Unassigned", "red") + "<br/><br/>"
-                        else:
-                            wstr += "<p><br/><br/></p>"
+                        unassigned.append(wd.isoformat())
+                        wstr += color_text("Unassigned", "red") + "<br/><br/>"
                     wstr += "|"
 
             # wstr += "\n"
