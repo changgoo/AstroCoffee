@@ -41,6 +41,18 @@ class Host(object):
             out += f" {mydate}"
         return out
 
+    def __add__(self, h2):
+        if self.name == h2.name:
+            newhost = Host(self.name, self.email)
+            r1 = list(set([r[0] for r in self.restriction + h2.restriction]))
+            r2 = list(set([r[1] for r in self.restriction + h2.restriction]))
+            hd = list(set([d for d in self.hostdate + h2.hostdate]))
+            newhost.restriction = [r for r in zip(r1, r2)]
+            newhost.hostdate = [d for d in hd]
+            return newhost
+        else:
+            raise TypeError(f"Two host names do not match {self.name} and {h2.name}")
+
     def add_restriction(self, d1, d2):
         """add restriction
 
@@ -102,6 +114,14 @@ class Hosts(object):
     def __setitem__(self, key, value):
         self.hosts[key] = value
 
+    def __add__(self, hosts2):
+        for n, h in hosts2.hosts.items():
+            if n in self.hosts:
+                self.hosts[n] += h
+            else:
+                self.hosts[n] = h
+        return self
+
     def clean(self):
         for n, h in self.hosts.items():
             h.clean_date()
@@ -110,7 +130,10 @@ class Hosts(object):
         self.holidays = holidays.US()
 
     def add_dates(self, dates):
-        self.dates += dates
+        self.dates = sorted(list(set(self.dates + dates)))
+
+    def exclude_dates(self, dates):
+        self.dates = sorted(list(set(self.dates) - set(dates)))
 
     def assign_dates(self, verbose=True):
         from itertools import cycle
@@ -121,16 +144,16 @@ class Hosts(object):
         mylist = [wd for wd in np.unique(self.dates)]
         while mylist:
             wd = mylist.pop()
-            if wd in self.holidays:
-                if verbose:
-                    print(f"{wd} is {self.holidays.get(wd)}")
-            else:
-                assigned = False
-                while not assigned:
-                    h = self.hosts[next(hiter)]
-                    assigned = h.add_date(wd)
-                    if verbose and assigned:
-                        print(f"{wd} is assigned to {h.name}")
+            #            if wd in self.holidays:
+            #                if verbose:
+            #                    print(f"{wd} is {self.holidays.get(wd)}")
+            #            else:
+            assigned = False
+            while not assigned:
+                h = self.hosts[next(hiter)]
+                assigned = h.add_date(wd)
+                if verbose and assigned:
+                    print(f"{wd} is assigned to {h.name}")
 
     def show(self):
         for n, h in self.hosts.items():
@@ -258,7 +281,7 @@ class Hosts(object):
             else:
                 print(reminder)
 
-    def assignment_email(self, basedir=os.path.join(dirpath, "../")):
+    def assignment_email(self, period="2023_4", basedir=os.path.join(dirpath, "../")):
         if not os.path.isdir(os.path.join(basedir, "emails")):
             os.mkdir(os.path.join(basedir, "emails"))
         with open(f"{basedir}/templates/assignment.txt", "r") as fp:
@@ -266,7 +289,7 @@ class Hosts(object):
             for day, h in self.hosts.items():
                 if not hasattr(h, "email"):
                     continue
-                outfname = f"{basedir}/emails/assignment_{h.last.lower()}.txt"
+                outfname = f"{basedir}/emails/assignment_{period}_{h.last.lower()}.txt"
                 with open(outfname, "w") as fp:
                     reminder = remindertxt.format(
                         fullname=h.name,
@@ -277,13 +300,13 @@ class Hosts(object):
                     fp.write(reminder)
                 # print(f"cat {outfname} | sendmail -t {h.email}")
 
-    def output_calendar(self, year, month, basedir=os.path.join(dirpath, "../")):
+    def output_calendar(self, year, month, num=0, basedir=os.path.join(dirpath, "../")):
         if not os.path.isdir(os.path.join(basedir, "docs/calendar")):
             os.mkdir(os.path.join(basedir, "docs/calendar"))
         c = calendar.Calendar(calendar.SUNDAY)
         mycal = c.monthdayscalendar(year, month)
 
-        fp = open(f"{basedir}/docs/calendar/calendar_{month:02d}.md", "w")
+        fp = open(f"{basedir}/docs/calendar/calendar_{num:02d}_{month:02d}.md", "w")
         fp.write(f"# {year}-{month}\n\n")
         wstr = "|"
         for i in range(7):
@@ -307,10 +330,13 @@ class Hosts(object):
                     h = self.find_host(wd)
                     if h:
                         wstr += f"<p align='left'>{d}</p>"
-                        if len(h.first) > 7:
-                            wstr += f"<p>{h.first}<br/> {h.last}</p>"
+                        if hasattr(h, "email"):
+                            if len(h.first) > 7:
+                                wstr += f"<p>{h.first}<br/> {h.last}</p>"
+                            else:
+                                wstr += f"<p>{h.name}<br/><br/></p>"
                         else:
-                            wstr += f"<p>{h.name}<br/><br/></p>"
+                            wstr += color_text(h.name, "blue") + "<br/><br/>"
                     elif wd in self.holidays:
                         wstr += f"<p align='left'>{d}</p>"
                         # wstr += color_text(self.holidays.get(wd), "")

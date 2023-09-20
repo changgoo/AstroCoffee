@@ -30,11 +30,23 @@ hosts["sur"].add_restriction(date(2023, 7, 1), date(2023, 9, 15))
 hosts["kempski"].add_restriction(date(2023, 10, 5), date(2023, 10, 16))
 hosts["kempski"].add_restriction(date(2023, 10, 30), date(2023, 11, 3))
 hosts["su"].add_restriction(date(2023, 11, 20), date(2023, 12, 31))
+hosts["spitkovsky"].add_restriction(date(2023, 10, 23), date(2023, 10, 27))
+hosts["spitkovsky"].add_restriction(date(2023, 12, 6), date(2023, 12, 31))
+hosts["spitkovsky"].add_restriction(date(2023, 10, 11), date(2023, 10, 13))
 
 # add dates to assign
-hosts.add_dates(get_weekdays(2023, 10, exclude=["Tuesday"]))
-hosts.add_dates(get_weekdays(2023, 11, exclude=["Tuesday"]))
-hosts.add_dates(get_weekdays(2023, 12, exclude=["Tuesday"]))
+hosts.add_dates(get_weekdays(2023, 10))
+hosts.add_dates(get_weekdays(2023, 11))
+hosts.add_dates(get_weekdays(2023, 12))
+
+# exclude dates
+Holidays = Hosts()
+Holidays.from_json(f"../data/holidays_2023.json")
+dates = []
+for k in Holidays.hosts:
+    for hd in Holidays[k].hostdate:
+        dates += [hd]
+hosts.exclude_dates(dates)
 
 # assign dates
 hosts.assign_dates()
