@@ -15,7 +15,11 @@ dirname = os.path.dirname(__file__)
 
 # initialize host list with assigned dates from json file
 newhosts = Hosts()
-newhosts.from_json(f"{dirname}/../data/hosts_2023_789.json")
+periods = ["2023_3", "2023_4"]
+for period in periods:
+    tmphosts = Hosts()
+    tmphosts.from_json(f"{dirname}/../data/hosts_{period}.json")
+    newhosts += tmphosts
 
 # send daily and weekly reminders
 newhosts.generate_reminder(today=today, send=send)
