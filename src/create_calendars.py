@@ -1,5 +1,4 @@
-from coffeehost import *
-import sys
+from coffeehost import Hosts
 import os
 
 dirname = os.path.dirname(__file__)

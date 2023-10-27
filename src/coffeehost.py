@@ -234,7 +234,7 @@ class Hosts(object):
         with open(outfname, "r") as fp:
             if send:
                 print(f"daily reminder is sent to {h.email}")
-                p = subprocess.run(["sendmail", "-t", "-oi"], stdin=fp)
+                subprocess.run(["sendmail", "-t", "-oi"], stdin=fp)
             else:
                 print(reminder)
 
@@ -277,7 +277,7 @@ class Hosts(object):
         with open(outfname, "r") as fp:
             if send:
                 print(f"weekly reminder is sent to {emails}")
-                p = subprocess.run(["sendmail", "-t", "-oi"], stdin=fp)
+                subprocess.run(["sendmail", "-t", "-oi"], stdin=fp)
             else:
                 print(reminder)
 
@@ -316,7 +316,7 @@ class Hosts(object):
 
         wstr = "|"
         for day in calendar.day_name:
-            wstr += f":-:|"
+            wstr += ":-:|"
         fp.write(wstr + "\n")
 
         unassigned = []
@@ -329,7 +329,7 @@ class Hosts(object):
                     wd = date(year, month, d)
                     h = self.find_host(wd)
                     wstr += f"<p align='left'>{d}</p>"
-                    if not calendar.day_name[wd.weekday()] in [
+                    if calendar.day_name[wd.weekday()] not in [
                         "Saturday",
                         "Sunday",
                     ]:

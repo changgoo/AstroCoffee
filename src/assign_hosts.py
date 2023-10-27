@@ -1,4 +1,4 @@
-from coffeehost import *
+from coffeehost import Hosts, Host, date, get_weekdays
 import pandas as pd
 
 # read host file from the responses
@@ -41,7 +41,7 @@ hosts.add_dates(get_weekdays(2023, 12))
 
 # exclude dates
 Holidays = Hosts()
-Holidays.from_json(f"../data/holidays_2023.json")
+Holidays.from_json("../data/holidays_2023.json")
 dates = []
 for k in Holidays.hosts:
     for hd in Holidays[k].hostdate:

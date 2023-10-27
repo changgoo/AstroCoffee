@@ -1,11 +1,11 @@
-from coffeehost import *
+from coffeehost import Hosts, date
 import sys
 import os
 
 if len(sys.argv) == 2:
     try:
         today = date.fromisoformat(sys.argv[1])
-    except:
+    except IndexError:
         print(f"{sys.argv[1]} must be in isoformat YYYY-MM-DD")
     send = False
 else:
