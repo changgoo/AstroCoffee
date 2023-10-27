@@ -5,13 +5,13 @@ alsayyad, yusra    : Mo 1/23 : We 4/19 ;
 bambic, chris (gs) : We 3/8  : Fr 4/28 ;
 burrows, adam      : Mo 3/13 ; Mo 4/17 : Mo 5/22 : no TuTh, M best
 cordova, rodrigo (gs): Mo 1/30: Mo 2/20: Th 3/9  : We 5/17 : Th 6/8  ;
-crinquand, benjamin: Th 4/13 ; Mo 6/12 ; Fr 6/30 
+crinquand, benjamin: Th 4/13 ; Mo 6/12 ; Fr 6/30
 danieli, shany     : Fr 1/27 : Fr 3/17 ; Th 6/11 ;
-daylan, tansu      : Th 1/26 : Th 3/16 : Mo 5/1  ; Mo 6/29 ; 
+daylan, tansu      : Th 1/26 : Th 3/16 : Mo 5/1  ; Mo 6/29 ;
 draine, bruce      : We 2/15 ; Tu 5/16 :
 escala, ivanna     : We 1/25 ; We 2/22 : We 3/15 : Fr 5/12 ; We 6/21 ;
 faran, tamar       : Th 4/20 : Mo 6/26
-goodman, jeremy    : Fr 1/20 ; Fr 3/10 ; We 5/10  
+goodman, jeremy    : Fr 1/20 ; Fr 3/10 ; We 5/10
 greene, jenny      : We 2/1  : Mo 3/20 ; Th 5/11 ; Tu 6/13 ;
 hahn, changhoon    : Th 2/2  : Tu 3/14 ; Mo 5/15 ; Th 6/9  ;
 halevi, goni (gs)  : Fr 2/3  : Fr 4/21 ; Jan-April only
@@ -24,12 +24,12 @@ mahlmann, jens     : Mo 2/13 : Fr 4/7  ; Fr 5/26 ; Fr 6/16 :
 modak, shaunak (gs): Th 2/16 : We 3/29 ; We 5/24 ;
 mohapatra,rajsekhar: Fr 2/17 : Th 3/30 : Tu 5/23 : Tu 6/27 ; generally ok
 prabhu, anirudh    : We 2/8  : Fr 3/31 : Th 5/25 ; generally ok
-quataert, eliot    : We 1/18 : We 3/1  : Mo 4/3  : Fr 5/19 
+quataert, eliot    : We 1/18 : We 3/1  : Mo 4/3  : Fr 5/19
 rankin, jamie      : Mo 2/6  ; We 4/5  ; Thu 5/4  ; Th 6/1  ;
 sampson, matt (gs) : Fr 2/24 ; Th 4/6  ; Tu 5/9  ; We 6/14 ;
 secunda, amy (gs)  : Fr 2/10 : Mo 2/27 ; Mo 3/6  ; Mo 3/27 ; Tu 5/30 ;
 strauss, michael   : Tu 1/17 ; Mo 4/10 ; Th 6/19 ;
-su, yubo           : Th 3/2  ; Fr 4/14 ; Fr 6/2  ; We 6/28 ; 
+su, yubo           : Th 3/2  ; Fr 4/14 ; Fr 6/2  ; We 6/28 ;
 temim, tea         : Fr 3/3  ; We 5/3  ;
 ward, charlotte    : Th 2/23 ; We 4/12 ; Mo 5/8  ;
 winn, josh         : not this semester
