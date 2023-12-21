@@ -99,6 +99,8 @@ class Host(object):
             [date.fromisoformat(d1), date.fromisoformat(d2)]
             for (d1, d2) in mydict["restriction"]
         ]
+        if "email" not in mydict:
+            mydict["email"] = ""
         self.__dict__ = mydict
 
 
@@ -306,7 +308,9 @@ class Hosts(object):
         c = calendar.Calendar(calendar.SUNDAY)
         mycal = c.monthdayscalendar(year, month)
 
-        fp = open(f"{basedir}/docs/calendar/calendar_{num:02d}_{month:02d}.md", "w")
+        fp = open(
+            f"{basedir}/docs/calendar/calendar_{num:02d}_{month:02d}_{year}.md", "w"
+        )
         fp.write(f"# {year}-{month}\n\n")
         wstr = "|"
         for i in range(7):
@@ -368,7 +372,8 @@ class Hosts(object):
             fp.write(wstr + "\n")
         fp.close()
         print(
-            f"{len(unassigned)} unassgined dates in {calendar.month_name[month]} :",
+            f"{len(unassigned)} unassgined dates in "
+            f"{calendar.month_name[month]}, {year} :",
             ",".join(unassigned),
         )
 
