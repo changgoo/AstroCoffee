@@ -19,6 +19,55 @@
         "2024-04-30"
     ]
 },{
+    "name": "Martin Luther King Jr. Day",
+    "first": "",
+    "last": "Martin Luther King Jr. Day",
+    "restriction": [],
+    "hostdate": [
+        "2024-01-15"
+    ]
+},{
+    "name": "Memorial Day",
+    "first": "",
+    "last": "Memorial Day",
+    "restriction": [],
+    "hostdate": [
+        "2024-05-27"
+    ]
+},{
+    "name": "Juneteenth",
+    "first": "",
+    "last": "JuneTeenth",
+    "restriction": [],
+    "hostdate": [
+        "2024-06-19"
+    ]
+},{
+    "name": "Independence Day",
+    "first": "",
+    "last": "Independence Day",
+    "restriction": [],
+    "hostdate": [
+        "2024-07-04"
+    ]
+},{
+    "name": "Labor Day",
+    "first": "",
+    "last": "Labor Day",
+    "restriction": [],
+    "hostdate": [
+        "2024-09-02"
+    ]
+},{
+    "name": "Thanksgiving Day",
+    "first": "",
+    "last": "Thanksgiving Day",
+    "restriction": [],
+    "hostdate": [
+        "2024-11-28",
+        "2024-11-29"
+    ]
+},{
     "name": "Spring Recess",
     "first": "",
     "last": "Spring Recess",
