@@ -43,13 +43,12 @@ class Host(object):
 
     def __add__(self, h2):
         if self.name == h2.name:
-            newhost = Host(self.name, self.email)
             r1 = list(set([r[0] for r in self.restriction + h2.restriction]))
             r2 = list(set([r[1] for r in self.restriction + h2.restriction]))
             hd = list(set([d for d in self.hostdate + h2.hostdate]))
-            newhost.restriction = [r for r in zip(r1, r2)]
-            newhost.hostdate = [d for d in hd]
-            return newhost
+            self.restriction = [r for r in zip(r1, r2)]
+            self.hostdate = [d for d in hd]
+            return self
         else:
             raise TypeError(f"Two host names do not match {self.name} and {h2.name}")
 
@@ -99,8 +98,7 @@ class Host(object):
             [date.fromisoformat(d1), date.fromisoformat(d2)]
             for (d1, d2) in mydict["restriction"]
         ]
-        if "email" not in mydict:
-            mydict["email"] = ""
+
         self.__dict__ = mydict
 
 
