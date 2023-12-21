@@ -348,7 +348,7 @@ class Hosts(object):
                                     + "<br/><br/></p>"
                                 )
                         elif wd in self.holidays:
-                            wstr += f"<p align='left'>{d}</p>"
+                            # wstr += f"<p align='left'>{d}</p>"
                             # wstr += color_text(self.holidays.get(wd), "")
                             wstr += f"<p>{self.holidays.get(wd)}</p>"
                             if len(self.holidays.get(wd)) < 12:

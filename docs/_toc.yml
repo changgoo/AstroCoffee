@@ -4,9 +4,9 @@
 format: jb-book
 root: intro
 parts:
-  - caption: 2024
+  - caption: "2024"
     chapters:
-    - glob: calendar/calendar*_2024.md
-  - caption: 2023
+    - glob: calendar/calendar*2024*
+  - caption: "2023"
     chapters:
-    - glob: calendar/calendar*_2023.md
+    - glob: calendar/calendar*2023*
