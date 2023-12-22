@@ -251,6 +251,15 @@
         "2024-01-23"
     ]
 },{
+    "name": "Christopher Bambic",
+    "first": "Christopher",
+    "last": "Bambic",
+    "email": "cbambic@princeton.edu",
+    "restriction": [],
+    "hostdate": [
+        "2024-04-17"
+    ]
+},{
     "name": "Christian Jespersen",
     "first": "Christian",
     "last": "Jespersen",
@@ -258,7 +267,6 @@
     "restriction": [],
     "hostdate": [
         "2024-05-14",
-        "2024-04-17",
         "2024-03-18",
         "2024-02-14",
         "2024-01-22"
