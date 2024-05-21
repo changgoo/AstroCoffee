@@ -31,6 +31,7 @@ class Host(object):
         name_split = name.split(" ")
         self.first = " ".join(name_split[:-1])
         self.last = name_split[-1]
+        self.fullname = self.first.lower() + self.last.lower()
         self.email = email
         self.restriction = []
         self.hostdate = []
@@ -187,7 +188,9 @@ class Hosts(object):
             for h_json in myjson:
                 h = Host()
                 h.from_dict(h_json)
-                self.hosts[h.last.lower()] = h
+                if not hasattr(h, "fullname"):
+                    h.fullname = h.first.lower() + h.last.lower()
+                self.hosts[h.fullname.lower()] = h
 
     def get_email_list(self):
         for n, v in self.hosts.items():
@@ -221,7 +224,7 @@ class Hosts(object):
     ):
         with open(f"{basedir}/templates/daily_reminder.txt", "r") as fp:
             remindertxt = fp.read()
-        outfname = f"{basedir}/emails/reminder_{h.last.lower()}_{day.isoformat()}.txt"
+        outfname = f"{basedir}/emails/reminder_{h.first[0].lower}_{h.last.lower()}_{day.isoformat()}.txt"
         with open(outfname, "w") as fp:
             reminder = remindertxt.format(
                 fullname=h.name,
@@ -289,7 +292,7 @@ class Hosts(object):
             for day, h in self.hosts.items():
                 if not hasattr(h, "email"):
                     continue
-                outfname = f"{basedir}/emails/assignment_{period}_{h.last.lower()}.txt"
+                outfname = f"{basedir}/emails/assignment_{period}_{h.first[0].lower()}_{h.last.lower()}.txt"
                 with open(outfname, "w") as fp:
                     reminder = remindertxt.format(
                         fullname=h.name,

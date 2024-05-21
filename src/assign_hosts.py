@@ -21,7 +21,7 @@ hostlist = pd.read_csv(hostfile)
 hosts = Hosts()
 for n, e in zip(hostlist["Your Name"], hostlist["Email Address"]):
     h = Host(n, e)
-    hosts[h.last.lower()] = h
+    hosts[h.fullname] = h
 
 # [Update this] add host specific restrictions
 # for wd in get_weekdays(2024, 2, exclude=["Monday", "Tuesday", "Wednesday", "Friday"]):

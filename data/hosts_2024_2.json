@@ -5,11 +5,19 @@
     "email": "rmohapatra@princeton.edu",
     "restriction": [],
     "hostdate": [
-        "2024-09-30",
-        "2024-08-26",
         "2024-08-02",
         "2024-07-11",
         "2024-06-18"
+    ]
+},{
+    "name": "Siddhartha Gupta",
+    "first": "Siddhartha",
+    "last": "Gupta",
+    "email": "gsiddhartha@princeton.edu",
+    "restriction": [],
+    "hostdate": [
+        "2024-09-30",
+        "2024-08-26"
     ]
 },{
     "name": "Philipp Kempski",
