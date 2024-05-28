@@ -1,4 +1,14 @@
 [{
+    "name": "Chang-Goo Kim",
+    "first": "Chang-Goo",
+    "last": "Kim",
+    "email": "changgoo@princeton.edu",
+    "restriction": [],
+    "hostdate": [
+        "2024-07-16",
+        "2024-06-26"
+    ]
+},{
     "name": "Rajsekhar Mohapatra",
     "first": "Rajsekhar",
     "last": "Mohapatra",
@@ -117,9 +127,9 @@
     ],
     "hostdate": [
         "2024-09-19",
-        "2024-08-20",
         "2024-07-29",
-        "2024-07-05"
+        "2024-07-05",
+        "2024-06-06"
     ]
 },{
     "name": "Jenny Greene",
