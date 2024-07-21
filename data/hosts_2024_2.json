@@ -314,7 +314,15 @@
     "restriction": [],
     "hostdate": [
         "2024-08-28",
-        "2024-08-06",
+        "2024-08-06"
+    ]
+},{
+    "name": "Akash Gupta",
+    "first": "Akash",
+    "last": "Gupta",
+    "email": "akashgpt@princeton.edu",
+    "restriction": [],
+    "hostdate": [
         "2024-07-24"
     ]
 },{
