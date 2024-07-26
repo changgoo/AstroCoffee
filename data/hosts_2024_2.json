@@ -127,6 +127,7 @@
     ],
     "hostdate": [
         "2024-09-19",
+        "2024-07-30",
         "2024-07-05",
         "2024-06-26",
         "2024-06-04",
@@ -187,7 +188,7 @@
     "name": "Anatoly Spitkovsky",
     "first": "Anatoly",
     "last": "Spitkovsky",
-    "email": "anatoly@astro.princeton.edu",
+    "email": "anatoly@princeton.edu",
     "restriction": [],
     "hostdate": [
         "2024-08-14",
