@@ -24,7 +24,7 @@ tmphosts.show()
 
 # create calenders
 j = 0
-for i, month in enumerate(range(9, 0, -1)):
+for i, month in enumerate(range(12, 0, -1)):
     newhosts.output_calendar(2024, month, num=j)
     j += 1
 for i, month in enumerate(range(12, 6, -1)):
