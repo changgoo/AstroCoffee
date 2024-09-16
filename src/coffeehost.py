@@ -161,8 +161,11 @@ class Hosts(object):
             print(h)
 
     def showlist(self):
+        hostlist = []
         for n, h in self.hosts.items():
-            print(h.name)
+            hostlist.append(h.name)
+        for n in sorted(hostlist):
+            print(n)
 
     def find_host(self, date):
         for n, h in self.hosts.items():
