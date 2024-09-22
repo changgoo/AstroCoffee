@@ -46,6 +46,7 @@ hosts["gupta_s"].add_restriction(date(2024, 12, 1), date(2024, 12, 31))
 hosts["kempski_p"].add_restriction(date(2024, 10, 1), date(2024, 10, 31))
 hosts["mohapatra_r"].add_restriction(date(2024, 10, 1), date(2024, 10, 15))
 hosts["mohapatra_r"].add_restriction(date(2024, 11, 23), date(2025, 1, 31))
+hosts["pan_y"].add_restriction(date(2024, 12, 5), date(2025, 1, 31))
 
 # [Update this] add dates to assign
 hosts.add_dates(get_weekdays(2024, 10))
@@ -56,6 +57,9 @@ hosts.add_dates(get_weekdays(2025, 1))
 # [Update this] exclude dates
 Holidays = Hosts()
 Holidays.from_json(f"{base}/../data/holidays_2024.json")
+Holidays2 = Hosts()
+Holidays2.from_json(f"{base}/../data/holidays_2025.json")
+Holidays += Holidays2
 dates = []
 for k in Holidays.hosts:
     for hd in Holidays[k].hostdate:
