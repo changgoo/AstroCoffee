@@ -28,16 +28,10 @@ Chang-Goo Kim
 
 **Mac Mini in Grand Central doesn't work. Please use your laptop.**
 
-If you are hosting "in person", please try to use the owl.
-The "owl" is in Mami Akiyama's office (Peyton 114).
-If you trouble to set up the owl, please let me know.
+If you are hosting "in person", please try to use the owl. The "owl" is in Mami Akiyama's office (Peyton 114). If you trouble to set up the owl, please let me know.
 
 After you connect:
 
-1. make yourself "host": click on "participants";
-at the bottom of the participant screen, click on "Claim Host";
-enter the HOST KEY = 652625
+1. make yourself "host": click on "participants"; at the bottom of the participant screen, click on "Claim Host"; enter the HOST KEY = 652625
 
-2. After you become host, you will see a "security" icon,
-which you can click on to get a menu,
-and then click on "allow screen sharing".
+2. After you become host, you will see a "security" icon, which you can click on to get a menu, and then click on "allow screen sharing".
