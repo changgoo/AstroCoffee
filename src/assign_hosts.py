@@ -28,6 +28,8 @@ hosts.show()
 # [Update this] add host specific restrictions
 # for wd in get_weekdays(2024, 2, exclude=["Monday", "Tuesday", "Wednesday", "Friday"]):
 # hosts["spitkovsky"].add_restriction(wd, wd)
+hosts["bambic_c"].add_restriction(date(2024, 10, 1), date(2025, 1, 31))
+hosts["secunda_a"].add_restriction(date(2024, 10, 1), date(2025, 1, 31))
 hosts["ward_c"].add_restriction(date(2024, 10, 1), date(2024, 10, 30))
 hosts["goodman_j"].add_restriction(date(2024, 10, 1), date(2025, 1, 31))
 hosts["sun_j"].add_restriction(date(2024, 10, 1), date(2025, 1, 31))
