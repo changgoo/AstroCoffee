@@ -158,7 +158,7 @@ class Hosts(object):
 
     def show(self):
         for n, h in self.hosts.items():
-            print(h)
+            print(n, h)
 
     def showlist(self):
         hostlist = []

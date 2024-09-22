@@ -6,7 +6,7 @@ import sys
 base = os.path.dirname(__file__)
 
 # [Update this] Abort if the output file exists
-outfile = f"{base}/../data/hosts_2024_2.json"
+outfile = f"{base}/../data/hosts_2024_3.json"
 if os.path.isfile(outfile):
     print(
         "Warning: the host file exists. Please make sure to remove it or make a backup before running this script."
@@ -21,35 +21,35 @@ hostlist = pd.read_csv(hostfile)
 hosts = Hosts()
 for n, e in zip(hostlist["Your Name"], hostlist["Email Address"]):
     h = Host(n, e)
-    hosts[h.fullname] = h
+    hosts[f"{h.last.lower()}_{h.first.lower()[0]}"] = h
+
+hosts.show()
 
 # [Update this] add host specific restrictions
 # for wd in get_weekdays(2024, 2, exclude=["Monday", "Tuesday", "Wednesday", "Friday"]):
 # hosts["spitkovsky"].add_restriction(wd, wd)
-hosts["kunz"].add_restriction(date(2024, 1, 1), date(2024, 8, 31))
-hosts["su"].add_restriction(date(2024, 1, 1), date(2024, 8, 31))
-hosts["greene"].add_restriction(date(2024, 1, 1), date(2024, 8, 31))
-hosts["modak"].add_restriction(date(2024, 1, 1), date(2024, 8, 31))
-hosts["sun"].add_restriction(date(2024, 8, 12), date(2024, 8, 16))
-hosts["sun"].add_restriction(date(2024, 9, 16), date(2024, 10, 4))
-hosts["ward"].add_restriction(date(2024, 6, 1), date(2024, 6, 30))
-hosts["ward"].add_restriction(date(2024, 7, 17), date(2024, 7, 21))
-hosts["ward"].add_restriction(date(2024, 8, 26), date(2024, 9, 6))
-hosts["secunda"].add_restriction(date(2024, 6, 3), date(2024, 6, 12))
-hosts["secunda"].add_restriction(date(2024, 6, 17), date(2024, 6, 25))
-hosts["secunda"].add_restriction(date(2024, 8, 21), date(2024, 12, 31))
-hosts["pan"].add_restriction(date(2024, 6, 1), date(2024, 8, 31))
-hosts["loudas"].add_restriction(date(2024, 6, 1), date(2024, 8, 10))
-hosts["strauss"].add_restriction(date(2024, 6, 6), date(2024, 6, 27))
-hosts["strauss"].add_restriction(date(2024, 7, 15), date(2024, 7, 26))
-hosts["bambic"].add_restriction(date(2024, 9, 1), date(2024, 10, 1))
+hosts["ward_c"].add_restriction(date(2024, 10, 1), date(2024, 10, 30))
+hosts["goodman_j"].add_restriction(date(2024, 10, 1), date(2025, 1, 31))
+hosts["sun_j"].add_restriction(date(2024, 10, 1), date(2025, 1, 31))
+hosts["greene_j"].add_restriction(date(2024, 10, 1), date(2025, 1, 31))
+hosts["kunz_m"].add_restriction(date(2024, 10, 1), date(2025, 1, 31))
+hosts["spitkovsky_a"].add_restriction(date(2024, 10, 16), date(2024, 10, 18))
+hosts["spitkovsky_a"].add_restriction(date(2024, 10, 24), date(2024, 10, 31))
+hosts["spitkovsky_a"].add_restriction(date(2024, 11, 1), date(2024, 11, 5))
+hosts["spitkovsky_a"].add_restriction(date(2024, 11, 11), date(2024, 11, 15))
+hosts["spitkovsky_a"].add_restriction(date(2024, 11, 21), date(2024, 11, 27))
+hosts["spitkovsky_a"].add_restriction(date(2024, 12, 10), date(2024, 12, 31))
+hosts["orusa_l"].add_restriction(date(2024, 10, 14), date(2024, 10, 21))
+hosts["gupta_s"].add_restriction(date(2024, 12, 1), date(2024, 12, 31))
+hosts["kempski_p"].add_restriction(date(2024, 10, 1), date(2024, 10, 31))
+hosts["mohapatra_r"].add_restriction(date(2024, 10, 1), date(2024, 10, 15))
+hosts["mohapatra_r"].add_restriction(date(2024, 11, 23), date(2025, 1, 31))
 
 # [Update this] add dates to assign
-hosts.add_dates(get_weekdays(2024, 6))
-hosts.add_dates(get_weekdays(2024, 7))
-hosts.add_dates(get_weekdays(2024, 8))
-hosts.add_dates(get_weekdays(2024, 9))
-# hosts.add_dates(get_weekdays(2024, 5))
+hosts.add_dates(get_weekdays(2024, 10))
+hosts.add_dates(get_weekdays(2024, 11))
+hosts.add_dates(get_weekdays(2024, 12))
+hosts.add_dates(get_weekdays(2025, 1))
 
 # [Update this] exclude dates
 Holidays = Hosts()

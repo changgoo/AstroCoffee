@@ -1,0 +1,107 @@
+[{
+    "name": "Colloquium",
+    "first": "",
+    "last": "Colloquium",
+    "restriction": [],
+    "hostdate": [
+   ]
+},{
+    "name": "Martin Luther King Jr. Day",
+    "first": "",
+    "last": "Martin Luther King Jr. Day",
+    "restriction": [],
+    "hostdate": [
+        "2025-01-20"
+    ]
+},{
+    "name": "Memorial Day",
+    "first": "",
+    "last": "Memorial Day",
+    "restriction": [],
+    "hostdate": [
+        "2025-05-26"
+    ]
+},{
+    "name": "Juneteenth",
+    "first": "",
+    "last": "JuneTeenth",
+    "restriction": [],
+    "hostdate": [
+        "2025-06-19"
+    ]
+},{
+    "name": "Independence Day",
+    "first": "",
+    "last": "Independence Day",
+    "restriction": [],
+    "hostdate": [
+        "2025-07-04"
+    ]
+},{
+    "name": "Labor Day",
+    "first": "",
+    "last": "Labor Day",
+    "restriction": [],
+    "hostdate": [
+        "2025-09-01"
+    ]
+},{
+    "name": "Thanksgiving Recess",
+    "first": "",
+    "last": "Thanksgiving Recess",
+    "restriction": [],
+    "hostdate": [
+        "2025-11-26",
+        "2025-11-27",
+        "2025-11-28"
+    ]
+},{
+    "name": "Spring Recess",
+    "first": "",
+    "last": "Spring Recess",
+    "restriction": [],
+    "hostdate": [
+        "2025-03-11",
+        "2025-03-12",
+        "2025-03-13",
+        "2025-03-14",
+        "2025-03-15"
+    ]
+},{
+    "name": "Fall Recess",
+    "first": "",
+    "last": "Fall Recess",
+    "restriction": [],
+    "hostdate": [
+        "2025-10-14",
+        "2025-10-15",
+        "2025-10-16",
+        "2025-10-17",
+        "2025-10-18"
+    ]
+},{
+    "name": "Christmas",
+    "first": "",
+    "last": "Christmas",
+    "restriction": [],
+    "hostdate": [
+        "2025-12-25",
+        "2025-12-26",
+        "2025-12-27"
+    ]
+},{
+    "name": "Winter Break",
+    "first": "",
+    "last": "Winter Break",
+    "restriction": [],
+    "hostdate": [
+        "2025-01-01",
+        "2025-01-02",
+        "2025-01-03",
+        "2025-01-06",
+        "2025-01-07",
+        "2025-01-08",
+        "2025-01-09",
+        "2025-01-10"
+    ]
+}]
