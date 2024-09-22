@@ -295,6 +295,8 @@ class Hosts(object):
             for day, h in self.hosts.items():
                 if not hasattr(h, "email"):
                     continue
+                if len(h.hostdate) == 0:
+                    continue
                 outfname = f"{basedir}/emails/assignment_{period}_{h.first[0].lower()}_{h.last.lower()}.txt"
                 with open(outfname, "w") as fp:
                     reminder = remindertxt.format(
