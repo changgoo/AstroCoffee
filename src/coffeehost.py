@@ -162,10 +162,12 @@ class Hosts(object):
 
     def showlist(self):
         hostlist = []
+        hostemail = dict()
         for n, h in self.hosts.items():
             hostlist.append(h.name)
+            hostemail[h.name] = h.email
         for n in sorted(hostlist):
-            print(n)
+            print(f"{n},{hostemail[n]}")
 
     def find_host(self, date):
         for n, h in self.hosts.items():
