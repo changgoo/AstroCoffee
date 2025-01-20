@@ -1,4 +1,13 @@
 [{
+    "name": "Chang-Goo Kim",
+    "first": "Chang-Goo",
+    "last": "Kim",
+    "email": "changgoo@princeton.edu",
+    "restriction": [],
+    "hostdate": [
+        "2025-02-20"
+    ]
+},{
     "name": "Akash Gupta",
     "first": "Akash",
     "last": "Gupta",
@@ -201,8 +210,7 @@
     "restriction": [],
     "hostdate": [
         "2025-05-09",
-        "2025-04-04",
-        "2025-02-20"
+        "2025-04-04"
     ]
 },{
     "name": "Sarah Thiele",
