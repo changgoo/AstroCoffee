@@ -4,9 +4,7 @@ Bcc: Chang-Goo Kim<changgoo@princeton.edu>, Chang-Goo Kim<changgookim@gmail.com>
 Subject: AstroCoffee Assignment
 Dear {name},
 
-Sorry for sending another email regarding coffee assignment. I found some flaws in the first assignemnt. Please ignore the first one.
-
-Thanks for agreeing to host astrocoffee this semester. I've assigned tentative host dates from October 2024 to January 2025 (the calendar can be found at https://changgoo.github.io/AstroCoffee/intro.html). These are the dates you are scheduled to host astrocoffee:
+Thanks for agreeing to host astrocoffee this semester. I've assigned tentative host dates from February 2025 to May 2025 (the calendar can be found at https://changgoo.github.io/AstroCoffee/intro.html). These are the dates you are scheduled to host astrocoffee:
 
 {dates}
 
