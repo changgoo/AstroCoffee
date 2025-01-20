@@ -1,0 +1,279 @@
+[{
+    "name": "Akash Gupta",
+    "first": "Akash",
+    "last": "Gupta",
+    "fullname": "akashgupta",
+    "email": "akashgpt@princeton.edu",
+    "restriction": [],
+    "hostdate": [
+        "2025-05-30",
+        "2025-04-30",
+        "2025-03-24",
+        "2025-02-10"
+    ]
+},{
+    "name": "Andrew Saydjari",
+    "first": "Andrew",
+    "last": "Saydjari",
+    "fullname": "andrewsaydjari",
+    "email": "andrew.saydjari@princeton.edu",
+    "restriction": [],
+    "hostdate": [
+        "2025-05-29",
+        "2025-04-28",
+        "2025-03-21",
+        "2025-02-07"
+    ]
+},{
+    "name": "Ankan Sur",
+    "first": "Ankan",
+    "last": "Sur",
+    "fullname": "ankansur",
+    "email": "ankan.sur@princeton.edu",
+    "restriction": [],
+    "hostdate": [
+        "2025-05-28",
+        "2025-04-25",
+        "2025-03-20",
+        "2025-02-06"
+    ]
+},{
+    "name": "Charlotte Ward",
+    "first": "Charlotte",
+    "last": "Ward",
+    "fullname": "charlotteward",
+    "email": "charlotte.ward@princeton.edu",
+    "restriction": [
+        [
+            "2025-02-01",
+            "2025-03-27"
+        ],
+        [
+            "2025-04-22",
+            "2025-05-04"
+        ],
+        [
+            "2025-05-21",
+            "2025-05-31"
+        ]
+    ],
+    "hostdate": []
+},{
+    "name": "Christian Jespersen",
+    "first": "Christian",
+    "last": "Jespersen",
+    "fullname": "christianjespersen",
+    "email": "cj1223@princeton.edu",
+    "restriction": [],
+    "hostdate": [
+        "2025-05-27",
+        "2025-04-24",
+        "2025-03-19",
+        "2025-02-05"
+    ]
+},{
+    "name": "David Setton",
+    "first": "David",
+    "last": "Setton",
+    "fullname": "davidsetton",
+    "email": "davidsetton@princeton.edu",
+    "restriction": [],
+    "hostdate": [
+        "2025-05-23",
+        "2025-04-23",
+        "2025-03-17",
+        "2025-02-03"
+    ]
+},{
+    "name": "Dongzi Li",
+    "first": "Dongzi",
+    "last": "Li",
+    "fullname": "dongzili",
+    "email": "dongzili@princeton.edu",
+    "restriction": [],
+    "hostdate": [
+        "2025-05-22",
+        "2025-04-21",
+        "2025-03-10"
+    ]
+},{
+    "name": "Eliot Quataert",
+    "first": "Eliot",
+    "last": "Quataert",
+    "fullname": "eliotquataert",
+    "email": "quataert@princeton.edu",
+    "restriction": [],
+    "hostdate": [
+        "2025-05-21",
+        "2025-04-18",
+        "2025-03-07"
+    ]
+},{
+    "name": "Jeremy Goodman",
+    "first": "Jeremy",
+    "last": "Goodman",
+    "fullname": "jeremygoodman",
+    "email": "jeremy@astro.princeton.edu",
+    "restriction": [],
+    "hostdate": [
+        "2025-05-20",
+        "2025-04-17",
+        "2025-03-06"
+    ]
+},{
+    "name": "Jiayi Sun",
+    "first": "Jiayi",
+    "last": "Sun",
+    "fullname": "jiayisun",
+    "email": "jiayi.sun@princeton.edu",
+    "restriction": [],
+    "hostdate": [
+        "2025-05-19",
+        "2025-04-16",
+        "2025-03-05"
+    ]
+},{
+    "name": "Luca Orusa",
+    "first": "Luca",
+    "last": "Orusa",
+    "fullname": "lucaorusa",
+    "email": "luca.orusa@princeton.edu",
+    "restriction": [],
+    "hostdate": [
+        "2025-05-16",
+        "2025-04-14",
+        "2025-03-03"
+    ]
+},{
+    "name": "Michael Strauss",
+    "first": "Michael",
+    "last": "Strauss",
+    "fullname": "michaelstrauss",
+    "email": "strauss@astro.princeton.edu",
+    "restriction": [],
+    "hostdate": [
+        "2025-05-15",
+        "2025-04-11",
+        "2025-02-28"
+    ]
+},{
+    "name": "Minghao Guo",
+    "first": "Minghao",
+    "last": "Guo",
+    "fullname": "minghaoguo",
+    "email": "mhguo@princeton.edu",
+    "restriction": [],
+    "hostdate": [
+        "2025-05-14",
+        "2025-04-10",
+        "2025-02-27"
+    ]
+},{
+    "name": "Nick Loudas",
+    "first": "Nick",
+    "last": "Loudas",
+    "fullname": "nickloudas",
+    "email": "loudas@princeton.edu",
+    "restriction": [],
+    "hostdate": [
+        "2025-05-13",
+        "2025-04-09",
+        "2025-02-26"
+    ]
+},{
+    "name": "Rajsekhar Mohapatra",
+    "first": "Rajsekhar",
+    "last": "Mohapatra",
+    "fullname": "rajsekharmohapatra",
+    "email": "rmohapatra@princeton.edu",
+    "restriction": [],
+    "hostdate": [
+        "2025-05-12",
+        "2025-04-07",
+        "2025-02-24"
+    ]
+},{
+    "name": "Sanghyuk Moon",
+    "first": "Sanghyuk",
+    "last": "Moon",
+    "fullname": "sanghyukmoon",
+    "email": "sanghyuk.moon@princeton.edu",
+    "restriction": [],
+    "hostdate": [
+        "2025-05-09",
+        "2025-04-04",
+        "2025-02-21"
+    ]
+},{
+    "name": "Sarah Thiele",
+    "first": "Sarah",
+    "last": "Thiele",
+    "fullname": "sarahthiele",
+    "email": "sarah.thiele@princeton.edu",
+    "restriction": [],
+    "hostdate": [
+        "2025-05-08",
+        "2025-04-03",
+        "2025-02-20"
+    ]
+},{
+    "name": "Shaunak Modak",
+    "first": "Shaunak",
+    "last": "Modak",
+    "fullname": "shaunakmodak",
+    "email": "shaunakmodak@princeton.edu",
+    "restriction": [],
+    "hostdate": [
+        "2025-05-07",
+        "2025-04-02",
+        "2025-02-19"
+    ]
+},{
+    "name": "Siddhartha Gupta",
+    "first": "Siddhartha",
+    "last": "Gupta",
+    "fullname": "siddharthagupta",
+    "email": "gsiddhartha@princeton.edu",
+    "restriction": [],
+    "hostdate": [
+        "2025-05-06",
+        "2025-03-31",
+        "2025-02-17"
+    ]
+},{
+    "name": "Yixian Chen",
+    "first": "Yixian",
+    "last": "Chen",
+    "fullname": "yixianchen",
+    "email": "yc9993@princeton.edu",
+    "restriction": [],
+    "hostdate": [
+        "2025-05-05",
+        "2025-03-28",
+        "2025-02-14"
+    ]
+},{
+    "name": "Yubo Su",
+    "first": "Yubo",
+    "last": "Su",
+    "fullname": "yubosu",
+    "email": "ys5846@princeton.edu",
+    "restriction": [],
+    "hostdate": [
+        "2025-05-02",
+        "2025-03-27",
+        "2025-02-13"
+    ]
+},{
+    "name": "Linhao Ma",
+    "first": "Linhao",
+    "last": "Ma",
+    "fullname": "linhaoma",
+    "email": "linhaoma@princeton.edu",
+    "restriction": [],
+    "hostdate": [
+        "2025-05-01",
+        "2025-03-26",
+        "2025-02-12"
+    ]
+}]
