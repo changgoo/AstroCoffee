@@ -281,4 +281,14 @@
         "2025-03-26",
         "2025-02-12"
     ]
+},{
+    "name": "Matt Sampson",
+    "first": "Matt",
+    "last": "Sampson",
+    "fullname": "mattsampson",
+    "email": "ms0821@princeton.edu",
+    "restriction": [],
+    "hostdate": [
+        "2025-02-20"
+    ]
 }]
