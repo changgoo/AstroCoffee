@@ -35,12 +35,11 @@ hosts["saydjari_a"].add_restriction(date(2025, 6, 16), date(2025, 6, 18))
 hosts["saydjari_a"].add_restriction(date(2025, 6, 23), date(2025, 6, 27))
 hosts["saydjari_a"].add_restriction(date(2025, 7, 10), date(2025, 7, 25))
 hosts["jespersen_c"].add_restriction(date(2025, 5, 1), date(2025, 6, 27))
-hosts["jespersen_c"].add_restriction(date(2025, 5, 1), date(2025, 6, 27))
-for wd in get_weekdays(2025, 7, exclude=["Friday"]):
+for wd in get_weekdays(2025, 7, exclude=["Monday", "Tuesday", "Wednesday", "Thursday"]):
     hosts["jespersen_c"].add_restriction(wd, wd)
-for wd in get_weekdays(2025, 8, exclude=["Friday"]):
+for wd in get_weekdays(2025, 8, exclude=["Monday", "Tuesday", "Wednesday", "Thursday"]):
     hosts["jespersen_c"].add_restriction(wd, wd)
-for wd in get_weekdays(2025, 9, exclude=["Friday"]):
+for wd in get_weekdays(2025, 9, exclude=["Monday", "Tuesday", "Wednesday", "Thursday"]):
     hosts["jespersen_c"].add_restriction(wd, wd)
 hosts["goodman_j"].add_restriction(date(2025, 5, 30), date(2025, 6, 9))
 hosts["strauss_m"].add_restriction(date(2025, 5, 30), date(2025, 6, 8))
