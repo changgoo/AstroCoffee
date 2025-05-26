@@ -310,4 +310,16 @@
         "2025-06-12",
         "2025-06-03"
     ]
+},{
+    "name": "Nick Loudas",
+    "first": "Nick",
+    "last": "Loudas",
+    "fullname": "nickloudas",
+    "email": "loudas@princeton.edu",
+    "restriction": [],
+    "hostdate": [
+        "2025-09-10",
+        "2025-07-21",
+        "2025-06-09"
+    ]
 }]
