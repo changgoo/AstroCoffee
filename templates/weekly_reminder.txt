@@ -14,7 +14,7 @@ Wed {day3}: {host3}
 Thu {day4}: {host4}
 Fri {day5}: {host5}
 
-As usual, I will send an email reminder the evening before with hostkey info, etc.
+As usual, I will send an email reminder the evening before with the zoom link.
 
 Thanks for hosting astrocoffee!
 
