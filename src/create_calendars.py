@@ -27,9 +27,9 @@ j = 0
 for i, month in enumerate(range(9, 0, -1)):
     newhosts.output_calendar(2025, month, num=j)
     j += 1
+# old calendar with fixed number
 for i, month in enumerate(range(12, 0, -1)):
-    newhosts.output_calendar(2024, month, num=j)
-    j += 1
+    newhosts.output_calendar(2024, month, num=0)
+
 for i, month in enumerate(range(12, 6, -1)):
-    newhosts.output_calendar(2023, month, num=j)
-    j += 1
+    newhosts.output_calendar(2023, month, num=0)
