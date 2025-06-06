@@ -341,4 +341,14 @@
     "hostdate": [
         "2025-08-28"
     ]
+},{
+    "name": "Zack Gelles",
+    "first": "Zack",
+    "last": "Gelles",
+    "fullname": "zackgelles",
+    "email": "zgelles@princeton.edu",
+    "restriction": [],
+    "hostdate": [
+        "2025-07-31"
+    ]
 }]
