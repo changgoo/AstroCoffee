@@ -121,4 +121,12 @@
         "2025-01-09",
         "2025-01-10"
     ]
+},{
+    "name": "USRP final presentation",
+    "first": "",
+    "last": "usrp",
+    "restriction": [],
+    "hostdate": [
+        "2025-07-31"
+    ]
 }]
