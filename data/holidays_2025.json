@@ -129,4 +129,13 @@
     "hostdate": [
         "2025-07-31"
     ]
+},{
+    "name": "GC funiture installation",
+    "first": "",
+    "last": "gc",
+    "restriction": [],
+    "hostdate": [
+        "2025-08-13",
+        "2025-08-14"
+    ]
 }]
