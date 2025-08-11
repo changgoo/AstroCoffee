@@ -257,7 +257,6 @@
     ],
     "hostdate": [
         "2025-09-05",
-        "2025-08-21",
         "2025-08-04",
         "2025-07-18",
         "2025-07-08",
@@ -346,5 +345,15 @@
     "hostdate": [
         "2025-09-02",
         "2025-08-08"
+    ]
+},{
+    "name": "Matt Coleman",
+    "first": "Matt",
+    "last": "Coleman",
+    "fullname": "mattcoleman",
+    "email": "msbc@princeton.edu",
+    "restriction": [],
+    "hostdate": [
+        "2025-08-21"
     ]
 }]
