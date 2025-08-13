@@ -164,7 +164,7 @@
     ],
     "hostdate": [
         "2025-09-24",
-        "2025-08-26",
+        "2025-08-22",
         "2025-07-23",
         "2025-07-03"
     ]
@@ -210,7 +210,7 @@
     "hostdate": [
         "2025-09-22",
         "2025-09-08",
-        "2025-08-22",
+        "2025-08-26",
         "2025-08-11",
         "2025-07-10",
         "2025-06-26",
@@ -355,5 +355,15 @@
     "restriction": [],
     "hostdate": [
         "2025-08-21"
+    ]
+},{
+    "name": "Grace Telford",
+    "first": "Grace",
+    "last": "Telford",
+    "fullname": "gracetelford",
+    "email": "grace.telford@princeton.edu",
+    "restriction": [],
+    "hostdate": [
+        "2025-08-18"
     ]
 }]
