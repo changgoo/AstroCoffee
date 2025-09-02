@@ -14,8 +14,6 @@ The zoom url for astrocoffee is
 
 https://princeton.zoom.us/j/94585414825
 
-Please note that this is a new zoom room. Unfortunately, it was not possible to set up HOSTKEY as before, but everyone should be able to share the screen.
-
 If there are "local" papers with students or postdocs, please try to give the local authors an opportunity to present, as time permits.
 
 
