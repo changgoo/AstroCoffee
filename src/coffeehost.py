@@ -262,7 +262,7 @@ class Hosts(object):
             if h and hasattr(h, "email"):
                 emails.append(f"{h.name}<{h.email}>")
                 names.append(f"{h.name}")
-                hosts[f"host{i+1}"] = h.first
+                hosts[f"host{i+1}"] = h.name
             else:
                 try:
                     hosts[f"host{i+1}"] = f"no astrocoffee ({h.name})"
