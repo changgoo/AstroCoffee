@@ -4,6 +4,9 @@
 format: jb-book
 root: intro
 parts:
+  - caption: "2026"
+    chapters:
+    - glob: calendar/calendar*2026*
   - caption: "2025"
     chapters:
     - glob: calendar/calendar*2025*
