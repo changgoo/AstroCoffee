@@ -27,6 +27,7 @@ for n, e in zip(hostlist["Your Name"], hostlist["Email Address"]):
 hosts.show()
 
 # [Update this] add host specific restrictions
+hosts["modak_s"].add_restriction(date(2025, 7, 28), date(2025, 8, 11))
 
 # [Update this] add dates to assign
 hosts.add_dates(get_weekdays(2025, 10))
