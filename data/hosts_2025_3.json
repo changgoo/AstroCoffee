@@ -44,8 +44,7 @@
     "restriction": [],
     "hostdate": [
         "2026-01-27",
-        "2025-12-01",
-        "2025-10-30"
+        "2025-12-01"
     ]
 },{
     "name": "Jeremy Goodman",
@@ -224,6 +223,7 @@
     "email": "mhguo@princeton.edu",
     "restriction": [],
     "hostdate": [
-        "2025-12-08"
+        "2025-12-08",
+        "2025-10-30"
     ]
 }]
