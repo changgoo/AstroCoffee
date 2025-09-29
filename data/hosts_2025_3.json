@@ -129,8 +129,7 @@
     "restriction": [],
     "hostdate": [
         "2026-01-15",
-        "2025-12-12",
-        "2025-11-13"
+        "2025-12-12"
     ]
 },{
     "name": "Caleb Lammers",
@@ -223,5 +222,15 @@
         "2025-12-08",
         "2025-11-17",
         "2025-10-22"
+    ]
+},{
+    "name": "Siddhartha Gupta",
+    "first": "Siddhartha",
+    "last": "Gupta",
+    "fullname": "siddharthagupta",
+    "email": "gsiddhartha@princeton.edu",
+    "restriction": [],
+    "hostdate": [
+        "2025-10-08"
     ]
 }]
