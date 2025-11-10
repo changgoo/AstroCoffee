@@ -2,4 +2,4 @@ holidays
 pandas
 numpy
 black
-jupyter-book
+jupyter-book=1.0.4
