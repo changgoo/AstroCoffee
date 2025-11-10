@@ -6,13 +6,13 @@ root: intro
 parts:
   - caption: "2026"
     chapters:
-    - glob: calendar/calendar*2026*
+      - glob: calendar/calendar*2026*
   - caption: "2025"
     chapters:
-    - glob: calendar/calendar*2025*
-  # - caption: "2024"
-  #   chapters:
-    - file: 2024.md
-  # - caption: "2023"
-  #   chapters:
-    - file: 2023.md
+      - glob: calendar/calendar*2025*
+  - caption: "2024"
+    chapters:
+      - glob: calendar/calendar*2024*
+  - caption: "2023"
+    chapters:
+      - glob: calendar/calendar*2023*
