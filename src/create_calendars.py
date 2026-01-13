@@ -12,7 +12,17 @@ for year in ["2023", "2024", "2025"]:
     tmphosts.from_json(f"{dirname}/../data/holidays_{year}.json")
     newhosts += tmphosts
 
-periods = ["2023_3", "2023_4", "2024_1", "2024_2", "2024_3", "2025_1", "2025_2", "2025_3"]
+periods = [
+    "2023_3",
+    "2023_4",
+    "2024_1",
+    "2024_2",
+    "2024_3",
+    "2025_1",
+    "2025_2",
+    "2025_3",
+]
+
 for period in periods:
     tmphosts = Hosts()
     tmphosts.from_json(f"{dirname}/../data/hosts_{period}.json")
@@ -24,7 +34,7 @@ tmphosts.show()
 
 # create calenders
 j = 0
-for i, month in enumerate(range(1, 0, -1)):
+for i, month in enumerate(range(5, 0, -1)):
     newhosts.output_calendar(2026, month, num=j)
     j += 1
 for i, month in enumerate(range(12, 0, -1)):
