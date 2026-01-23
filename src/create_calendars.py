@@ -21,6 +21,7 @@ periods = [
     "2025_1",
     "2025_2",
     "2025_3",
+    "2026_1"
 ]
 
 for period in periods:
@@ -37,12 +38,10 @@ j = 0
 for i, month in enumerate(range(5, 0, -1)):
     newhosts.output_calendar(2026, month, num=j)
     j += 1
-for i, month in enumerate(range(12, 0, -1)):
-    newhosts.output_calendar(2025, month, num=j)
-    j += 1
 # old calendar with fixed number
 for i, month in enumerate(range(12, 0, -1)):
+    newhosts.output_calendar(2025, month, num=99)
+for i, month in enumerate(range(12, 0, -1)):
     newhosts.output_calendar(2024, month, num=99)
-
 for i, month in enumerate(range(12, 6, -1)):
     newhosts.output_calendar(2023, month, num=99)

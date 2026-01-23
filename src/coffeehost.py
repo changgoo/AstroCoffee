@@ -39,7 +39,7 @@ class Host(object):
     def __repr__(self):
         out = f"{self.first} {self.last} [{len(self.hostdate)}]:"
         for mydate in sorted(self.hostdate):
-            out += f" {mydate}"
+            out += f" {mydate}({mydate.weekday()})"
         return out
 
     def __add__(self, h2):
@@ -154,7 +154,7 @@ class Hosts(object):
                 h = self.hosts[next(hiter)]
                 assigned = h.add_date(wd)
                 if verbose and assigned:
-                    print(f"{wd} is assigned to {h.name}")
+                    print(f"{wd}[{wd.weekday()}] is assigned to {h.name}")
 
     def show(self):
         for n, h in self.hosts.items():
@@ -170,9 +170,17 @@ class Hosts(object):
             print(f"{n},{hostemail[n]}")
 
     def find_host(self, date):
+        found_host = []
         for n, h in self.hosts.items():
             if date in h.hostdate:
-                return h
+                found_host.append(h)
+        if len(found_host) > 1:
+            print(f"{len(found_host)} are found on {date}:")
+            for h in found_host:
+                print(h)
+        elif len(found_host) == 1:
+            return found_host[0]
+
         return False
 
     def to_json(self, fname, overwrite=True):

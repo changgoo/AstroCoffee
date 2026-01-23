@@ -4,7 +4,7 @@ Bcc: Chang-Goo Kim<changgoo@princeton.edu>, Chang-Goo Kim<changgookim@gmail.com>
 Subject: AstroCoffee Hosting Schedule
 Dear {name},
 
-Thank you for volunteering to host astrocoffee this semester. I've put together a tentative hosting schedule for October 2025 through January 2026 (the calendar can be found at https://changgoo.github.io/AstroCoffee/intro.html). Here are the dates you're currently assigned:
+Thank you for volunteering to host astrocoffee this semester. I've put together a tentative hosting schedule for February 2026 through May 2026 (the calendar can be found at https://changgoo.github.io/AstroCoffee/intro.html). Here are the dates you're currently assigned:
 
 {dates}
 
