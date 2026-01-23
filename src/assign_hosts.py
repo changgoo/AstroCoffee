@@ -1,4 +1,4 @@
-from coffeehost import Hosts, Host, date, get_weekdays
+from coffeehost import Hosts, Host, get_weekdays
 import pandas as pd
 import os
 import sys
