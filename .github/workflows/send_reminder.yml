@@ -8,7 +8,7 @@ on:
   workflow_dispatch:
     inputs:
       date:
-        description: "Date to use (YYYY-MM-DD). If set, runs in dry-run mode (no emails sent)."
+        description: "Date to use (YYYY-MM-DD). If set, emails are sent to changgoo@princeton.edu only instead of actual recipients."
         required: false
         default: ""
 
