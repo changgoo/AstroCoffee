@@ -1,5 +1,12 @@
 # Development Log
 
+## 2026-03-13 — Daily reminder template update
+
+Updated `templates/daily_reminder.txt`:
+- Replaced old astrocoffee program link with the new page (https://changgoo.github.io/astro-coffee-page/), keeping the old link as a reference
+- Added feedback request for the new page
+- Rewrote "Usual Information" section with separate Technical and Scientific bullet-point sections covering Owl setup, Zoom/Apple TV screen sharing, and how to run the coffee discussion
+
 ## 2026-03-13 — GitHub Actions + SendGrid email reminders
 
 Replaced local cronjob with a GitHub Actions scheduled workflow for sending AstroCoffee reminder emails via SendGrid.
