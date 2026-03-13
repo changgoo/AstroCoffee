@@ -1,4 +1,5 @@
 from coffeehost import Hosts
+import json
 import os
 
 dirname = os.path.dirname(__file__)
@@ -45,3 +46,12 @@ for i, month in enumerate(range(12, 0, -1)):
     newhosts.output_calendar(2024, month, num=99)
 for i, month in enumerate(range(12, 6, -1)):
     newhosts.output_calendar(2023, month, num=99)
+
+# write calendar/periods.json manifest for the custom calendar page
+holiday_years = ["2023", "2024", "2025", "2026"]
+manifest = {"periods": periods, "holiday_years": holiday_years}
+calendar_dir = os.path.join(dirname, "../calendar")
+os.makedirs(calendar_dir, exist_ok=True)
+with open(os.path.join(calendar_dir, "periods.json"), "w") as fp:
+    json.dump(manifest, fp, indent=2)
+print("Written calendar/periods.json")
