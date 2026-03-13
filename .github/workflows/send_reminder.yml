@@ -29,4 +29,9 @@ jobs:
       - name: Send reminder emails
         env:
           SENDGRID_API_KEY: ${{ secrets.SEND_GRID_API_KEY }}
-        run: python src/send_reminder.py
+        run: |
+          if [ -n "${{ inputs.date }}" ]; then
+            python src/send_reminder.py "${{ inputs.date }}"
+          else
+            python src/send_reminder.py
+          fi

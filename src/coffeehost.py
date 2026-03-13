@@ -9,10 +9,14 @@ from email import message_from_string
 dirpath = os.path.dirname(__file__)
 
 
-def _send_email_sendgrid(content: str) -> None:
+DRY_RUN_EMAIL = "changgoo@princeton.edu"
+
+
+def _send_email_sendgrid(content: str, dry_run: bool = False) -> None:
     """Send an email via SendGrid, parsing To/From/Cc/Bcc/Subject from content headers.
 
     Requires the ``SENDGRID_API_KEY`` environment variable to be set.
+    When ``dry_run`` is True, all recipients are replaced with ``DRY_RUN_EMAIL``.
     """
     from sendgrid import SendGridAPIClient
     from sendgrid.helpers.mail import Mail
@@ -27,15 +31,19 @@ def _send_email_sendgrid(content: str) -> None:
         plain_text_content=body,
     )
 
-    if msg["To"]:
-        for addr in msg["To"].split(","):
-            message.add_to(addr.strip())
-    if msg["Cc"]:
-        for addr in msg["Cc"].split(","):
-            message.add_cc(addr.strip())
-    if msg["Bcc"]:
-        for addr in msg["Bcc"].split(","):
-            message.add_bcc(addr.strip())
+    if dry_run:
+        print(f"[dry-run] redirecting all recipients to {DRY_RUN_EMAIL}")
+        message.add_to(DRY_RUN_EMAIL)
+    else:
+        if msg["To"]:
+            for addr in msg["To"].split(","):
+                message.add_to(addr.strip())
+        if msg["Cc"]:
+            for addr in msg["Cc"].split(","):
+                message.add_cc(addr.strip())
+        if msg["Bcc"]:
+            for addr in msg["Bcc"].split(","):
+                message.add_bcc(addr.strip())
 
     sg = SendGridAPIClient(api_key)
     sg.send(message)
@@ -246,8 +254,22 @@ class Hosts(object):
         self,
         today=date.today(),
         send=False,
+        dry_run=False,
         basedir=os.path.join(dirpath, "../"),
     ):
+        """Generate and optionally send daily and weekly reminder emails.
+
+        Parameters
+        ----------
+        today : date
+            Reference date (default: today).
+        send : bool
+            If True, send emails; otherwise print to stdout.
+        dry_run : bool
+            If True, send emails to ``DRY_RUN_EMAIL`` only (for testing).
+        basedir : str
+            Base directory for email output files.
+        """
         if not os.path.isdir(os.path.join(basedir, "emails")):
             os.mkdir(os.path.join(basedir, "emails"))
 
@@ -256,17 +278,17 @@ class Hosts(object):
         # find tomorrow host
         h = self.find_host(tomorrow)
         if h and hasattr(h, "email"):
-            self.write_daily_reminder(h, tomorrow, send=send)
+            self.write_daily_reminder(h, tomorrow, send=send, dry_run=dry_run)
 
         # find all for next week
         # today = today - timedelta(days=1)
         if calendar.day_name[today.weekday()] == "Saturday":
             dlist = [today + timedelta(days=i) for i in range(2, 7)]
             hlist = [self.find_host(d) for d in dlist]
-            self.write_weekly_reminder(hlist, dlist, send=send)
+            self.write_weekly_reminder(hlist, dlist, send=send, dry_run=dry_run)
 
     def write_daily_reminder(
-        self, h, day, send=False, basedir=os.path.join(dirpath, "../")
+        self, h, day, send=False, dry_run=False, basedir=os.path.join(dirpath, "../")
     ):
         with open(f"{basedir}/templates/daily_reminder.txt", "r") as fp:
             remindertxt = fp.read()
@@ -283,7 +305,7 @@ class Hosts(object):
         if send:
             print(f"daily reminder is sent to {h.email}")
             if os.environ.get("SENDGRID_API_KEY"):
-                _send_email_sendgrid(reminder)
+                _send_email_sendgrid(reminder, dry_run=dry_run)
             else:
                 with open(outfname, "r") as fp:
                     subprocess.run(["sendmail", "-t", "-oi"], stdin=fp)
@@ -291,7 +313,12 @@ class Hosts(object):
             print(reminder)
 
     def write_weekly_reminder(
-        self, hlist, dlist, send=False, basedir=os.path.join(dirpath, "../")
+        self,
+        hlist,
+        dlist,
+        send=False,
+        dry_run=False,
+        basedir=os.path.join(dirpath, "../"),
     ):
         with open(f"{basedir}/templates/weekly_reminder.txt", "r") as fp:
             remindertxt = fp.read()
@@ -329,7 +356,7 @@ class Hosts(object):
         if send:
             print(f"weekly reminder is sent to {emails}")
             if os.environ.get("SENDGRID_API_KEY"):
-                _send_email_sendgrid(reminder)
+                _send_email_sendgrid(reminder, dry_run=dry_run)
             else:
                 with open(outfname, "r") as fp:
                     subprocess.run(["sendmail", "-t", "-oi"], stdin=fp)

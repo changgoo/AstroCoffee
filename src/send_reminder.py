@@ -5,12 +5,15 @@ import os
 if len(sys.argv) == 2:
     try:
         today = date.fromisoformat(sys.argv[1])
-    except IndexError:
+    except ValueError:
         print(f"{sys.argv[1]} must be in isoformat YYYY-MM-DD")
-    send = False
+        sys.exit(1)
+    send = True
+    dry_run = True
 else:
     today = date.today()
     send = True
+    dry_run = False
 dirname = os.path.dirname(__file__)
 
 # initialize host list with assigned dates from json file
@@ -22,4 +25,4 @@ for period in periods:
     newhosts += tmphosts
 
 # send daily and weekly reminders
-newhosts.generate_reminder(today=today, send=send)
+newhosts.generate_reminder(today=today, send=send, dry_run=dry_run)
