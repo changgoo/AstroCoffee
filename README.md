@@ -1,6 +1,7 @@
 # Princeton Astro Coffee Host Management Scripts
 
-* Astro Coffee Program: https://coffee.astro.princeton.edu/astroph-coffee/papers/today
+* Astro Coffee Program (new): https://changgoo.github.io/astro-coffee-page/
+* Astro Coffee Program (old): https://coffee.astro.princeton.edu/astroph-coffee/papers/today
 * Astro Coffee Calendar: https://changgoo.github.io/AstroCoffee/intro.html
 
 # Create New Assignments
@@ -31,16 +32,13 @@ python create_calendars.py
 Finally, get responses and update host assignments. The calendar will be updated automatically.
 
 
-# Cron job setup
+# Automated Reminders
 
-I created a bash script at $HOME to call the `send_reminder.py` script.
+Reminder emails are sent automatically via a GitHub Actions scheduled workflow (`.github/workflows/send_reminder.yml`), which runs daily at 02:00 UTC (~9 PM ET) using SendGrid.
 
-```sh
-#!/bin/bash
-python ~/Sources/AstroCoffee/src/send_reminder.py
-```
+- Daily reminders are sent the evening before a host's scheduled date.
+- Weekly reminders are sent every Saturday with the coming week's schedule.
 
-Then, the following cron job is added by `crontabl -e`
-```
-00 21 * * * /bin/bash -l ./send_reminder.sh
-```
+To trigger manually (e.g. for testing), use the `workflow_dispatch` trigger in the GitHub Actions UI. Providing a date runs in dry-run mode — emails are sent to `changgoo@princeton.edu` only instead of actual recipients.
+
+**Setup:** add a `SEND_GRID_API_KEY` secret in the repo settings with a valid SendGrid API key.

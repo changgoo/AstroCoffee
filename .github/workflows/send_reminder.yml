@@ -2,9 +2,9 @@ name: send-reminder
 
 on:
   schedule:
-    # Run daily at 23:00 UTC (~6-7 PM ET).
+    # Run daily at 02:00 UTC (~9 PM ET).
     # Daily reminders go to tomorrow's host; weekly reminders fire on Saturday.
-    - cron: "0 23 * * *"
+    - cron: "0 2 * * *"
   workflow_dispatch:
     inputs:
       date:
