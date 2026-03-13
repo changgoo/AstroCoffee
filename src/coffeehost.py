@@ -19,7 +19,7 @@ def _send_email_sendgrid(content: str, dry_run: bool = False) -> None:
     When ``dry_run`` is True, all recipients are replaced with ``DRY_RUN_EMAIL``.
     """
     from sendgrid import SendGridAPIClient
-    from sendgrid.helpers.mail import Mail
+    from sendgrid.helpers.mail import ClickTracking, Mail, TrackingSettings
 
     api_key = os.environ["SENDGRID_API_KEY"]
     msg = message_from_string(content)
@@ -44,6 +44,10 @@ def _send_email_sendgrid(content: str, dry_run: bool = False) -> None:
         if msg["Bcc"]:
             for addr in msg["Bcc"].split(","):
                 message.add_bcc(addr.strip())
+
+    tracking = TrackingSettings()
+    tracking.click_tracking = ClickTracking(enable=False, enable_text=False)
+    message.tracking_settings = tracking
 
     sg = SendGridAPIClient(api_key)
     sg.send(message)
