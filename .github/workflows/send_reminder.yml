@@ -1,0 +1,27 @@
+name: send-reminder
+
+on:
+  schedule:
+    # Run daily at 23:00 UTC (~6-7 PM ET).
+    # Daily reminders go to tomorrow's host; weekly reminders fire on Saturday.
+    - cron: "0 23 * * *"
+  workflow_dispatch:
+
+jobs:
+  send-reminder:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+
+      - name: Set up Python 3.11
+        uses: actions/setup-python@v6
+        with:
+          python-version: 3.11
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Send reminder emails
+        env:
+          SENDGRID_API_KEY: ${{ secrets.SEND_GRID_API_KEY }}
+        run: python src/send_reminder.py

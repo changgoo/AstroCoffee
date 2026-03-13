@@ -3,3 +3,4 @@ pandas
 numpy
 black
 jupyter-book==1.0.4
+sendgrid

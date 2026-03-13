@@ -4,8 +4,41 @@ import json
 import os
 import holidays
 import subprocess
+from email import message_from_string
 
 dirpath = os.path.dirname(__file__)
+
+
+def _send_email_sendgrid(content: str) -> None:
+    """Send an email via SendGrid, parsing To/From/Cc/Bcc/Subject from content headers.
+
+    Requires the ``SENDGRID_API_KEY`` environment variable to be set.
+    """
+    from sendgrid import SendGridAPIClient
+    from sendgrid.helpers.mail import Mail
+
+    api_key = os.environ["SENDGRID_API_KEY"]
+    msg = message_from_string(content)
+    body = msg.get_payload()
+
+    message = Mail(
+        from_email=msg["From"],
+        subject=msg["Subject"],
+        plain_text_content=body,
+    )
+
+    if msg["To"]:
+        for addr in msg["To"].split(","):
+            message.add_to(addr.strip())
+    if msg["Cc"]:
+        for addr in msg["Cc"].split(","):
+            message.add_cc(addr.strip())
+    if msg["Bcc"]:
+        for addr in msg["Bcc"].split(","):
+            message.add_bcc(addr.strip())
+
+    sg = SendGridAPIClient(api_key)
+    sg.send(message)
 
 
 def get_weekdays(year, month, exclude=[]):
@@ -247,12 +280,15 @@ class Hosts(object):
                 date=day.isoformat(),
             )
             fp.write(reminder)
-        with open(outfname, "r") as fp:
-            if send:
-                print(f"daily reminder is sent to {h.email}")
-                subprocess.run(["sendmail", "-t", "-oi"], stdin=fp)
+        if send:
+            print(f"daily reminder is sent to {h.email}")
+            if os.environ.get("SENDGRID_API_KEY"):
+                _send_email_sendgrid(reminder)
             else:
-                print(reminder)
+                with open(outfname, "r") as fp:
+                    subprocess.run(["sendmail", "-t", "-oi"], stdin=fp)
+        else:
+            print(reminder)
 
     def write_weekly_reminder(
         self, hlist, dlist, send=False, basedir=os.path.join(dirpath, "../")
@@ -266,16 +302,16 @@ class Hosts(object):
         days = dict()
         hosts = dict()
         for i, (d, h) in enumerate(zip(dlist, hlist)):
-            days[f"day{i+1}"] = d.isoformat()
+            days[f"day{i + 1}"] = d.isoformat()
             if h and hasattr(h, "email"):
                 emails.append(f"{h.name}<{h.email}>")
                 names.append(f"{h.name}")
-                hosts[f"host{i+1}"] = h.name
+                hosts[f"host{i + 1}"] = h.name
             else:
                 try:
-                    hosts[f"host{i+1}"] = f"no astrocoffee ({h.name})"
+                    hosts[f"host{i + 1}"] = f"no astrocoffee ({h.name})"
                 except AttributeError:
-                    hosts[f"host{i+1}"] = f"no astrocoffee ({self.holidays.get(d)})"
+                    hosts[f"host{i + 1}"] = f"no astrocoffee ({self.holidays.get(d)})"
 
         emails = set(emails)
         names = set(names)
@@ -290,12 +326,15 @@ class Hosts(object):
         with open(outfname, "w") as fp:
             reminder = remindertxt.format(**kwargs)
             fp.write(reminder)
-        with open(outfname, "r") as fp:
-            if send:
-                print(f"weekly reminder is sent to {emails}")
-                subprocess.run(["sendmail", "-t", "-oi"], stdin=fp)
+        if send:
+            print(f"weekly reminder is sent to {emails}")
+            if os.environ.get("SENDGRID_API_KEY"):
+                _send_email_sendgrid(reminder)
             else:
-                print(reminder)
+                with open(outfname, "r") as fp:
+                    subprocess.run(["sendmail", "-t", "-oi"], stdin=fp)
+        else:
+            print(reminder)
 
     def assignment_email(self, period="2023_4", basedir=os.path.join(dirpath, "../")):
         if not os.path.isdir(os.path.join(basedir, "emails")):
