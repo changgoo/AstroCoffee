@@ -6,9 +6,13 @@ Dear {name},
 
 The usual gentle reminder (unnecessary, but ritual) that you are scheduled to host astrocoffee 10:30 {day} {date}. Coffee should be available in Grand Central.
 
-As usual, the astrocoffee program is at
+The astrocoffee program is now at the new page:
 
-https://coffee.astro.princeton.edu/astroph-coffee/papers/today
+https://changgoo.github.io/astro-coffee-page/
+
+(The old one is still running at https://coffee.astro.princeton.edu/astroph-coffee/papers/today)
+
+Please try the new page and let me know if you have any feedback!
 
 The zoom url for astrocoffee is
 
@@ -25,6 +29,16 @@ Chang-Goo Kim
 ===========================================================
             The Usual Information
 
-**Mac Mini in Grand Central doesn't work. Please use your laptop.**
+** Technical **
 
-If you are hosting "in person", please try to use the owl. The "owl" is in Mami Akiyama's office (Peyton 114). If you have trouble setting up the owl, please let me know.
+- Bring your laptop
+- Pick up the Owl from Mami Akiyama's office (Peyton 114, right next to Michael's)
+- On Zoom, set the Owl as the video, speaker, and mic
+- Share your screen via Apple TV in Grand Central and via Zoom screen share
+
+** Scientific **
+
+- You set the agenda; typically two or three papers are discussed
+- If there are other local papers on the list, feel free to reach out to those authors to see if they are available
+- When opening coffee, ask if there are any announcements or visitors
+- Ask if anyone has a paper they'd like to discuss; if the agenda is already full, just say so and get started
