@@ -6,6 +6,11 @@ on:
     # Daily reminders go to tomorrow's host; weekly reminders fire on Saturday.
     - cron: "0 23 * * *"
   workflow_dispatch:
+    inputs:
+      date:
+        description: "Date to use (YYYY-MM-DD). If set, runs in dry-run mode (no emails sent)."
+        required: false
+        default: ""
 
 jobs:
   send-reminder:
