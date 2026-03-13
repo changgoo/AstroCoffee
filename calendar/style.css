@@ -206,6 +206,16 @@ main {
   display: inline-block;
 }
 
+.cal-unassigned {
+  font-size: 11px;
+  color: #dc3545;
+  font-style: italic;
+}
+
+.cal-past .cal-unassigned {
+  color: var(--past-text);
+}
+
 .cal-past .cal-holiday {
   color: var(--past-text);
   background: transparent;

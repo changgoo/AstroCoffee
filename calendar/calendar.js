@@ -109,6 +109,11 @@ function renderCalendar() {
         hol.className = "cal-holiday";
         hol.textContent = holidayMap[dateStr];
         cell.appendChild(hol);
+      } else {
+        const unassigned = document.createElement("span");
+        unassigned.className = "cal-unassigned";
+        unassigned.textContent = "Unassigned";
+        cell.appendChild(unassigned);
       }
     }
 
