@@ -4,7 +4,7 @@ import os
 
 if len(sys.argv) == 2:
     try:
-        today = date.fromisoformat(sys.argv[1])
+        today = date.fromisoformat(sys.argv[1].strip())
     except ValueError:
         print(f"{sys.argv[1]} must be in isoformat YYYY-MM-DD")
         sys.exit(1)
