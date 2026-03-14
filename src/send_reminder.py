@@ -1,6 +1,10 @@
 from coffeehost import Hosts, date
+from datetime import datetime
+from zoneinfo import ZoneInfo
 import sys
 import os
+
+ET = ZoneInfo("America/New_York")
 
 if len(sys.argv) == 2:
     try:
@@ -11,7 +15,7 @@ if len(sys.argv) == 2:
     send = True
     dry_run = True
 else:
-    today = date.today()
+    today = datetime.now(ET).date()
     send = True
     dry_run = False
 dirname = os.path.dirname(__file__)
