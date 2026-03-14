@@ -12,12 +12,12 @@ async function init() {
 
     const fetches = [
       ...manifest.periods.map((p) =>
-        fetch(`../data/hosts_${p}.json`)
+        fetch(`data/hosts_${p}.json`)
           .then((r) => r.json())
           .then((data) => ({ kind: "hosts", data }))
       ),
       ...manifest.holiday_years.map((y) =>
-        fetch(`../data/holidays_${y}.json`)
+        fetch(`data/holidays_${y}.json`)
           .then((r) => r.json())
           .then((data) => ({ kind: "holidays", data }))
       ),
