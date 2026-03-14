@@ -18,10 +18,11 @@ python send_reminder.py      # Send daily/weekly reminder emails (also run via G
 python print_hosts.py        # Display current host list
 ```
 
-Build and deploy the calendar:
+Build and preview the calendar locally:
 ```sh
-python ./src/create_calendars.py
-jupyter-book build docs/
+make serve   # builds _site/ and serves at http://localhost:8080
+make build   # builds _site/ without serving
+make clean   # removes _site/
 ```
 
 Lint:
@@ -42,7 +43,7 @@ All core logic lives in `src/coffeehost.py` with two main classes:
 - `holidays_YYYY.json` — closures/colloquia stored as pseudo-hosts with blocked dates
 - `Coffee-Hosts-YYYY-Q.csv` — raw CSV input from Google Form responses
 
-**Calendar output**: `create_calendars.py` reads all period JSON files, merges them into one `Hosts` object, and calls `output_calendar()` per month to write markdown into `docs/calendar/`. GitHub Actions (`book.yml`) then builds and deploys the Jupyter Book.
+**Calendar output**: `create_calendars.py` reads all period JSON files and writes `calendar/periods.json` (a manifest of periods and holiday years). The static calendar in `calendar/` (`index.html`, `calendar.js`, `style.css`) reads this manifest and fetches `data/*.json` directly at runtime. GitHub Actions (`deploy-calendar.yml`) assembles `calendar/` + `data/` into `_site/` and deploys to GitHub Pages. The old Jupyter Book calendar is preserved in the `archive` branch.
 
 **Email flow**: Templates in `templates/` are filled via `.format(**kwargs)` and written to `emails/` (gitignored). Emails are sent via SendGrid (GitHub Actions sets `SENDGRID_API_KEY`); falls back to `sendmail` if the env var is absent.
 
@@ -82,7 +83,7 @@ Review the printed assignment list. If the distribution looks uneven or someone 
 ```sh
 python create_calendars.py
 ```
-This writes calendar markdown to `docs/calendar/` and prints `sendmail` commands for each host's assignment email.
+This updates `calendar/periods.json` and prints assignment email commands for each host.
 
 ### Step 7 — Send assignment emails
 Run the printed `cat ... | sendmail -t -oi` commands for each host, or pipe them together:
@@ -94,7 +95,7 @@ for f in ../emails/assignment_YYYY_Q_*.txt; do cat "$f" | sendmail -t -oi; done
 Add the new period to the `periods` list so the GitHub Actions workflow picks up the new assignments when sending daily/weekly reminders.
 
 ### Step 9 — Deploy the calendar
-Push to `main`. GitHub Actions (`book.yml`) will automatically rebuild and deploy the Jupyter Book to GitHub Pages.
+Push to `main`. GitHub Actions (`deploy-calendar.yml`) will automatically assemble and deploy the static calendar to GitHub Pages.
 
 ## Python Coding Standards
 
