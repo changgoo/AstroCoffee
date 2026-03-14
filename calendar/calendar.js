@@ -149,4 +149,9 @@ document.getElementById("today-btn").onclick = () => {
   renderCalendar();
 };
 
+document.addEventListener("keydown", (e) => {
+  if (e.key === "ArrowLeft") document.getElementById("prev-month").click();
+  else if (e.key === "ArrowRight") document.getElementById("next-month").click();
+});
+
 init();
