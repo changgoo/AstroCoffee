@@ -6,3 +6,4 @@ _build
 emails/*.txt
 .DS_Store
 page/
+_site/
