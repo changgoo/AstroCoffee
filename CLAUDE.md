@@ -46,6 +46,8 @@ All core logic lives in `src/coffeehost.py` with two main classes:
 
 **Email flow**: Templates in `templates/` are filled via `.format(**kwargs)` and written to `emails/` (gitignored). Emails are sent via SendGrid (GitHub Actions sets `SENDGRID_API_KEY`); falls back to `sendmail` if the env var is absent.
 
+**Reminder timing**: The cron fires at 02:00 UTC (~9 PM ET the previous day). `send_reminder.py` uses `datetime.now(ZoneInfo("America/New_York")).date()` so that "today" and "tomorrow" are always ET dates. Without this, the daily reminder would target the wrong host and the weekly reminder would fire on ET Friday instead of Saturday.
+
 ## New Assignment Workflow
 
 ### Step 1 — Collect responses
