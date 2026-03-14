@@ -50,7 +50,12 @@ def _send_email_sendgrid(content: str, dry_run: bool = False) -> None:
     message.tracking_settings = tracking
 
     sg = SendGridAPIClient(api_key)
-    sg.send(message)
+    try:
+        sg.send(message)
+    except Exception as e:
+        body = getattr(e, "body", None)
+        print(f"SendGrid error body: {body}")
+        raise
 
 
 def get_weekdays(year, month, exclude=[]):
