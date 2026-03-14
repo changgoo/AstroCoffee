@@ -1,0 +1,23 @@
+To: {list_email}
+From: Chang-Goo Kim<changgoo@princeton.edu>
+Bcc: Chang-Goo Kim<changgoo@princeton.edu>, Chang-Goo Kim<changgookim@gmail.com>
+Subject: AstroCoffee Host Sign-Up for {start_month}–{end_month} {year}
+Hi all,
+
+TL;DR: Please reply "yes" by {deadline} if you can help host AstroCoffee anytime between {start_month} {year} and {end_month} {year}.
+
+I'm in charge of organizing our daily AstroCoffee gatherings, which happen every weekday (except Colloquium Tuesdays) at 10:30 a.m. in Peyton Hall's Grand Central and on Zoom for those joining remotely.
+
+AstroCoffee is a great way to start your day: a taste of astro, a sip of coffee or tea, and a chance to chat with colleagues. If you'd like more details, you can check out:
+https://web.astro.princeton.edu/events/astro-coffeeprinceton
+
+To keep AstroCoffee running smoothly, we rely on volunteer hosts. Hosts simply set up the Owl in GC and, if possible, suggest a few papers to get the conversation started. (Don't worry, coffee is brewed by the staff!)
+
+I'm updating the host list for {start_month} through {end_month}, so if you'd like to be part of this daily tradition, just reply "yes" to this email. If you have any scheduling restrictions, let me know so I can work around them. The more hosts we have, the lighter the load for everyone. So even if you have limited availability, please consider signing up.
+
+If you're already on the host list for the previous semester, you don't need to reply. You'll stay on the list automatically (let me know if you have restrictions).
+
+Thanks so much for helping keep this community tradition going!
+
+Best,
+Chang-Goo
