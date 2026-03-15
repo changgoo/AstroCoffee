@@ -1,0 +1,146 @@
+[{
+    "name": "Colloquium",
+    "first": "",
+    "last": "Colloquium",
+    "restriction": [],
+    "hostdate": [
+        "2024-01-30",
+        "2024-02-06",
+        "2024-02-13",
+        "2024-02-20",
+        "2024-02-27",
+        "2024-03-05",
+        "2024-03-19",
+        "2024-03-26",
+        "2024-04-02",
+        "2024-04-09",
+        "2024-04-16",
+        "2024-04-23",
+        "2024-04-30",
+        "2024-09-10",
+        "2024-09-17",
+        "2024-09-24",
+        "2024-10-01",
+        "2024-10-08",
+        "2024-10-22",
+        "2024-10-29",
+        "2024-11-05",
+        "2024-11-12",
+        "2024-11-19",
+        "2024-11-26",
+        "2024-12-03"
+    ]
+},{
+    "name": "Martin Luther King Jr. Day",
+    "first": "",
+    "last": "Martin Luther King Jr. Day",
+    "restriction": [],
+    "hostdate": [
+        "2024-01-15"
+    ]
+},{
+    "name": "Memorial Day",
+    "first": "",
+    "last": "Memorial Day",
+    "restriction": [],
+    "hostdate": [
+        "2024-05-27"
+    ]
+},{
+    "name": "Juneteenth",
+    "first": "",
+    "last": "JuneTeenth",
+    "restriction": [],
+    "hostdate": [
+        "2024-06-19"
+    ]
+},{
+    "name": "Independence Day",
+    "first": "",
+    "last": "Independence Day",
+    "restriction": [],
+    "hostdate": [
+        "2024-07-04"
+    ]
+},{
+    "name": "Labor Day",
+    "first": "",
+    "last": "Labor Day",
+    "restriction": [],
+    "hostdate": [
+        "2024-09-02"
+    ]
+},{
+    "name": "Thanksgiving Recess",
+    "first": "",
+    "last": "Thanksgiving Recess",
+    "restriction": [],
+    "hostdate": [
+        "2024-11-27",
+        "2024-11-28",
+        "2024-11-29"
+    ]
+},{
+    "name": "Spring Recess",
+    "first": "",
+    "last": "Spring Recess",
+    "restriction": [],
+    "hostdate": [
+        "2024-03-11",
+        "2024-03-12",
+        "2024-03-13",
+        "2024-03-14",
+        "2024-03-15"
+    ]
+},{
+    "name": "Fall Recess",
+    "first": "",
+    "last": "Fall Recess",
+    "restriction": [],
+    "hostdate": [
+        "2024-10-14",
+        "2024-10-15",
+        "2024-10-16",
+        "2024-10-17",
+        "2024-10-18"
+    ]
+},{
+    "name": "Christmas",
+    "first": "",
+    "last": "Christmas",
+    "restriction": [],
+    "hostdate": [
+        "2024-12-23",
+        "2024-12-24",
+        "2024-12-25",
+        "2024-12-26",
+        "2024-12-27"
+    ]
+},{
+    "name": "Winter Break",
+    "first": "",
+    "last": "Winter Break",
+    "restriction": [],
+    "hostdate": [
+        "2024-12-30",
+        "2024-12-31",
+        "2024-01-01",
+        "2024-01-02",
+        "2024-01-03",
+        "2024-01-04",
+        "2024-01-05",
+        "2024-01-08",
+        "2024-01-09",
+        "2024-01-10",
+        "2024-01-11",
+        "2024-01-12"
+    ]
+},{
+    "name": "Total Solar Eclipse",
+    "first": "",
+    "last": "Total Solar Eclipse",
+    "restriction": [],
+    "hostdate": [
+        "2024-04-08"
+    ]
+}]
