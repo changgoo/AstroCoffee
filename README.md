@@ -2,7 +2,7 @@
 
 * Astro Coffee Program (new): https://changgoo.github.io/astro-coffee-page/
 * Astro Coffee Program (old): https://coffee.astro.princeton.edu/astroph-coffee/papers/today
-* Astro Coffee Calendar: https://changgoo.github.io/AstroCoffee/intro.html
+* Astro Coffee Calendar: https://changgoo.github.io/AstroCoffee/
 
 # Create New Assignments
 
