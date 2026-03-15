@@ -1,6 +1,5 @@
-name: deploy-book
+name: deploy-calendar
 
-# Only run this when the master branch changes
 on:
   push:
     branches:
@@ -10,33 +9,35 @@ on:
       - main
   workflow_dispatch:
 
-# This job installs dependencies, build the book, and pushes it to `gh-pages`
 jobs:
-  deploy-book:
+  deploy-calendar:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v6
 
-    # Install dependencies
     - name: Set up Python 3.11
       uses: actions/setup-python@v6
       with:
-        python-version: 3.11
+        python-version: "3.11"
 
     - name: Install dependencies
+      run: pip install -r requirements.txt
+
+    - name: Generate periods.json
+      run: python ./src/create_calendars.py
+
+    - name: Assemble site
       run: |
-        pip install -r requirements.txt
+        mkdir -p _site/data
+        cp calendar/index.html _site/
+        cp calendar/calendar.js _site/
+        cp calendar/style.css _site/
+        cp calendar/periods.json _site/
+        cp data/hosts_*.json _site/data/
+        cp data/holidays_*.json _site/data/
 
-
-    # Build the book
-    - name: Build the book
-      run: |
-        python ./src/create_calendars.py
-        PYTHONPATH=./ jupyter-book build docs/
-
-    # Push the book's HTML to github-pages
-    - name: GitHub Pages action
+    - name: Deploy to GitHub Pages
       uses: peaceiris/actions-gh-pages@v4
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
-        publish_dir: ./docs/_build/html
+        publish_dir: ./_site
