@@ -28,6 +28,17 @@ Replaced the Jupyter Book-based calendar with a lightweight static HTML/JS page 
 
 Added `src/send_solicitation.py` and `templates/solicitation.txt` for sending the semester host sign-up email. Run with no args to send, any arg to dry-run (prints to stdout). Update the `# [Update these]` values in `main()` each semester before sending.
 
+## 2026-03-16 — Fix GitHub Actions delay rollover for scheduled reminders
+
+GitHub Actions delays pushed the 02:00 UTC schedule to ~04:30 UTC, past midnight EDT, causing `datetime.now(ET)` to return the next day.
+
+**Fix:** Changed cron to `0 0 * * *` (00:00 UTC). For scheduled runs, the workflow pins `REMINDER_DATE` to the ET date *at* 00:00 UTC using `et_date_at_midnight_utc()`, so variable delays never cause a date rollover. Added 4 new tests in `TestScheduledDatePinning`.
+
+**Files changed:**
+- `src/send_reminder.py` — added `et_date_at_midnight_utc()` helper; reads `REMINDER_DATE` env var for scheduled runs
+- `.github/workflows/send_reminder.yml` — cron changed to `0 0 * * *`; scheduled runs compute and pass `REMINDER_DATE`
+- `tests/test_reminder.py` — `TestScheduledDatePinning` with 4 tests
+
 ## 2026-03-14 — Fix reminder timezone and add unit tests
 
 - `src/send_reminder.py` — use `datetime.now(ZoneInfo("America/New_York")).date()` instead of `date.today()` (UTC) so daily/weekly reminders use ET date. Previously the cron at 02:00 UTC was one day ahead of ET, causing the daily reminder to target the wrong host and the weekly reminder to fire on ET Friday instead of Saturday.

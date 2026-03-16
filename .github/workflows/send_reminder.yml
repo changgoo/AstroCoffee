@@ -35,7 +35,12 @@ jobs:
           if [ -n "${{ inputs.date }}" ]; then
             python src/send_reminder.py "${{ inputs.date }}"
           elif [ "${{ github.event_name }}" = "schedule" ]; then
-            REMINDER_DATE=$(TZ=America/New_York date -d "$(date -u +%Y-%m-%d)T00:00:00Z" +%Y-%m-%d)
+            REMINDER_DATE=$(python -c "
+from datetime import date
+import sys; sys.path.insert(0, 'src')
+from send_reminder import et_date_at_midnight_utc
+print(et_date_at_midnight_utc(date.today()))
+")
             REMINDER_DATE=$REMINDER_DATE python src/send_reminder.py
           else
             python src/send_reminder.py

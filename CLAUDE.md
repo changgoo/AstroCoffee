@@ -47,7 +47,7 @@ All core logic lives in `src/coffeehost.py` with two main classes:
 
 **Email flow**: Templates in `templates/` are filled via `.format(**kwargs)` and written to `emails/` (gitignored). Emails are sent via SendGrid (GitHub Actions sets `SENDGRID_API_KEY`); falls back to `sendmail` if the env var is absent.
 
-**Reminder timing**: The cron fires at 02:00 UTC (~9 PM ET the previous day). `send_reminder.py` uses `datetime.now(ZoneInfo("America/New_York")).date()` so that "today" and "tomorrow" are always ET dates. Without this, the daily reminder would target the wrong host and the weekly reminder would fire on ET Friday instead of Saturday.
+**Reminder timing**: The cron fires at 00:00 UTC (~8 PM ET). Because GitHub Actions can delay scheduled jobs by up to ~3 hours (past midnight ET), the workflow computes `REMINDER_DATE` by pinning to the ET date *at* 00:00 UTC via `et_date_at_midnight_utc()` in `send_reminder.py`. The script reads `REMINDER_DATE` for scheduled runs; passing a date CLI arg triggers dry-run mode (sends to self only).
 
 ## New Assignment Workflow
 

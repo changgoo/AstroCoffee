@@ -1,10 +1,23 @@
 from coffeehost import Hosts, date
-from datetime import datetime
+from datetime import datetime, timezone
 from zoneinfo import ZoneInfo
 import sys
 import os
 
 ET = ZoneInfo("America/New_York")
+
+
+def et_date_at_midnight_utc(utc_date: date) -> date:
+    """Return the ET date corresponding to midnight UTC on *utc_date*.
+
+    Used by scheduled runs to pin the reminder date to the intended
+    schedule time, so GitHub Actions delays never cause a date rollover.
+    """
+    midnight_utc = datetime(
+        utc_date.year, utc_date.month, utc_date.day, 0, 0, tzinfo=timezone.utc
+    )
+    return midnight_utc.astimezone(ET).date()
+
 
 if len(sys.argv) == 2:
     # Date argument → dry-run mode (emails sent to self only, for testing)

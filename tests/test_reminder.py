@@ -11,6 +11,7 @@ import pytest
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), "../src"))
 
 from coffeehost import Host, Hosts
+from send_reminder import et_date_at_midnight_utc
 
 ET = ZoneInfo("America/New_York")
 
@@ -185,3 +186,43 @@ class TestETTimezone:
         with patch.object(hosts_utc, "write_daily_reminder") as mock_utc:
             hosts_utc.generate_reminder(today=utc_today, send=False, basedir=str(tmp_path))
         mock_utc.assert_called_once()  # would miss ET Tuesday host if UTC used
+
+
+# ---------------------------------------------------------------------------
+# Scheduled run date pinning (delay-proof)
+# ---------------------------------------------------------------------------
+
+
+class TestScheduledDatePinning:
+    """et_date_at_midnight_utc pins the reminder to the ET date at 00:00 UTC,
+    so GitHub Actions delays never cause a midnight ET rollover."""
+
+    def test_midnight_utc_monday_gives_sunday_et(self):
+        """00:00 UTC Monday = 8 PM ET Sunday (EDT) — Sunday is the pinned date."""
+        utc_date = date(2026, 3, 16)  # Monday UTC
+        assert et_date_at_midnight_utc(utc_date) == date(2026, 3, 15)  # Sunday ET
+
+    def test_pinned_date_matches_delayed_run(self):
+        """Even if the job runs at 04:30 UTC (delayed), the pin gives Sunday ET."""
+        # Delayed run: datetime.now(ET) would return Monday (wrong)
+        delayed_utc_dt = datetime(2026, 3, 16, 4, 30, tzinfo=timezone.utc)
+        actual_et_date = delayed_utc_dt.astimezone(ET).date()
+        assert actual_et_date == date(2026, 3, 16)  # Monday — wrong without pinning
+
+        # Pinned date: always Sunday regardless of delay
+        pinned = et_date_at_midnight_utc(date(2026, 3, 16))
+        assert pinned == date(2026, 3, 15)  # Sunday — correct
+
+    def test_midnight_utc_sunday_gives_saturday_et(self):
+        """00:00 UTC Sunday = 8 PM ET Saturday — weekly reminder fires correctly."""
+        utc_date = date(2026, 3, 15)  # Sunday UTC
+        et = et_date_at_midnight_utc(utc_date)
+        assert et == date(2026, 3, 14)  # Saturday ET
+        assert et.weekday() == 5  # Saturday → weekly reminder fires
+
+    def test_midnight_utc_saturday_gives_friday_et(self):
+        """00:00 UTC Saturday = 8 PM ET Friday — weekly reminder must NOT fire."""
+        utc_date = date(2026, 3, 14)  # Saturday UTC
+        et = et_date_at_midnight_utc(utc_date)
+        assert et == date(2026, 3, 13)  # Friday ET
+        assert et.weekday() == 4  # Friday → no weekly reminder
