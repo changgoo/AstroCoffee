@@ -1,20 +1,24 @@
-name: Tests
+name: CI
 
 on: [push, pull_request]
 
 jobs:
-  test:
+  lint-and-test:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
 
       - name: Set up Python 3.11
-        uses: actions/setup-python@v5
+        uses: actions/setup-python@v6
         with:
           python-version: "3.11"
+          cache: "pip"
 
       - name: Install dependencies
-        run: pip install -r requirements.txt pytest
+        run: pip install -r requirements.txt pytest ruff
+
+      - name: Lint with ruff
+        run: ruff check .
 
       - name: Run tests
         run: pytest tests/ -v
