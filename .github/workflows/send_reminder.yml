@@ -2,9 +2,11 @@ name: send-reminder
 
 on:
   schedule:
-    # Run daily at 02:00 UTC (~9 PM ET).
-    # Daily reminders go to tomorrow's host; weekly reminders fire on Saturday.
-    - cron: "0 2 * * *"
+    # Run daily at 00:00 UTC (8 PM EDT / 7 PM EST).
+    # GitHub Actions may delay up to ~2.5h, so actual run is ~10:30 PM ET —
+    # safely before midnight. Daily reminders go to tomorrow's host;
+    # weekly reminders fire on Saturday (ET).
+    - cron: "0 0 * * *"
   workflow_dispatch:
     inputs:
       date:
