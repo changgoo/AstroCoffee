@@ -1,3 +1,5 @@
+"""Generate calendar/periods.json manifest and print assignment emails."""
+
 from coffeehost import Hosts
 import json
 import os
@@ -34,20 +36,7 @@ tmphosts.assignment_email(period=period)
 # print assignments
 tmphosts.show()
 
-# create calenders
-j = 0
-for i, month in enumerate(range(5, 0, -1)):
-    newhosts.output_calendar(2026, month, num=j)
-    j += 1
-# old calendar with fixed number
-for i, month in enumerate(range(12, 0, -1)):
-    newhosts.output_calendar(2025, month, num=99)
-for i, month in enumerate(range(12, 0, -1)):
-    newhosts.output_calendar(2024, month, num=99)
-for i, month in enumerate(range(12, 6, -1)):
-    newhosts.output_calendar(2023, month, num=99)
-
-# write calendar/periods.json manifest for the custom calendar page
+# write calendar/periods.json manifest for the static calendar page
 holiday_years = ["2023", "2024", "2025", "2026"]
 manifest = {"periods": periods, "holiday_years": holiday_years}
 calendar_dir = os.path.join(dirname, "../calendar")
