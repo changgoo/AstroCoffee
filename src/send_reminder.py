@@ -7,6 +7,7 @@ import os
 ET = ZoneInfo("America/New_York")
 
 if len(sys.argv) == 2:
+    # Date argument → dry-run mode (emails sent to self only, for testing)
     try:
         today = date.fromisoformat(sys.argv[1].strip())
     except ValueError:
@@ -14,6 +15,11 @@ if len(sys.argv) == 2:
         sys.exit(1)
     send = True
     dry_run = True
+elif os.environ.get("REMINDER_DATE"):
+    # Pinned date from workflow (scheduled runs) → real send, no dry-run
+    today = date.fromisoformat(os.environ["REMINDER_DATE"])
+    send = True
+    dry_run = False
 else:
     today = datetime.now(ET).date()
     send = True
