@@ -1,7 +1,5 @@
-To: {email}
+To: {emails}
 From: Chang-Goo Kim<changgoo@princeton.edu>
-Cc: {emails}
-Bcc: Chang-Goo Kim<changgookim@gmail.com>
 Subject: AstroCoffee Next Week
 
 Dear {names},

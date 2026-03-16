@@ -1,6 +1,5 @@
 To: {list_email}
 From: Chang-Goo Kim<changgoo@princeton.edu>
-Bcc: Chang-Goo Kim<changgoo@princeton.edu>, Chang-Goo Kim<changgookim@gmail.com>
 Subject: AstroCoffee Host Sign-Up for {start_month}–{end_month} {year}
 Hi all,
 
