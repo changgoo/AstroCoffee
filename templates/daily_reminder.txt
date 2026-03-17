@@ -1,5 +1,6 @@
 To: {fullname}<{email}>
 From: Chang-Goo Kim<changgoo@princeton.edu>
+Cc: changgoo@princeton.edu
 Subject: AstroCoffee Reminder
 Dear {name},
 
