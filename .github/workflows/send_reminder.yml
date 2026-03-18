@@ -35,9 +35,7 @@ jobs:
         run: |
           if [ -n "${{ inputs.date }}" ]; then
             python src/send_reminder.py "${{ inputs.date }}"
-          elif [ "${{ github.event_name }}" = "schedule" ]; then
+          else
             REMINDER_DATE=$(python src/get_reminder_date.py)
             REMINDER_DATE=$REMINDER_DATE python src/send_reminder.py
-          else
-            python src/send_reminder.py
           fi
