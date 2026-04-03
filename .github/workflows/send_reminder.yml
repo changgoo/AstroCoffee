@@ -31,7 +31,8 @@ jobs:
 
       - name: Send reminder emails
         env:
-          SENDGRID_API_KEY: ${{ secrets.SEND_GRID_API_KEY }}
+          GMAIL_USER: ${{ secrets.GMAIL_USER }}
+          GMAIL_APP_PASSWORD: ${{ secrets.GMAIL_APP_PASSWORD }}
         run: |
           if [ -n "${{ inputs.date }}" ]; then
             python src/send_reminder.py "${{ inputs.date }}"

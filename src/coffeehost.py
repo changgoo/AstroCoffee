@@ -12,50 +12,49 @@ dirpath = os.path.dirname(__file__)
 DRY_RUN_EMAIL = "changgoo@princeton.edu"
 
 
-def _send_email_sendgrid(content: str, dry_run: bool = False) -> None:
-    """Send an email via SendGrid, parsing To/From/Cc/Bcc/Subject from content headers.
+def _send_email_gmail(content: str, dry_run: bool = False) -> None:
+    """Send an email via Gmail SMTP, parsing To/From/Cc/Bcc/Subject from content headers.
 
-    Requires the ``SENDGRID_API_KEY`` environment variable to be set.
+    Requires ``GMAIL_USER`` and ``GMAIL_APP_PASSWORD`` environment variables.
+    The From header is overridden with ``GMAIL_USER`` since Gmail only allows
+    sending from the authenticated account.
     When ``dry_run`` is True, all recipients are replaced with ``DRY_RUN_EMAIL``.
     """
-    from sendgrid import SendGridAPIClient
-    from sendgrid.helpers.mail import ClickTracking, Mail, TrackingSettings
+    import smtplib
+    from email.mime.text import MIMEText
+    from email.mime.multipart import MIMEMultipart
 
-    api_key = os.environ["SENDGRID_API_KEY"]
+    gmail_user = os.environ["GMAIL_USER"]
+    app_password = os.environ["GMAIL_APP_PASSWORD"]
+
     msg = message_from_string(content)
     body = msg.get_payload()
 
-    message = Mail(
-        from_email=msg["From"],
-        subject=msg["Subject"],
-        plain_text_content=body,
-    )
+    mime = MIMEMultipart()
+    mime["From"] = gmail_user
+    mime["Subject"] = msg["Subject"]
+    mime.attach(MIMEText(body, "plain"))
 
     if dry_run:
         print(f"[dry-run] redirecting all recipients to {DRY_RUN_EMAIL}")
-        message.add_to(DRY_RUN_EMAIL)
+        recipients = [DRY_RUN_EMAIL]
+        mime["To"] = DRY_RUN_EMAIL
     else:
+        recipients = []
         if msg["To"]:
-            for addr in msg["To"].split(","):
-                message.add_to(addr.strip())
+            to_addrs = [a.strip() for a in msg["To"].split(",")]
+            mime["To"] = ", ".join(to_addrs)
+            recipients.extend(to_addrs)
         if msg["Cc"]:
-            for addr in msg["Cc"].split(","):
-                message.add_cc(addr.strip())
+            cc_addrs = [a.strip() for a in msg["Cc"].split(",")]
+            mime["Cc"] = ", ".join(cc_addrs)
+            recipients.extend(cc_addrs)
         if msg["Bcc"]:
-            for addr in msg["Bcc"].split(","):
-                message.add_bcc(addr.strip())
+            recipients.extend(a.strip() for a in msg["Bcc"].split(","))
 
-    tracking = TrackingSettings()
-    tracking.click_tracking = ClickTracking(enable=False, enable_text=False)
-    message.tracking_settings = tracking
-
-    sg = SendGridAPIClient(api_key)
-    try:
-        sg.send(message)
-    except Exception as e:
-        body = getattr(e, "body", None)
-        print(f"SendGrid error body: {body}")
-        raise
+    with smtplib.SMTP_SSL("smtp.gmail.com", 465) as smtp:
+        smtp.login(gmail_user, app_password)
+        smtp.sendmail(gmail_user, recipients, mime.as_string())
 
 
 def get_weekdays(year, month, exclude=[]):
@@ -313,8 +312,8 @@ class Hosts(object):
             fp.write(reminder)
         if send:
             print(f"daily reminder is sent to {h.email}")
-            if os.environ.get("SENDGRID_API_KEY"):
-                _send_email_sendgrid(reminder, dry_run=dry_run)
+            if os.environ.get("GMAIL_USER"):
+                _send_email_gmail(reminder, dry_run=dry_run)
             else:
                 with open(outfname, "r") as fp:
                     subprocess.run(["sendmail", "-t", "-oi"], stdin=fp)
@@ -356,7 +355,7 @@ class Hosts(object):
         kwargs.update(days)
         kwargs.update(hosts)
 
-        email = "Chang-Goo Kim<changgoo@princeton.edu>"
+        email = "Chang-Goo Kim<astrocoffee.princeton@gmail.com>"
         # for email in emails:
         kwargs.update(emails=", ".join(emails), email=email)
         with open(outfname, "w") as fp:
@@ -364,8 +363,8 @@ class Hosts(object):
             fp.write(reminder)
         if send:
             print(f"weekly reminder is sent to {emails}")
-            if os.environ.get("SENDGRID_API_KEY"):
-                _send_email_sendgrid(reminder, dry_run=dry_run)
+            if os.environ.get("GMAIL_USER"):
+                _send_email_gmail(reminder, dry_run=dry_run)
             else:
                 with open(outfname, "r") as fp:
                     subprocess.run(["sendmail", "-t", "-oi"], stdin=fp)
