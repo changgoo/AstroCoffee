@@ -72,6 +72,13 @@ function renderCalendar() {
   const grid = document.getElementById("calendar-grid");
   grid.innerHTML = "";
 
+  for (const label of ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"]) {
+    const dow = document.createElement("div");
+    dow.className = "cal-dow";
+    dow.textContent = label;
+    grid.appendChild(dow);
+  }
+
   for (let i = 0; i < firstDow; i++) {
     const cell = document.createElement("div");
     cell.className = "cal-cell cal-empty";
