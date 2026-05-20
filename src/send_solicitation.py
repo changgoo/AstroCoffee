@@ -56,8 +56,8 @@ def main() -> None:
 
     # [Update these] values for the new period
     list_email = "astro-all@princeton.edu"
-    start_month = "February"
-    end_month = "May"
+    start_month = "June"
+    end_month = "September"
     year = "2026"
     deadline = "end of this week"
 

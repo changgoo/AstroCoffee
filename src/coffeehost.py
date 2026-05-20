@@ -372,8 +372,32 @@ class Hosts(object):
             print(reminder)
 
     def assignment_email(self, period="2023_4", basedir=os.path.join(dirpath, "../")):
+        """Write per-host assignment emails from the assignment template.
+
+        Derives start_month, end_month, and year from the assigned host dates
+        and the period string (e.g. '2026_2').
+        """
         if not os.path.isdir(os.path.join(basedir, "emails")):
             os.mkdir(os.path.join(basedir, "emails"))
+
+        year = period.split("_")[0]
+
+        all_dates = [
+            d
+            for h in self.hosts.values()
+            if hasattr(h, "email") and h.hostdate
+            for d in h.hostdate
+        ]
+        if all_dates:
+            start_month = date(min(all_dates).year, min(all_dates).month, 1).strftime(
+                "%B"
+            )
+            end_month = date(max(all_dates).year, max(all_dates).month, 1).strftime(
+                "%B"
+            )
+        else:
+            start_month = end_month = ""
+
         with open(f"{basedir}/templates/assignment.txt", "r") as fp:
             remindertxt = fp.read()
             for day, h in self.hosts.items():
@@ -388,6 +412,9 @@ class Hosts(object):
                         email=h.email,
                         name=h.first,
                         dates="\n".join([d.isoformat() for d in sorted(h.hostdate)]),
+                        start_month=start_month,
+                        end_month=end_month,
+                        year=year,
                     )
                     fp.write(reminder)
                 print(f"cat {outfname} | sendmail -t -oi")

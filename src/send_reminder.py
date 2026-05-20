@@ -42,7 +42,7 @@ if __name__ == "__main__":
 
     # initialize host list with assigned dates from json file
     newhosts = Hosts()
-    periods = ["2024_1", "2024_2", "2024_3", "2025_1", "2025_2", "2025_3", "2026_1"]
+    periods = ["2024_1", "2024_2", "2024_3", "2025_1", "2025_2", "2025_3", "2026_1", "2026_2"]
     for period in periods:
         tmphosts = Hosts()
         tmphosts.from_json(f"{dirname}/../data/hosts_{period}.json")

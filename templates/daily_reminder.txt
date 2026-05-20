@@ -6,13 +6,9 @@ Dear {name},
 
 The usual gentle reminder (unnecessary, but ritual) that you are scheduled to host astrocoffee 10:30 {day} {date}. Coffee should be available in Grand Central.
 
-The astrocoffee program is now at the new page:
+The astrocoffee program is at:
 
 https://changgoo.github.io/astro-coffee-page/
-
-(The old one is still running at https://coffee.astro.princeton.edu/astroph-coffee/papers/today)
-
-Please try the new page and let me know if you have any feedback!
 
 The zoom url for astrocoffee is
 

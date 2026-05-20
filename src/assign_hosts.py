@@ -6,7 +6,7 @@ import sys
 base = os.path.dirname(__file__)
 
 # [Update this] Abort if the output file exists
-outfile = f"{base}/../data/hosts_2026_1.json"
+outfile = f"{base}/../data/hosts_2026_2.json"
 if os.path.isfile(outfile):
     print(
         f"Warning: the host file {os.path.basename(outfile)} exists. "
@@ -15,7 +15,7 @@ if os.path.isfile(outfile):
     sys.exit()
 
 # [Update this] read host file from the responses
-hostfile = f"{base}/../data/Coffee-Hosts-2026-1.csv"
+hostfile = f"{base}/../data/Coffee-Hosts-2026-2.csv"
 hostlist = pd.read_csv(hostfile)
 
 # initialize host list
@@ -30,17 +30,14 @@ hosts.show()
 # hosts["modak_s"].add_restriction(date(2025, 7, 28), date(2025, 8, 11))
 
 # [Update this] add dates to assign
-hosts.add_dates(get_weekdays(2026, 2))
-hosts.add_dates(get_weekdays(2026, 3))
-hosts.add_dates(get_weekdays(2026, 4))
-hosts.add_dates(get_weekdays(2026, 5))
+hosts.add_dates(get_weekdays(2026, 6))
+hosts.add_dates(get_weekdays(2026, 7))
+hosts.add_dates(get_weekdays(2026, 8))
+hosts.add_dates(get_weekdays(2026, 9))
 
 # [Update this] exclude dates
 Holidays = Hosts()
-Holidays.from_json(f"{base}/../data/holidays_2025.json")
-Holidays2 = Hosts()
-Holidays2.from_json(f"{base}/../data/holidays_2026.json")
-Holidays += Holidays2
+Holidays.from_json(f"{base}/../data/holidays_2026.json")
 dates = []
 for k in Holidays.hosts:
     for hd in Holidays[k].hostdate:

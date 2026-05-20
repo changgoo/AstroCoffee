@@ -25,6 +25,7 @@ periods = [
     "2025_2",
     "2025_3",
     "2026_1",
+    "2026_2",
 ]
 
 for period in periods:
