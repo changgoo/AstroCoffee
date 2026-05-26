@@ -384,4 +384,15 @@
     "hostdate": [
         "2026-09-11"
     ]
+},{
+    "name": "Chris Hamilton",
+    "first": "Chris",
+    "last": "Hamilton",
+    "fullname": "chrishamilton",
+    "email": "chamilton@princeton.edu",
+    "restriction": [],
+    "hostdate": [
+        "2026-09-04",
+        "2026-07-27"
+    ]
 }]
