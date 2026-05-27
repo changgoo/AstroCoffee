@@ -147,7 +147,6 @@
     "restriction": [],
     "hostdate": [
         "2026-07-08",
-        "2026-06-24",
         "2026-06-01"
     ]
 },{
@@ -392,5 +391,15 @@
     "hostdate": [
         "2026-09-04",
         "2026-07-27"
+    ]
+},{
+    "name": "Taya Govreen-Segal",
+    "first": "Taya",
+    "last": "Govreen-Segal",
+    "fullname": "tayagovreen-segal",
+    "email": "taya@govreensegal.com",
+    "restriction": [],
+    "hostdate": [
+        "2026-09-17"
     ]
 }]
