@@ -1,14 +1,14 @@
 To: {fullname}<{email}>
 From: Chang-Goo Kim<astrocoffee.princeton@gmail.com>
-Bcc: Chang-Goo Kim<changgoo@princeton.edu>
+Cc: Chang-Goo Kim<changgoo@princeton.edu>
 Subject: AstroCoffee Hosting Schedule
 Dear {name},
 
-Thank you for volunteering to host astrocoffee this period. I've put together a tentative hosting schedule for {start_month} {year} through {end_month} {year} (the calendar can be found at https://changgoo.github.io/AstroCoffee/intro.html). Here are the dates you're currently assigned:
+Thank you for volunteering to host astrocoffee this period. I've put together a tentative hosting schedule for {start_month} {year} through {end_month} {year} (the calendar can be found at https://changgoo.github.io/AstroCoffee/). Here are the dates you're currently assigned:
 
 {dates}
 
-I've done my best to accommodate everyone's availability, but please let me know if any of these dates don't work for you — I'll be happy to make adjustments.
+I've done my best to accommodate everyone's availability, but please let me know if any of these dates don't work for you. I'll be happy to make adjustments.
 
 Thanks again for helping keep AstroCoffee running smoothly!
 
