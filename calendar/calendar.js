@@ -2,7 +2,11 @@ const hostMap = {};
 const holidayMap = {};
 let currentYear, currentMonth;
 let latestTerm = [];
-let latestPeriodLabel = "";
+let latestTermUnassignedDates = [];
+let latestTermRangeLabel = "";
+let latestTermStartDate = "";
+let latestTermEndDate = "";
+let latestIssueUrl = "";
 
 async function init() {
   const today = new Date();
@@ -41,7 +45,9 @@ async function init() {
       }
 
       if (kind === "hosts" && period === latestPeriod) {
-        const [year, termNum] = latestPeriod.split("_");
+        const termDates = data.flatMap((entry) => entry.hostdate).sort();
+        latestTermStartDate = termDates[0];
+        latestTermEndDate = termDates[termDates.length - 1];
         latestTerm = data
           .filter((entry) => entry.email)
           .map((entry) => ({
@@ -49,9 +55,19 @@ async function init() {
             dates: [...entry.hostdate].sort(),
           }))
           .sort((a, b) => a.name.localeCompare(b.name));
-        latestPeriodLabel = `Term ${termNum} ${year}`;
+        latestTermRangeLabel = formatTermRange(
+          latestTermStartDate,
+          latestTermEndDate
+        );
+        latestIssueUrl = latestTermRangeLabel ? buildIssueUrl() : "";
       }
     }
+
+    latestTermUnassignedDates = findUnassignedDates(
+      latestTermStartDate,
+      latestTermEndDate,
+      new Set(latestTerm.flatMap((entry) => entry.dates))
+    );
 
     renderLatestAssignments();
     renderCalendar();
@@ -79,15 +95,65 @@ function formatLongDate(dateStr) {
   });
 }
 
+function findUnassignedDates(startDateStr, endDateStr, assignedDates) {
+  if (!startDateStr || !endDateStr) return [];
+
+  const dates = [];
+  const current = new Date(`${startDateStr}T00:00:00`);
+  const end = new Date(`${endDateStr}T00:00:00`);
+
+  while (current <= end) {
+    const dow = current.getDay();
+    const dateStr = formatDate(current);
+    const isWeekend = dow === 0 || dow === 6;
+    const isHoliday = Boolean(holidayMap[dateStr]);
+
+    if (!isWeekend && !isHoliday && !assignedDates.has(dateStr)) {
+      dates.push(dateStr);
+    }
+
+    current.setDate(current.getDate() + 1);
+  }
+
+  return dates;
+}
+
+function formatTermRange(startDateStr, endDateStr) {
+  if (!startDateStr || !endDateStr) return "";
+  const start = new Date(`${startDateStr}T00:00:00`);
+  const end = new Date(`${endDateStr}T00:00:00`);
+  const startMonth = start.toLocaleDateString("en-US", { month: "long" });
+  const endMonth = end.toLocaleDateString("en-US", { month: "long" });
+  const startYear = start.getFullYear();
+  const endYear = end.getFullYear();
+
+  if (startYear === endYear) {
+    if (start.getMonth() === end.getMonth()) {
+      return `${startMonth} ${startYear}`;
+    }
+    return `${startMonth}–${endMonth} ${startYear}`;
+  }
+
+  return `${startMonth} ${startYear}–${endMonth} ${endYear}`;
+}
+
+function buildIssueUrl() {
+  return "https://github.com/changgoo/AstroCoffee/issues/new?template=request_change.yml";
+}
+
 function renderLatestAssignments() {
   const label = document.getElementById("latest-term-label");
   const count = document.getElementById("latest-term-count");
+  const issueLink = document.getElementById("latest-term-issue-link");
   const list = document.getElementById("latest-term-list");
 
-  if (!label || !count || !list) return;
+  if (!label || !count || !issueLink || !list) return;
 
-  label.textContent = latestPeriodLabel ? `Period ${latestPeriodLabel}` : "";
+  label.textContent = latestTermRangeLabel ? latestTermRangeLabel : "";
   count.textContent = latestTerm.length ? `${latestTerm.length} hosts` : "";
+  issueLink.href = latestIssueUrl || "#";
+  issueLink.style.pointerEvents = latestIssueUrl ? "auto" : "none";
+  issueLink.setAttribute("aria-disabled", latestIssueUrl ? "false" : "true");
   list.innerHTML = "";
 
   if (!latestTerm.length) {
@@ -96,6 +162,28 @@ function renderLatestAssignments() {
     empty.textContent = "No assignment data found for the latest term.";
     list.appendChild(empty);
     return;
+  }
+
+  if (latestTermUnassignedDates.length) {
+    const item = document.createElement("div");
+    item.className = "term-panel-item term-panel-item-unassigned";
+
+    const name = document.createElement("div");
+    name.className = "term-panel-name";
+    name.textContent = "Unassigned dates";
+
+    const dates = document.createElement("div");
+    dates.className = "term-panel-dates";
+    for (const dateStr of latestTermUnassignedDates) {
+      const pill = document.createElement("span");
+      pill.className = "term-date-pill term-date-pill-unassigned";
+      pill.textContent = formatLongDate(dateStr);
+      dates.appendChild(pill);
+    }
+
+    item.appendChild(name);
+    item.appendChild(dates);
+    list.appendChild(item);
   }
 
   for (const person of latestTerm) {

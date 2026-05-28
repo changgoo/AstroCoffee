@@ -1,0 +1,18 @@
+name: Request change
+description: Request a swap or update to the current assignment list.
+title: Request change
+body:
+  - type: input
+    id: original_assignment_date
+    attributes:
+      label: Original assignment date:
+      placeholder: e.g. Aug 12, 2026
+    validations:
+      required: true
+  - type: input
+    id: proposed_swap_or_new_hosting_date
+    attributes:
+      label: Proposed swap or new hosting date:
+      placeholder: e.g. Aug 19, 2026
+    validations:
+      required: true
