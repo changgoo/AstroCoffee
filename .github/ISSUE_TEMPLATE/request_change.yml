@@ -12,5 +12,10 @@ body:
   - type: input
     id: proposed_swap_or_new_hosting_date
     attributes:
-      label: "Proposed swap or new hosting date:"
+      label: "Proposed swap or new hosting date (if any):"
       placeholder: e.g. Aug 19, 2026
+  - type: textarea
+    id: comment
+    attributes:
+      label: Comment
+      placeholder: Add any additional context here.
