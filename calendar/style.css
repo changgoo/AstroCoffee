@@ -1,16 +1,18 @@
 :root {
-  --bg: #f8f9fa;
-  --surface: #ffffff;
-  --border: #dee2e6;
-  --text: #212529;
-  --text-muted: #6c757d;
-  --primary: #0066cc;
-  --primary-hover: #004fa3;
-  --today-ring: #0066cc;
-  --holiday-bg: #e8f0fb;
-  --holiday-text: #0066cc;
-  --weekend-bg: #f4f5f6;
-  --past-text: #adb5bd;
+  --bg: #f7f5f2;
+  --surface: #fcfbf8;
+  --surface-alt: #f1eee8;
+  --border: #d7d1c8;
+  --border-strong: #b9b1a5;
+  --text: #1a1c1e;
+  --text-muted: #6a7178;
+  --primary: #b8422e;
+  --primary-hover: #962f20;
+  --today-ring: #b8422e;
+  --holiday-bg: #f1e4de;
+  --holiday-text: #8e3b2b;
+  --weekend-bg: #f4efe8;
+  --past-text: #9ca3a8;
 }
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -25,7 +27,7 @@ body {
 
 /* ── Header ── */
 header {
-  background: var(--surface);
+  background: rgba(252, 251, 248, 0.96);
   border-bottom: 1px solid var(--border);
   padding: 12px 20px;
   display: flex;
@@ -38,8 +40,9 @@ header {
 }
 
 header h1 {
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   font-weight: 700;
+  letter-spacing: 0;
   white-space: nowrap;
 }
 
@@ -82,9 +85,12 @@ header h1 a {
 
 /* ── Main ── */
 main {
-  max-width: 900px;
+  max-width: 1040px;
   margin: 0 auto;
-  padding: 20px;
+  padding: 24px 20px 36px;
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
 }
 
 /* ── Calendar nav ── */
@@ -92,18 +98,24 @@ main {
   display: flex;
   align-items: center;
   gap: 10px;
-  margin-bottom: 16px;
+  justify-content: center;
+  padding: 10px 12px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--surface);
+  box-shadow: 0 1px 0 rgba(26, 28, 30, 0.03);
 }
 
 #cal-nav h2 {
-  font-size: 1.1rem;
+  font-size: 1.05rem;
   font-weight: 700;
-  min-width: 180px;
+  min-width: 190px;
   text-align: center;
+  color: var(--text);
 }
 
 #cal-nav button {
-  padding: 4px 12px;
+  padding: 6px 12px;
   border: 1px solid var(--border);
   border-radius: 4px;
   background: var(--surface);
@@ -111,21 +123,31 @@ main {
   font-size: 15px;
   cursor: pointer;
   line-height: 1.4;
+  transition: background-color 0.15s, border-color 0.15s, color 0.15s;
 }
-#cal-nav button:hover { background: var(--bg); }
+#cal-nav button:hover {
+  background: var(--surface-alt);
+  border-color: var(--border-strong);
+}
 
 #today-btn {
   margin-left: 4px;
   font-size: 13px;
   color: var(--primary);
   border-color: var(--primary);
+  background: #fff7f4;
 }
 
 /* ── Calendar grid ── */
 .cal-grid {
   display: grid;
   grid-template-columns: repeat(7, 1fr);
-  gap: 4px;
+  gap: 5px;
+  padding: 12px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  box-shadow: 0 1px 0 rgba(26, 28, 30, 0.03);
 }
 
 .cal-dow {
@@ -133,17 +155,17 @@ main {
   font-size: 12px;
   font-weight: 600;
   text-transform: uppercase;
-  letter-spacing: 0.04em;
+  letter-spacing: 0;
   color: var(--text-muted);
   padding: 4px 0 8px;
 }
 
 
 .cal-cell {
-  background: var(--surface);
+  background: #fffdfa;
   border: 1px solid var(--border);
-  border-radius: 5px;
-  min-height: 76px;
+  border-radius: 6px;
+  min-height: 80px;
   padding: 6px 8px;
   display: flex;
   flex-direction: column;
@@ -162,6 +184,7 @@ main {
 .cal-cell.cal-today {
   border-color: var(--today-ring);
   border-width: 2px;
+  box-shadow: 0 0 0 2px rgba(184, 66, 46, 0.08) inset;
 }
 
 .cal-date-num {
@@ -182,7 +205,7 @@ main {
 .cal-host {
   font-size: 12px;
   font-weight: 600;
-  color: var(--text);
+  color: var(--primary);
   line-height: 1.3;
 }
 
@@ -228,11 +251,112 @@ main {
   color: var(--text-muted);
 }
 
+#calendar-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+
+.term-panel {
+  border-top: 1px solid var(--border);
+  padding-top: 18px;
+}
+
+.term-panel-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.term-panel-heading h3 {
+  font-size: 0.95rem;
+  font-weight: 700;
+}
+
+.term-panel-meta {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+
+.term-panel-label {
+  font-size: 12px;
+  color: var(--text-muted);
+  white-space: nowrap;
+}
+
+.term-panel-count {
+  font-size: 12px;
+  color: var(--primary);
+  white-space: nowrap;
+  font-weight: 600;
+}
+
+.term-panel-list {
+  display: grid;
+  gap: 0;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.term-panel-item {
+  display: grid;
+  grid-template-columns: minmax(180px, 240px) 1fr;
+  gap: 16px;
+  align-items: baseline;
+  padding: 10px 14px;
+  border-bottom: 1px solid var(--border);
+}
+
+.term-panel-item:last-child {
+  border-bottom: 0;
+}
+
+.term-panel-name {
+  font-weight: 600;
+  color: var(--text);
+}
+
+.term-panel-dates {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  color: var(--text-muted);
+}
+
+.term-date-pill {
+  display: inline-flex;
+  align-items: center;
+  min-height: 24px;
+  padding: 2px 8px;
+  border: 1px solid #d7afa5;
+  border-radius: 999px;
+  color: var(--primary);
+  background: #fff7f4;
+  font-size: 12px;
+  line-height: 1;
+}
+
+.term-panel-empty {
+  color: var(--text-muted);
+  font-style: italic;
+  padding: 14px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+}
+
 footer {
   text-align: center;
   font-size: 12px;
   color: var(--text-muted);
-  padding: 24px 20px;
+  padding: 24px 20px 30px;
 }
 
 footer a { color: var(--primary); text-decoration: none; }
@@ -240,7 +364,27 @@ footer a:hover { text-decoration: underline; }
 
 /* ── Responsive ── */
 @media (max-width: 600px) {
-  .cal-cell { min-height: 56px; padding: 4px 5px; }
+  main { padding: 18px 14px 28px; gap: 18px; }
+  #cal-nav { flex-wrap: wrap; }
+  #cal-nav h2 { min-width: 100%; order: -1; }
+  .cal-grid { padding: 8px; gap: 4px; }
+  .cal-cell { min-height: 58px; padding: 4px 5px; }
   .cal-host { font-size: 11px; }
-  #cal-nav h2 { min-width: 140px; font-size: 1rem; }
+  #cal-nav h2 { font-size: 1rem; }
+  .term-panel-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .term-panel-meta {
+    justify-content: flex-start;
+  }
+  .term-panel-list {
+    border-left-width: 0;
+    border-right-width: 0;
+    border-radius: 0;
+  }
+  .term-panel-item {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
 }
