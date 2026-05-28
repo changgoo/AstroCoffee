@@ -4,13 +4,15 @@ Cc: changgoo@princeton.edu
 Subject: AstroCoffee Reminder
 Dear {name},
 
-The usual gentle reminder (unnecessary, but ritual) that you are scheduled to host astrocoffee 10:30 {day} {date}. Coffee should be available in Grand Central.
+The usual gentle reminder that you are scheduled to host astrocoffee at 10:30 on {day}, {date}. This note includes an updated instruction while we are in Green Hall.
+
+The meeting place is 2-C-18, Green Hall. Coffee should be available there.
 
 The astrocoffee program is at:
 
 https://changgoo.github.io/astro-coffee-page/
 
-The zoom url for astrocoffee is
+The Zoom URL for astrocoffee is
 
 https://princeton.zoom.us/j/94585414825
 
@@ -29,9 +31,9 @@ Chang-Goo Kim
 ** Technical **
 
 - Bring your laptop
-- Pick up the Owl from Mami Akiyama's office (Peyton 114, right next to Michael's)
+- Pick up the Owl from Mami and Mindy's office (Green Hall 2-C-2)
 - On Zoom, set the Owl as the video, speaker, and mic
-- Share your screen via Apple TV in Grand Central and via Zoom screen share
+- A/V instruction to be updated
 
 ** Scientific **
 
