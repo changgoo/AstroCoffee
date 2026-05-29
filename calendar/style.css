@@ -237,14 +237,17 @@ main {
   min-height: 24px;
   padding: 2px 8px;
   border: 1px solid #93b4e6;
-  border-radius: 999px;
+  border-radius: 6px;
   background: #edf4ff;
   color: var(--secondary);
   font-size: 11px;
   font-style: normal;
-  font-weight: 700;
+  font-weight: 600;
   letter-spacing: 0;
-  text-transform: uppercase;
+  text-transform: none;
+  white-space: normal;
+  text-align: left;
+  line-height: 1.2;
 }
 
 .cal-past .cal-unassigned {
@@ -392,6 +395,9 @@ main {
   border-color: #93b4e6;
   background: #edf4ff;
   color: var(--secondary);
+  border-radius: 6px;
+  font-weight: 600;
+  text-transform: none;
 }
 
 .term-panel-empty {
