@@ -298,7 +298,7 @@ class Hosts(object):
     def write_daily_reminder(
         self, h, day, send=False, dry_run=False, basedir=os.path.join(dirpath, "../")
     ):
-        with open(f"{basedir}/templates/daily_reminder.txt", "r") as fp:
+        with open(f"{basedir}/templates/daily_reminder_green_hall.txt", "r") as fp:
             remindertxt = fp.read()
         outfname = f"{basedir}/emails/reminder_{h.first[0].lower}_{h.last.lower()}_{day.isoformat()}.txt"
         with open(outfname, "w") as fp:
