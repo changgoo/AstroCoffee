@@ -332,7 +332,7 @@ class Hosts(object):
             remindertxt = fp.read()
         outfname = f"{basedir}/emails/reminder_{dlist[0].isoformat()}.txt"
 
-        emails = ["Mami Akiyama<makiyama@astro.princeton.edu>"]
+        emails = []
         names = []
         days = dict()
         hosts = dict()
