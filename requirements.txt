@@ -4,3 +4,4 @@ numpy
 black
 jupyter-book==1.0.4
 sendgrid
+ruff==0.15.4
