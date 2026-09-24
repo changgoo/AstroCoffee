@@ -1,10 +1,11 @@
-from datetime import date, timedelta
 import calendar
 import json
 import os
-import holidays
 import subprocess
+from datetime import date, timedelta
 from email import message_from_string
+
+import holidays
 
 dirpath = os.path.dirname(__file__)
 
@@ -21,8 +22,8 @@ def _send_email_gmail(content: str, dry_run: bool = False) -> None:
     When ``dry_run`` is True, all recipients are replaced with ``DRY_RUN_EMAIL``.
     """
     import smtplib
-    from email.mime.text import MIMEText
     from email.mime.multipart import MIMEMultipart
+    from email.mime.text import MIMEText
 
     gmail_user = os.environ["GMAIL_USER"]
     app_password = os.environ["GMAIL_APP_PASSWORD"]
@@ -57,7 +58,9 @@ def _send_email_gmail(content: str, dry_run: bool = False) -> None:
         smtp.sendmail(gmail_user, recipients, mime.as_string())
 
 
-def get_weekdays(year, month, exclude=[]):
+def get_weekdays(year, month, exclude=None):
+    if exclude is None:
+        exclude = []
     weekdays = []
     mycal = calendar.monthcalendar(year, month)
 
@@ -74,7 +77,7 @@ def get_weekdays(year, month, exclude=[]):
     return weekdays
 
 
-class Host(object):
+class Host:
     def __init__(self, name="", email=""):
         self.name = name
         name_split = name.split(" ")
@@ -93,9 +96,9 @@ class Host(object):
 
     def __add__(self, h2):
         if self.name == h2.name:
-            r1 = list(set([r[0] for r in self.restriction + h2.restriction]))
-            r2 = list(set([r[1] for r in self.restriction + h2.restriction]))
-            hd = list(set([d for d in self.hostdate + h2.hostdate]))
+            r1 = list({r[0] for r in self.restriction + h2.restriction})
+            r2 = list({r[1] for r in self.restriction + h2.restriction})
+            hd = list({d for d in self.hostdate + h2.hostdate})
             self.restriction = [r for r in zip(r1, r2)]
             self.hostdate = [d for d in hd]
             return self
@@ -129,7 +132,7 @@ class Host(object):
         self.hostdate = []
 
     def to_json(self):
-        mydict = dict()
+        mydict = {}
         for k, v in self.__dict__.items():
             mydict[k] = v
         mydict["hostdate"] = [d.isoformat() for d in mydict["hostdate"]]
@@ -152,9 +155,9 @@ class Host(object):
         self.__dict__ = mydict
 
 
-class Hosts(object):
+class Hosts:
     def __init__(self):
-        self.hosts = dict()
+        self.hosts = {}
         self.dates = []
         self.set_holidays()
 
@@ -173,20 +176,21 @@ class Hosts(object):
         return self
 
     def clean(self):
-        for n, h in self.hosts.items():
+        for h in self.hosts.values():
             h.clean_date()
 
     def set_holidays(self):
         self.holidays = holidays.US()
 
     def add_dates(self, dates):
-        self.dates = sorted(list(set(self.dates + dates)))
+        self.dates = sorted(set(self.dates + dates))
 
     def exclude_dates(self, dates):
-        self.dates = sorted(list(set(self.dates) - set(dates)))
+        self.dates = sorted(set(self.dates) - set(dates))
 
     def assign_dates(self, verbose=True):
         from itertools import cycle
+
         import numpy as np
 
         self.clean()
@@ -211,7 +215,7 @@ class Hosts(object):
 
     def showlist(self):
         hostlist = []
-        hostemail = dict()
+        hostemail = {}
         for n, h in self.hosts.items():
             hostlist.append(h.name)
             hostemail[h.name] = h.email
@@ -220,7 +224,7 @@ class Hosts(object):
 
     def find_host(self, date):
         found_host = []
-        for n, h in self.hosts.items():
+        for h in self.hosts.values():
             if date in h.hostdate:
                 found_host.append(h)
         if len(found_host) > 1:
@@ -233,12 +237,11 @@ class Hosts(object):
         return False
 
     def to_json(self, fname, overwrite=True):
-        if overwrite:
-            if os.path.isfile(fname):
-                os.remove(fname)
+        if overwrite and os.path.isfile(fname):
+            os.remove(fname)
         with open(fname, "a") as fp:
             outstr = ["["]
-            for n, h in self.hosts.items():
+            for h in self.hosts.values():
                 outstr.append(h.to_json())
                 outstr.append(",")
             outstr[-1] = "]"
@@ -255,7 +258,7 @@ class Hosts(object):
                 self.hosts[h.fullname.lower()] = h
 
     def get_email_list(self):
-        for n, v in self.hosts.items():
+        for v in self.hosts.values():
             print(f"{v.name}<{v.email}>")
 
     def generate_reminder(
@@ -334,8 +337,8 @@ class Hosts(object):
 
         emails = []
         names = []
-        days = dict()
-        hosts = dict()
+        days = {}
+        hosts = {}
         for i, (d, h) in enumerate(zip(dlist, hlist)):
             days[f"day{i + 1}"] = d.isoformat()
             if h and hasattr(h, "email"):
@@ -351,7 +354,7 @@ class Hosts(object):
         emails = set(emails)
         names = set(names)
 
-        kwargs = dict(names=", ".join(names))
+        kwargs = {"names": ", ".join(names)}
         kwargs.update(days)
         kwargs.update(hosts)
 
@@ -400,7 +403,7 @@ class Hosts(object):
 
         with open(f"{basedir}/templates/assignment.txt", "r") as fp:
             remindertxt = fp.read()
-            for day, h in self.hosts.items():
+            for h in self.hosts.values():
                 if not hasattr(h, "email"):
                     continue
                 if len(h.hostdate) == 0:

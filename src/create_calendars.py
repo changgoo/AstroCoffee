@@ -1,8 +1,9 @@
 """Generate calendar/periods.json manifest and print assignment emails."""
 
-from coffeehost import Hosts
 import json
 import os
+
+from coffeehost import Hosts
 
 dirname = os.path.dirname(__file__)
 

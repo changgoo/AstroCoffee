@@ -1,8 +1,10 @@
-from coffeehost import Hosts, Host, get_weekdays
-from datetime import date
-import pandas as pd
 import os
 import sys
+from datetime import date
+
+import pandas as pd
+
+from coffeehost import Host, Hosts, get_weekdays
 
 base = os.path.dirname(__file__)
 

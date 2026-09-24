@@ -1,5 +1,6 @@
-from coffeehost import Hosts
 import os
+
+from coffeehost import Hosts
 
 dirname = os.path.dirname(__file__)
 
