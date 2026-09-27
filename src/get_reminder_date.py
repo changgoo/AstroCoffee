@@ -2,9 +2,9 @@
 
 import os
 import sys
-from datetime import date
+from datetime import datetime, timezone
 
 sys.path.insert(0, os.path.dirname(__file__))
 from send_reminder import et_date_at_midnight_utc
 
-print(et_date_at_midnight_utc(date.today()))
+print(et_date_at_midnight_utc(datetime.now(timezone.utc).date()))

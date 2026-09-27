@@ -43,7 +43,7 @@ def write_email(content: str, path: str) -> None:
 def send_email(path: str) -> None:
     """Send the email file via sendmail."""
     with open(path) as f:
-        subprocess.run(["sendmail", "-t", "-oi"], stdin=f)
+        subprocess.run(["sendmail", "-t", "-oi"], stdin=f, check=False)
 
 
 def main() -> None:

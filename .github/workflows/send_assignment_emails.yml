@@ -1,0 +1,72 @@
+name: Send 2026_3 assignment emails
+
+on:
+  workflow_dispatch:
+    inputs:
+      mode:
+        description: "Preview sends one draft to Chang-Goo; send emails the hosts"
+        type: choice
+        options:
+          - preview
+          - send
+        default: preview
+        required: true
+      confirmation:
+        description: "For live send, clear the local queue and type SEND_2026_3"
+        type: string
+        required: false
+        default: ""
+      recipient:
+        description: "Optional one host email for preview or retry; blank selects all"
+        type: string
+        required: false
+        default: ""
+
+permissions:
+  contents: read
+
+concurrency:
+  group: send-assignment-emails-2026-3
+  cancel-in-progress: false
+
+jobs:
+  send-assignment-emails:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+
+      - name: Set up Python 3.11
+        uses: actions/setup-python@v6
+        with:
+          python-version: "3.11"
+
+      - name: Install dependency
+        run: pip install holidays
+
+      - name: Validate request
+        env:
+          ASSIGNMENT_MODE: ${{ inputs.mode }}
+          CONFIRMATION: ${{ inputs.confirmation }}
+          GMAIL_USER: ${{ secrets.GMAIL_USER }}
+          GMAIL_APP_PASSWORD: ${{ secrets.GMAIL_APP_PASSWORD }}
+        run: |
+          if [ "$GITHUB_REF" != "refs/heads/main" ]; then
+            echo "::error::Run this workflow from main"
+            exit 1
+          fi
+          if [ "$ASSIGNMENT_MODE" = "send" ] && [ "$CONFIRMATION" != "SEND_2026_3" ]; then
+            echo "::error::Type SEND_2026_3 to send live assignment emails"
+            exit 1
+          fi
+          if [ -z "$GMAIL_USER" ] || [ -z "$GMAIL_APP_PASSWORD" ]; then
+            echo "::error::Gmail secrets are missing"
+            exit 1
+          fi
+
+      - name: Send through Gmail SMTP
+        env:
+          ASSIGNMENT_MODE: ${{ inputs.mode }}
+          TARGET_EMAIL: ${{ inputs.recipient }}
+          GMAIL_USER: ${{ secrets.GMAIL_USER }}
+          GMAIL_APP_PASSWORD: ${{ secrets.GMAIL_APP_PASSWORD }}
+        run: python src/send_assignment_emails.py 2026_3 --mode "$ASSIGNMENT_MODE" --recipient "$TARGET_EMAIL"
