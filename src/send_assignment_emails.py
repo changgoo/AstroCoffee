@@ -56,9 +56,26 @@ def prepare_drafts(period: str, basedir: Path = ROOT) -> list[tuple[Host, Path]]
     return drafts
 
 
-def send_assignments(period: str, basedir: Path = ROOT) -> int:
-    """Send every host's assignment email via one Gmail login."""
+def send_assignments(
+    period: str, basedir: Path = ROOT, skip_recipients: str = ""
+) -> int:
+    """Send a period's assignment emails, omitting already sent hosts."""
     drafts = prepare_drafts(period, basedir)
+    skipped = {
+        address.strip().lower()
+        for address in skip_recipients.split(",")
+        if address.strip()
+    }
+    unknown = skipped - {host.email.lower() for host, _ in drafts}
+    if unknown:
+        raise ValueError(f"Unknown host email(s) to skip: {', '.join(sorted(unknown))}")
+    drafts = [
+        (host, path) for host, path in drafts if host.email.lower() not in skipped
+    ]
+    if not drafts:
+        raise ValueError("No assignment recipients remain after skipping")
+    if skipped:
+        print(f"Skipping already sent host(s): {', '.join(sorted(skipped))}")
 
     gmail_user = os.environ.get("GMAIL_USER")
     app_password = os.environ.get("GMAIL_APP_PASSWORD")
@@ -78,8 +95,13 @@ def send_assignments(period: str, basedir: Path = ROOT) -> int:
             recipients = [
                 address
                 for _, address in getaddresses(
-                    [str(source.get(header, "")) for header in ("To", "Cc", "Bcc")]
+                    [
+                        str(source[header])
+                        for header in ("To", "Cc", "Bcc")
+                        if source[header]
+                    ]
                 )
+                if address
             ]
             message.set_content(str(source.get_payload()))
             refused = smtp.send_message(
@@ -87,7 +109,8 @@ def send_assignments(period: str, basedir: Path = ROOT) -> int:
             )
             if refused:
                 raise RuntimeError(
-                    f"Gmail refused recipients for {host.name}: {refused}"
+                    f"Gmail refused recipients for {host.name}: {refused}; "
+                    "other recipients may have been accepted"
                 )
             print(f"Gmail accepted assignment email for {host.name} to {host.email}")
     return len(drafts)
@@ -97,8 +120,13 @@ def main() -> None:
     """Parse the period and send its assignment emails."""
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("period", help="Assignment period such as 2026_3")
+    parser.add_argument(
+        "--skip-recipients",
+        default="",
+        help="Comma-separated host emails already accepted by Gmail",
+    )
     args = parser.parse_args()
-    count = send_assignments(args.period)
+    count = send_assignments(args.period, skip_recipients=args.skip_recipients)
     print(f"Gmail accepted {count} message(s)")
 
 

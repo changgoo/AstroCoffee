@@ -7,6 +7,11 @@ on:
         description: "Assignment period (for example 2026_3); sends to all assigned hosts"
         type: string
         required: true
+      skip_recipients:
+        description: "For a partial-run retry only: comma-separated host emails already sent"
+        type: string
+        required: false
+        default: ""
 
 permissions:
   contents: read
@@ -51,6 +56,7 @@ jobs:
       - name: Send through Gmail SMTP
         env:
           PERIOD: ${{ inputs.period }}
+          SKIP_RECIPIENTS: ${{ inputs.skip_recipients }}
           GMAIL_USER: ${{ secrets.GMAIL_USER }}
           GMAIL_APP_PASSWORD: ${{ secrets.GMAIL_APP_PASSWORD }}
-        run: python src/send_assignment_emails.py "$PERIOD"
+        run: python src/send_assignment_emails.py "$PERIOD" --skip-recipients "$SKIP_RECIPIENTS"

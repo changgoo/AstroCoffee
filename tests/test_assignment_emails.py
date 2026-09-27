@@ -53,11 +53,36 @@ def test_live_send_uses_gmail_once_for_distinct_hosts(tmp_path: Path) -> None:
     smtp.login.assert_called_once_with("gmail@example.com", "test")
     assert smtp.send_message.call_count == 2
     calls = smtp.send_message.call_args_list
-    assert {call.kwargs["to_addrs"][0] for call in calls} == {
-        "one@example.com",
-        "two@example.com",
-    }
+    assert [call.kwargs["to_addrs"] for call in calls] == [
+        ["one@example.com", "changgoo@princeton.edu"],
+        ["two@example.com", "changgoo@princeton.edu"],
+    ]
     for call in calls:
         assert call.kwargs["from_addr"] == "gmail@example.com"
-        assert "changgoo@princeton.edu" in call.kwargs["to_addrs"]
         assert call.args[0]["From"] == "gmail@example.com"
+
+
+def test_retry_skips_an_already_sent_host(tmp_path: Path) -> None:
+    """Resume a partial run without sending the first host another copy."""
+    make_period(tmp_path, "2026_4")
+    with (
+        patch.dict(
+            os.environ,
+            {"GMAIL_USER": "gmail@example.com", "GMAIL_APP_PASSWORD": "test"},
+        ),
+        patch("send_assignment_emails.smtplib.SMTP_SSL") as smtp_class,
+    ):
+        smtp = smtp_class.return_value.__enter__.return_value
+        smtp.send_message.return_value = {}
+        assert (
+            send_assignments(
+                "2026_4", basedir=tmp_path, skip_recipients="one@example.com"
+            )
+            == 1
+        )
+
+    smtp.send_message.assert_called_once()
+    assert smtp.send_message.call_args.kwargs["to_addrs"] == [
+        "two@example.com",
+        "changgoo@princeton.edu",
+    ]
