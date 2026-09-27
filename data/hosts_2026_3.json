@@ -1,0 +1,315 @@
+[{
+    "name": "Nick Loudas",
+    "first": "Nick",
+    "last": "Loudas",
+    "fullname": "nickloudas",
+    "email": "loudas@princeton.edu",
+    "restriction": [
+        [
+            "2026-11-07",
+            "2026-11-17"
+        ]
+    ],
+    "weekday_restriction": [],
+    "hostdate": [
+        "2026-10-29",
+        "2026-11-30",
+        "2026-12-18",
+        "2027-01-29"
+    ],
+    "monthly_limit": 1
+},{
+    "name": "Michael Strauss",
+    "first": "Michael",
+    "last": "Strauss",
+    "fullname": "michaelstrauss",
+    "email": "strauss@astro.princeton.edu",
+    "restriction": [],
+    "weekday_restriction": [],
+    "hostdate": [
+        "2026-10-05",
+        "2026-11-05",
+        "2026-12-02",
+        "2027-01-11"
+    ]
+},{
+    "name": "Hanpu Liu",
+    "first": "Hanpu",
+    "last": "Liu",
+    "fullname": "hanpuliu",
+    "email": "hanpu.liu@princeton.edu",
+    "restriction": [],
+    "weekday_restriction": [],
+    "hostdate": [
+        "2026-11-04",
+        "2026-12-03",
+        "2027-01-27"
+    ]
+},{
+    "name": "Zack Andalman",
+    "first": "Zack",
+    "last": "Andalman",
+    "fullname": "zackandalman",
+    "email": "za9132@princeton.edu",
+    "restriction": [],
+    "weekday_restriction": [],
+    "hostdate": [
+        "2026-10-12",
+        "2026-11-02",
+        "2026-12-16",
+        "2027-01-26"
+    ]
+},{
+    "name": "Mila Winter",
+    "first": "Mila",
+    "last": "Winter",
+    "fullname": "milawinter",
+    "email": "milawinter@princeton.edu",
+    "restriction": [],
+    "weekday_restriction": [
+        2
+    ],
+    "hostdate": [
+        "2026-10-30",
+        "2026-11-20",
+        "2026-12-15",
+        "2027-01-25"
+    ]
+},{
+    "name": "Caleb Lammers",
+    "first": "Caleb",
+    "last": "Lammers",
+    "fullname": "caleblammers",
+    "email": "cl5968@princeton.edu",
+    "restriction": [
+        [
+            "2026-10-12",
+            "2026-10-14"
+        ],
+        [
+            "2026-10-19",
+            "2026-10-19"
+        ],
+        [
+            "2026-10-26",
+            "2026-10-26"
+        ],
+        [
+            "2026-11-04",
+            "2026-11-04"
+        ]
+    ],
+    "weekday_restriction": [],
+    "hostdate": [
+        "2026-10-15",
+        "2026-11-19",
+        "2026-12-14",
+        "2027-01-22"
+    ]
+},{
+    "name": "Eliot Quataert",
+    "first": "Eliot",
+    "last": "Quataert",
+    "fullname": "eliotquataert",
+    "email": "quataert@princeton.edu",
+    "restriction": [
+        [
+            "2026-10-02",
+            "2026-10-13"
+        ],
+        [
+            "2026-10-20",
+            "2026-10-25"
+        ],
+        [
+            "2026-11-06",
+            "2026-11-09"
+        ],
+        [
+            "2026-11-17",
+            "2026-11-19"
+        ],
+        [
+            "2026-12-08",
+            "2026-12-08"
+        ],
+        [
+            "2027-01-03",
+            "2027-01-23"
+        ]
+    ],
+    "weekday_restriction": [],
+    "hostdate": [
+        "2026-10-28",
+        "2026-11-23",
+        "2026-12-11"
+    ]
+},{
+    "name": "Rostom Mbarek",
+    "first": "Rostom",
+    "last": "Mbarek",
+    "fullname": "rostommbarek",
+    "email": "rmbarek@princeton.edu",
+    "restriction": [],
+    "weekday_restriction": [],
+    "hostdate": [
+        "2026-11-18",
+        "2026-12-10",
+        "2027-01-21"
+    ]
+},{
+    "name": "Aleksandr Rusakov",
+    "first": "Aleksandr",
+    "last": "Rusakov",
+    "fullname": "aleksandrrusakov",
+    "email": "sasha.rusakov@princeton.edu",
+    "restriction": [],
+    "weekday_restriction": [
+        0,
+        2
+    ],
+    "hostdate": [
+        "2026-10-16",
+        "2026-11-06",
+        "2027-01-28"
+    ]
+},{
+    "name": "Chris Hamilton",
+    "first": "Chris",
+    "last": "Hamilton",
+    "fullname": "chrishamilton",
+    "email": "chamilton@princeton.edu",
+    "restriction": [],
+    "weekday_restriction": [
+        3,
+        4
+    ],
+    "hostdate": [
+        "2026-11-16",
+        "2026-12-09",
+        "2027-01-20"
+    ]
+},{
+    "name": "Taya Govreen-Segal",
+    "first": "Taya",
+    "last": "Govreen-Segal",
+    "fullname": "tayagovreen-segal",
+    "email": "taya@govreensegal.com",
+    "restriction": [
+        [
+            "2026-10-26",
+            "2026-10-31"
+        ],
+        [
+            "2026-12-01",
+            "2026-12-31"
+        ]
+    ],
+    "weekday_restriction": [],
+    "hostdate": [
+        "2026-10-07",
+        "2026-11-13",
+        "2027-01-19"
+    ]
+},{
+    "name": "Matthew Goodbred",
+    "first": "Matthew",
+    "last": "Goodbred",
+    "fullname": "matthewgoodbred",
+    "email": "mgoodbred@princeton.edu",
+    "restriction": [],
+    "weekday_restriction": [],
+    "hostdate": [
+        "2026-10-08",
+        "2026-11-12",
+        "2026-12-08",
+        "2027-01-15"
+    ]
+},{
+    "name": "Anatoly Spitkovsky",
+    "first": "Anatoly",
+    "last": "Spitkovsky",
+    "fullname": "anatolyspitkovsky",
+    "email": "anatoly@princeton.edu",
+    "restriction": [
+        [
+            "2026-11-01",
+            "2026-11-20"
+        ],
+        [
+            "2026-11-30",
+            "2026-12-09"
+        ],
+        [
+            "2026-12-20",
+            "2027-01-31"
+        ]
+    ],
+    "weekday_restriction": [],
+    "hostdate": [
+        "2026-10-13",
+        "2026-10-26",
+        "2026-12-17"
+    ]
+},{
+    "name": "James Sunseri",
+    "first": "James",
+    "last": "Sunseri",
+    "fullname": "jamessunseri",
+    "email": "js7501@princeton.edu",
+    "restriction": [
+        [
+            "2026-10-22",
+            "2026-11-03"
+        ],
+        [
+            "2026-11-15",
+            "2026-11-21"
+        ]
+    ],
+    "weekday_restriction": [
+        4
+    ],
+    "hostdate": [
+        "2026-11-11",
+        "2026-12-07",
+        "2027-01-14"
+    ]
+},{
+    "name": "Lengying Khoo",
+    "first": "Lengying",
+    "last": "Khoo",
+    "fullname": "lengyingkhoo",
+    "email": "lykhoo@princeton.edu",
+    "restriction": [],
+    "weekday_restriction": [
+        0,
+        1,
+        3,
+        5,
+        6
+    ],
+    "hostdate": [
+        "2026-10-09",
+        "2026-12-04",
+        "2027-01-13"
+    ]
+},{
+    "name": "Barak Rom",
+    "first": "Barak",
+    "last": "Rom",
+    "fullname": "barakrom",
+    "email": "barak.rom@princeton.edu",
+    "restriction": [
+        [
+            "2026-11-23",
+            "2026-12-06"
+        ]
+    ],
+    "weekday_restriction": [],
+    "hostdate": [
+        "2026-10-14",
+        "2026-11-09",
+        "2027-01-12"
+    ]
+}]
