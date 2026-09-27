@@ -1,32 +1,18 @@
-name: Send 2026_3 assignment emails
+name: Send assignment emails
 
 on:
   workflow_dispatch:
     inputs:
-      mode:
-        description: "Preview sends one draft to Chang-Goo; send emails the hosts"
-        type: choice
-        options:
-          - preview
-          - send
-        default: preview
+      period:
+        description: "Assignment period (for example 2026_3); sends to all assigned hosts"
+        type: string
         required: true
-      confirmation:
-        description: "For live send, clear the local queue and type SEND_2026_3"
-        type: string
-        required: false
-        default: ""
-      recipient:
-        description: "Optional one host email for preview or retry; blank selects all"
-        type: string
-        required: false
-        default: ""
 
 permissions:
   contents: read
 
 concurrency:
-  group: send-assignment-emails-2026-3
+  group: send-assignment-emails-${{ inputs.period }}
   cancel-in-progress: false
 
 jobs:
@@ -45,8 +31,7 @@ jobs:
 
       - name: Validate request
         env:
-          ASSIGNMENT_MODE: ${{ inputs.mode }}
-          CONFIRMATION: ${{ inputs.confirmation }}
+          PERIOD: ${{ inputs.period }}
           GMAIL_USER: ${{ secrets.GMAIL_USER }}
           GMAIL_APP_PASSWORD: ${{ secrets.GMAIL_APP_PASSWORD }}
         run: |
@@ -54,8 +39,8 @@ jobs:
             echo "::error::Run this workflow from main"
             exit 1
           fi
-          if [ "$ASSIGNMENT_MODE" = "send" ] && [ "$CONFIRMATION" != "SEND_2026_3" ]; then
-            echo "::error::Type SEND_2026_3 to send live assignment emails"
+          if [[ ! "$PERIOD" =~ ^[0-9]{4}_[0-9]+$ ]] || [ ! -f "data/hosts_${PERIOD}.json" ]; then
+            echo "::error::Enter an existing assignment period, such as 2026_3"
             exit 1
           fi
           if [ -z "$GMAIL_USER" ] || [ -z "$GMAIL_APP_PASSWORD" ]; then
@@ -65,8 +50,7 @@ jobs:
 
       - name: Send through Gmail SMTP
         env:
-          ASSIGNMENT_MODE: ${{ inputs.mode }}
-          TARGET_EMAIL: ${{ inputs.recipient }}
+          PERIOD: ${{ inputs.period }}
           GMAIL_USER: ${{ secrets.GMAIL_USER }}
           GMAIL_APP_PASSWORD: ${{ secrets.GMAIL_APP_PASSWORD }}
-        run: python src/send_assignment_emails.py 2026_3 --mode "$ASSIGNMENT_MODE" --recipient "$TARGET_EMAIL"
+        run: python src/send_assignment_emails.py "$PERIOD"

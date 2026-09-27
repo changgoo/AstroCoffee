@@ -12,14 +12,17 @@ from email.parser import Parser
 from email.utils import getaddresses
 from pathlib import Path
 
-from coffeehost import DRY_RUN_EMAIL, Host, Hosts
+from coffeehost import Host, Hosts
 
 ROOT = Path(__file__).resolve().parent.parent
 DATE_LINE = re.compile(r"\d{4}-\d{2}-\d{2}")
+PERIOD = re.compile(r"\d{4}_[0-9]+")
 
 
 def prepare_drafts(period: str, basedir: Path = ROOT) -> list[tuple[Host, Path]]:
     """Generate and verify one current assignment draft per assigned host."""
+    if not PERIOD.fullmatch(period):
+        raise ValueError("Period must look like 2026_3")
     source = basedir / "data" / f"hosts_{period}.json"
     hosts = Hosts()
     hosts.from_json(str(source))
@@ -53,23 +56,9 @@ def prepare_drafts(period: str, basedir: Path = ROOT) -> list[tuple[Host, Path]]
     return drafts
 
 
-def send_assignments(
-    period: str, mode: str, recipient: str = "", basedir: Path = ROOT
-) -> int:
-    """Send one preview to self or all selected hosts via one Gmail login."""
+def send_assignments(period: str, basedir: Path = ROOT) -> int:
+    """Send every host's assignment email via one Gmail login."""
     drafts = prepare_drafts(period, basedir)
-    if recipient:
-        drafts = [
-            (host, path)
-            for host, path in drafts
-            if host.email.lower() == recipient.lower()
-        ]
-        if not drafts:
-            raise ValueError(f"No assignment email for {recipient}")
-    if mode == "preview":
-        drafts = drafts[:1]
-    elif mode != "send":
-        raise ValueError(f"Unknown mode: {mode}")
 
     gmail_user = os.environ.get("GMAIL_USER")
     app_password = os.environ.get("GMAIL_APP_PASSWORD")
@@ -83,20 +72,15 @@ def send_assignments(
             message = EmailMessage()
             message["From"] = gmail_user
             message["Subject"] = str(source["Subject"])
-            if mode == "preview":
-                message.replace_header("Subject", f"[preview] {source['Subject']}")
-                message["To"] = DRY_RUN_EMAIL
-                recipients = [DRY_RUN_EMAIL]
-            else:
-                message["To"] = str(source["To"])
-                if source["Cc"]:
-                    message["Cc"] = str(source["Cc"])
-                recipients = [
-                    address
-                    for _, address in getaddresses(
-                        [str(source.get(header, "")) for header in ("To", "Cc", "Bcc")]
-                    )
-                ]
+            message["To"] = str(source["To"])
+            if source["Cc"]:
+                message["Cc"] = str(source["Cc"])
+            recipients = [
+                address
+                for _, address in getaddresses(
+                    [str(source.get(header, "")) for header in ("To", "Cc", "Bcc")]
+                )
+            ]
             message.set_content(str(source.get_payload()))
             refused = smtp.send_message(
                 message, from_addr=gmail_user, to_addrs=recipients
@@ -105,19 +89,16 @@ def send_assignments(
                 raise RuntimeError(
                     f"Gmail refused recipients for {host.name}: {refused}"
                 )
-            destination = DRY_RUN_EMAIL if mode == "preview" else host.email
-            print(f"Gmail accepted assignment email for {host.name} to {destination}")
+            print(f"Gmail accepted assignment email for {host.name} to {host.email}")
     return len(drafts)
 
 
 def main() -> None:
-    """Parse the requested period and preview or send mode."""
+    """Parse the period and send its assignment emails."""
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("period", help="Assignment period such as 2026_3")
-    parser.add_argument("--mode", choices=("preview", "send"), required=True)
-    parser.add_argument("--recipient", default="", help="Optional single host email")
     args = parser.parse_args()
-    count = send_assignments(args.period, args.mode, args.recipient)
+    count = send_assignments(args.period)
     print(f"Gmail accepted {count} message(s)")
 
 
