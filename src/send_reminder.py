@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+
 import os
 import sys
 from datetime import datetime, timezone
@@ -52,6 +54,7 @@ if __name__ == "__main__":
         "2025_3",
         "2026_1",
         "2026_2",
+        "2026_3",
     ]
     for period in periods:
         tmphosts = Hosts()

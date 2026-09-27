@@ -4,7 +4,7 @@ Cc: Chang-Goo Kim<changgoo@princeton.edu>
 Subject: AstroCoffee Hosting Schedule
 Dear {name},
 
-Thank you for volunteering to host astrocoffee this period. I've put together a tentative hosting schedule for {start_month} {year} through {end_month} {year} (the calendar can be found at https://changgoo.github.io/AstroCoffee/). Here are the dates you're currently assigned:
+Thank you for volunteering to host astrocoffee this period. I've put together a tentative hosting schedule for {start_month} {year} through {end_month} {end_year} (the calendar can be found at https://changgoo.github.io/AstroCoffee/). Here are the dates you're currently assigned:
 
 {dates}
 
