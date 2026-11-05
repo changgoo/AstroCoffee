@@ -4,17 +4,15 @@ Cc: changgoo@princeton.edu
 Subject: AstroCoffee Reminder
 Dear {name},
 
-The usual gentle reminder (unnecessary, but ritual) that you are scheduled to host astrocoffee 10:30 {day} {date}. Coffee should be available in Grand Central.
+The usual gentle reminder (unnecessary, but ritual) that you are scheduled to host astrocoffee at 10:30 on {day}, {date}. We are back in Grand Central, Peyton Hall. Coffee should be available there.
 
 The astrocoffee program is at:
 
 https://changgoo.github.io/astro-coffee-page/
 
-The zoom url for astrocoffee is
+The Zoom URL for astrocoffee is
 
 https://princeton.zoom.us/j/94585414825
-
-If there are "local" papers with students or postdocs, please try to give the local authors an opportunity to present, as time permits.
 
 I've added an experimental feature to keep track of discussed papers. For each paper discussed, please click the "Mark as discussed" button and create an issue in the GitHub repository. The content will be auto-populated, so you only need to click the "Create" button. Then the issue will be collected automatically later in the night and added to the discussed papers list at https://changgoo.github.io/astro-coffee-page/discussed.html.
 
@@ -29,13 +27,14 @@ Chang-Goo Kim
 ** Technical **
 
 - Bring your laptop
-- Pick up the Owl from Mami Akiyama's office (Peyton 114, right next to Michael's)
+- Pick up the Owl from inside one of the two ottomans in Grand Central
 - On Zoom, set the Owl as the video, speaker, and mic
 - Share your screen via Apple TV in Grand Central and via Zoom screen share
 
 ** Scientific **
 
-- You set the agenda; typically two or three papers are discussed
-- If there are local papers on the list, feel free to reach out to those authors to see if they are available
-- When opening coffee, ask if there are any announcements or visitors
-- Ask if anyone has a paper they'd like to discuss; if the agenda is already full, just say so and get started
+- Help set the agenda, aiming to identify two or three broadly interesting papers rather than discuss one in great detail.
+- Papers need not be from that day; recent or older papers are also welcome.
+- Local authors are welcome to briefly introduce their papers, but there is no need to actively recruit them.
+- When opening coffee, ask for announcements, visitors, and paper suggestions.
+- Keep introductions and discussions brief, casual, and accessible to a broad graduate-student audience.
